@@ -1,0 +1,39 @@
+.promo-slider__list {
+  @include list-reset;
+}
+
+.promo-slider__item {
+  &--credit {
+    background-color: $blue;
+  }
+
+  &--confidence {
+    background-color: #DDE2EC;
+  }
+
+  &--department {
+    background-color: #E6F1FE;
+  }
+}
+
+.promo-slider__title {
+  margin: 0;
+
+  font-size: 54px;
+  line-height: 63px;
+  font-weight: 700;
+}
+
+.promo-slider__item--credit .promo-slider__title {
+  color: $light-gray;
+}
+
+.promo-slider__description {
+  color: $lighter-black;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.promo-slider__item--credit .promo-slider__description {
+  color: $light-gray;
+}

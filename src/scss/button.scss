@@ -1,0 +1,13 @@
+.button {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 500;
+
+  color: $light-gray;
+  background-color: $blue;
+
+  &--white {
+    color: $black;
+    background-color: $light-gray;
+  }
+}
