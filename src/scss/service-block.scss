@@ -1,8 +1,28 @@
 .service-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding-top: 60px;
+  padding-right: 135px;
+  padding-bottom: 60px;
+  padding-left: 70px;
+
   background-color: $light-gray;
 }
 
+.service-block__description-column {
+  max-width: 410px;
+}
+
+.service-block__img-column {
+  flex-shrink: 0;
+  width: 440px;
+}
+
 .service-block__title {
+  margin: 0;
+
   font-size: 22px;
   line-height: 140%;
   font-weight: 500;

@@ -1,8 +1,15 @@
 .tabs {
   @include list-reset;
+
+  display: flex;
 }
 
 .tabs__button {
+  width: 293px;
+  min-height: 93px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
   font-family: inherit;
   font-size: 18px;
   line-height: 21px;
