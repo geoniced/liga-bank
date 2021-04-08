@@ -3,15 +3,23 @@
 }
 
 .promo-slider__item {
+  padding-top: 115px;
+  padding-left: 268px;
+  min-height: 400px;
+
   &--credit {
     background-color: $blue;
   }
 
   &--confidence {
+    // TODO: REMOVE DISPLAY: NONE WHEN I WILL MOVE TO REACT LOGIC DESCRIPTION
+    display: none;
     background-color: #DDE2EC;
   }
 
   &--department {
+    // TODO: REMOVE DISPLAY: NONE WHEN I WILL MOVE TO REACT LOGIC DESCRIPTION
+    display: none;
     background-color: #E6F1FE;
   }
 }
