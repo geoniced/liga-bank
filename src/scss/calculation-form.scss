@@ -1,3 +1,13 @@
+.calculation-form {
+  display: flex;
+  align-items: flex-start;
+}
+
+.calculation-form__form-column-wrapper {
+  width: 600px;
+  margin-right: 70px;
+}
+
 .calculation-form__step-field-area {
   margin: 0;
   padding: 0;
@@ -8,6 +18,11 @@
   font-size: 22px;
   line-height: 140%;
   font-weight: 500;
+}
+
+.calculation-form__input-field-row {
+  display: flex;
+  flex-direction: column;
 }
 
 .calculation-form__label {
@@ -41,16 +56,39 @@
 }
 
 .calculation-form__result {
+  width: 500px;
+  padding: 60px;
+  padding-left: 58px;
   background-color: $light-gray;
 }
 
 .calculation-form__result-title {
+  margin: 0;
+
   font-size: 22px;
   line-height: 140%;
   font-weight: 500;
 }
 
+.calculation-form__offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.calculation-form__offer-item {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+
+  &:nth-of-type(2n) {
+    width: 156px;
+  }
+}
+
 .calculation-form__offer-title {
+  order: 1;
   color: $faded-black;
 }
 
