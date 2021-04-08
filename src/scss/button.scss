@@ -1,10 +1,11 @@
 .button {
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 16px;
+  line-height: 19px;
   font-weight: 500;
 
   color: $light-gray;
   background-color: $blue;
+  border: none;
 
   &--white {
     color: $black;

@@ -48,7 +48,7 @@
           <li class="promo-slider__item promo-slider__item--credit">
             <h2 class="promo-slider__title">Лига Банк</h2>
             <p class="promo-slider__description">Кредиты на любой случай</p>
-            <a href="#" class="promo-slider__credit-button button button--white">Рассчитать кредит</a>
+            <a href="#" class="promo-slider__promo-button button button--white">Рассчитать кредит</a>
           </li>
           <li class="promo-slider__item promo-slider__item--confidence">
             <h2 class="promo-slider__title">Лига Банк</h2>
@@ -57,7 +57,7 @@
           <li class="promo-slider__item promo-slider__item--department">
             <h2 class="promo-slider__title">Лига Банк</h2>
             <p class="promo-slider__description">Всегда рядом</p>
-            <a href="#" class="promo-slider__find-department-button button">Найти отделение</a>
+            <a href="#" class="promo-slider__promo-button button">Найти отделение</a>
           </li>
         </ul>
 
@@ -148,7 +148,7 @@
       </section>
 
       <section class="page-content__credit-calculator credit-calculator">
-        <h2 class="credit-calculator">Кредитный калькулятор</h2>
+        <h2 class="credit-calculator__title">Кредитный калькулятор</h2>
 
         <form action="#" class="credit-calculator__calculation-form calculation-form">
           <fieldset class="calculation-form__step-field-area">
@@ -183,7 +183,7 @@
             </div>
 
             <div class="calculation-form__checkbox-row">
-              <input class="calculation-form__checkbox" type="checkbox" name="calculation-form-use-maternal-capital" id="calculation-form-use-maternal-capital">
+              <input class="calculation-form__checkbox" type="checkbox" name="calculation-form-use-maternal-capital" id="calculation-form-use-maternal-capital" checked>
               <label class="calculation-form__checkbox-label" for="calculation-form-use-maternal-capital">Использовать материнский капитал</label>
             </div>
           </fieldset>
@@ -242,13 +242,13 @@
 
           <form action="#" class="request-form__form">
             <label class="visually-hidden" for="request-form-name">ФИО</label>
-            <input type="text" name="request-form-name" id="request-form-name" placeholder="ФИО">
+            <input class="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО">
 
             <label class="visually-hidden" for="request-form-phone">Телефон</label>
-            <input type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон">
+            <input class="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон">
 
             <label class="visually-hidden" for="request-form-email">E-mail</label>
-            <input type="email" name="request-form-email" id="request-form-email" placeholder="E-mail">
+            <input class="request-form__input" type="email" name="request-form-email" id="request-form-email" placeholder="E-mail">
 
             <button class="request-form__send button" type="submit">Отправить</button>
           </form>

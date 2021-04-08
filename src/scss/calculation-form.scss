@@ -1,0 +1,67 @@
+.calculation-form__step-field-area {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.calculation-form__step-legend {
+  font-size: 22px;
+  line-height: 31px;
+  font-weight: 500;
+}
+
+.calculation-form__label {
+  color: $faded-black;
+}
+
+.calculation-form__field-description {
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  color: $faded-gray;
+}
+
+.calculation-form__select-field,
+.calculation-form__input {
+  padding: 20px;
+}
+
+.calculation-form__select-field {
+  font-weight: 500;
+}
+
+.calculation-form__input {
+  font-size: 18px;
+  line-height: 140%;
+  font-weight: 500;
+  text-align: center;
+}
+
+.calculation-form__result {
+  background-color: $light-gray;
+}
+
+.calculation-form__result-title {
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.calculation-form__offer-title {
+  color: $faded-black;
+}
+
+.calculation-form__offer-value {
+  margin: 0;
+
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.calculation-form__request-button {
+  line-height: 140%;
+}

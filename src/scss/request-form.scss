@@ -1,0 +1,33 @@
+.request-form {
+  background-color: $light-gray;
+}
+
+.request-form__title {
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.request-form__data-item {
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.request-form__data-title {
+  color: $faded-black;
+}
+
+.request-form__data-value {
+  margin: 0;
+
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.request-form__input {
+  padding: 20px;
+
+  font-family: inherit;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+}
