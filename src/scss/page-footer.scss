@@ -1,0 +1,18 @@
+.page-footer {
+  background-color: $light-gray;
+}
+
+.page-footer__phone {
+  font-weight: 500;
+  color: $black;
+
+  @include basic-hover;
+  @include basic-active;
+}
+
+.page-footer__phone-description {
+  font-size: 12px;
+  line-height: 17px;
+  font-style: normal;
+  color: $faded-gray;
+}

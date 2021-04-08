@@ -10,3 +10,8 @@
   @include basic-hover;
   @include basic-active;
 }
+
+.site-navigation--vertical .site-navigation__link {
+  font-weight: 500;
+  line-height: 22px;
+}
