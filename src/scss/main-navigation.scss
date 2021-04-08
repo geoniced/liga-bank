@@ -1,0 +1,15 @@
+.main-navigation {
+  @include centered-layout;
+
+  display: flex;
+  align-items: center;
+  min-height: 91px;
+}
+
+.main-navigation__logo {
+  margin-right: 109px;
+}
+
+.main-navigation__login {
+  margin-left: auto;
+}

@@ -1,3 +1,8 @@
+@mixin centered-layout {
+  width: 1170px;
+  margin: 0 auto;
+}
+
 @mixin list-reset {
   margin: 0;
   padding: 0;

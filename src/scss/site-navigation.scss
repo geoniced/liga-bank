@@ -1,5 +1,15 @@
 .site-navigation {
   @include list-reset;
+
+  display: flex;
+}
+
+.site-navigation__item {
+  margin-right: 25px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .site-navigation__link {
