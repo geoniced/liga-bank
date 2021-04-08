@@ -1,0 +1,32 @@
+.service-block {
+  background-color: $light-gray;
+}
+
+.service-block__title {
+  font-size: 22px;
+  line-height: 31px;
+  font-weight: 500;
+}
+
+.service-block__features {
+  @include list-reset;
+
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.service-block__description {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.service-block__link {
+  font-weight: 500;
+  color: $black;
+  text-decoration: underline;
+}
+
+.service-block__more-button {
+  font-size: 16px;
+  line-height: 19px;
+}

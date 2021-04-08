@@ -1,0 +1,21 @@
+.tabs {
+  @include list-reset;
+}
+
+.tabs__button {
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 500;
+
+  color: $black;
+  background-color: white;
+  border: none;
+
+  &--active {
+    background-color: $light-gray;
+  }
+
+  @include basic-hover;
+  @include basic-active;
+}
