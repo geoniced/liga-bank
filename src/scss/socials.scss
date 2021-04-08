@@ -1,3 +1,7 @@
 .socials {
   @include list-reset;
+
+  width: 102px;
+  display: flex;
+  align-items: flex-start;
 }

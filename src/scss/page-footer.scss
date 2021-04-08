@@ -2,6 +2,34 @@
   background-color: $light-gray;
 }
 
+.page-footer__wrapper {
+  @include centered-layout;
+
+  display: flex;
+  align-items: flex-start;
+
+  padding-top: 49px;
+  padding-bottom: 60px;
+}
+
+.page-footer__contact-address,
+.page-footer__site-navigation,
+.page-footer__phone-contacts {
+  margin-right: 80px;
+}
+
+.page-footer__phone-contacts {
+  &--mobile {
+    width: 196px;
+    padding-left: 29px;
+  }
+
+  &--base {
+    width: 155px;
+    padding-left: 33px;
+  }
+}
+
 .page-footer__phone {
   font-weight: 500;
   color: $black;

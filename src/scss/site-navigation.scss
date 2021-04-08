@@ -2,6 +2,11 @@
   @include list-reset;
 
   display: flex;
+
+  &--vertical {
+    flex-direction: column;
+    width: 144px;
+  }
 }
 
 .site-navigation__item {
@@ -9,6 +14,15 @@
 
   &:last-of-type {
     margin-right: 0;
+  }
+}
+
+.site-navigation--vertical .site-navigation__item {
+  margin-right: 0;
+  margin-bottom: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 }
 
