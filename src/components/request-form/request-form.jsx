@@ -27,14 +27,21 @@ const RequestForm = () => {
       </dl>
 
       <form action="#" className="request-form__form">
-        <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
-        <input className="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО" />
+        <div className="request-form__full-field-row">
+          <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
+          <input className="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО" />
+        </div>
 
-        <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
-        <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" />
-
-        <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
-        <input className="request-form__input" type="email" name="request-form-email" id="request-form-email" placeholder="E-mail" />
+        <div className="request-form__halves-field-row">
+          <div className="request-form__half-field-wrapper">
+            <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
+            <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" />
+          </div>
+          <div className="request-form__half-field-wrapper">
+            <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
+            <input className="request-form__input" type="email" name="request-form-email" id="request-form-email" placeholder="E-mail" />
+          </div>
+        </div>
 
         <button className="request-form__send button" type="submit">Отправить</button>
       </form>

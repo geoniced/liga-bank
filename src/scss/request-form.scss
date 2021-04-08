@@ -1,14 +1,24 @@
 .request-form {
+  width: 770px;
+  min-height: 722px;
+  padding: 70px;
+
   background-color: $light-gray;
 }
 
 .request-form__title {
+  margin: 0;
+
   font-size: 22px;
   line-height: 140%;
   font-weight: 500;
+  text-align: center;
 }
 
 .request-form__data-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   border-bottom: 1px solid #C4C4C4;
 }
 
@@ -25,11 +35,35 @@
   font-weight: 500;
 }
 
+.request-form__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-form__full-field-row {
+  display: flex;
+}
+
+.request-form__halves-field-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.request-form__half-field-wrapper {
+  display: flex;
+  width: 300px;
+}
+
 .request-form__input {
+  flex-grow: 1;
   padding: 20px;
 
   font-family: inherit;
   font-size: 18px;
   line-height: 140%;
   letter-spacing: 0.03em;
+}
+
+.request-form__send {
+  align-self: center;
 }
