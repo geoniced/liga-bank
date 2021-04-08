@@ -1,5 +1,15 @@
+.bank-departments {
+  @include centered-layout;
+}
+
 .bank-departments__title {
+  margin: 0;
+
   font-size: 41px;
   line-height: 140%;
   font-weight: 700;
+}
+
+.bank-departments__map {
+  display: flex;
 }
