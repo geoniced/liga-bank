@@ -4,7 +4,7 @@
 
 .service-block__title {
   font-size: 22px;
-  line-height: 31px;
+  line-height: 140%;
   font-weight: 500;
 }
 
@@ -12,12 +12,12 @@
   @include list-reset;
 
   font-size: 18px;
-  line-height: 23px;
+  line-height: 130%;
 }
 
 .service-block__description {
   font-size: 18px;
-  line-height: 25px;
+  line-height: 140%;
 }
 
 .service-block__link {

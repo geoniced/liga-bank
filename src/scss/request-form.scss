@@ -14,6 +14,7 @@
 
 .request-form__data-title {
   color: $faded-black;
+  line-height: 140%;
 }
 
 .request-form__data-value {
@@ -29,5 +30,6 @@
 
   font-family: inherit;
   font-size: 18px;
+  line-height: 140%;
   letter-spacing: 0.03em;
 }
