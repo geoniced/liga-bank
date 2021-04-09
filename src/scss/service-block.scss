@@ -22,6 +22,7 @@
 
 .service-block__title {
   margin: 0;
+  margin-bottom: 40px;
 
   font-size: 22px;
   line-height: 140%;
@@ -33,6 +34,20 @@
 
   font-size: 18px;
   line-height: 130%;
+}
+
+.service-block__features-item {
+  margin-bottom: 25px;
+  padding-left: 21px;
+
+  background-image: url("../assets/img/icon-tick.svg");
+  background-repeat: no-repeat;
+  background-size: 13px 10px;
+  background-position: left top 6px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .service-block__description {

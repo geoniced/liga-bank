@@ -2,6 +2,11 @@ import piggyBankImg from "../../assets/img/piggybank.png";
 import carOnAPileOfCoinsImg from "../../assets/img/car-on-a-pile-of-coins.png";
 import heartShapedLockImg from "../../assets/img/heart-shaped-lock.png";
 import ligaBankOnMobileImg from "../../assets/img/liga-bank-on-mobile.png";
+import {ReactComponent as IconVault} from "../../assets/img/icon-vault.svg";
+import {ReactComponent as IconCards} from "../../assets/img/icon-cards.svg";
+import {ReactComponent as IconSecurity} from "../../assets/img/icon-security.svg";
+import {ReactComponent as IconPhone} from "../../assets/img/icon-phone.svg";
+
 
 const Services = () => {
   return (
@@ -11,16 +16,28 @@ const Services = () => {
       {/* <!-- TODO: подумать о том переделать ли кнопки на ссылки --> */}
       <ul className="services__tabs tabs">
         <li className="tabs__item">
-          <button className="tabs__button tabs__button--active">Вклады</button>
+          <button className="tabs__button tabs__button--active">
+            <IconVault className="tabs__icon" />
+            <span className="tabs__text">Вклады</span>
+          </button>
         </li>
         <li className="tabs__item">
-          <button className="tabs__button">Кредиты</button>
+          <button className="tabs__button">
+            <IconCards className="tabs__icon" />
+            <span className="tabs__text">Кредиты</span>
+          </button>
         </li>
         <li className="tabs__item">
-          <button className="tabs__button">Страхование</button>
+          <button className="tabs__button">
+            <IconSecurity className="tabs__icon" />
+            <span className="tabs__text">Страхование</span>
+          </button>
         </li>
         <li className="tabs__item">
-          <button className="tabs__button">Онлайн сервисы</button>
+          <button className="tabs__button">
+            <IconPhone className="tabs__icon" />
+            <span className="tabs__text">Онлайн сервисы</span>
+          </button>
         </li>
       </ul>
 

@@ -5,6 +5,9 @@
 }
 
 .tabs__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 293px;
   min-height: 93px;
   padding-top: 30px;
@@ -25,4 +28,8 @@
 
   @include basic-hover;
   @include basic-active;
+}
+
+.tabs__icon {
+  margin-right: 10px;
 }
