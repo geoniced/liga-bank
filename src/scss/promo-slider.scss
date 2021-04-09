@@ -7,12 +7,13 @@
 }
 
 .promo-slider__item {
-  padding-top: 115px;
+  padding-top: 102px;
   padding-bottom: 60px;
-  padding-left: 268px;
+  padding-left: 254px;
 
   min-height: 400px;
   background-repeat: no-repeat;
+  background-position: center;
 
   &--credit {
     background-color: $blue;
@@ -36,6 +37,7 @@
 
 .promo-slider__title {
   margin: 0;
+  margin-bottom: 8px;
 
   font-size: 54px;
   line-height: 63px;
@@ -47,9 +49,12 @@
 }
 
 .promo-slider__description {
-  color: $lighter-black;
+  margin: 0;
+  margin-bottom: 34px;
+
   font-size: 22px;
   line-height: 26px;
+  color: $lighter-black;
 }
 
 .promo-slider__item--credit .promo-slider__description {
@@ -59,13 +64,18 @@
 .promo-slider__promo-button {
   font-size: 18px;
   line-height: 21px;
+
+  &--department {
+    padding-left: 48px;
+    padding-right: 49px;
+  }
 }
 
 .promo-slider__buttons-list {
   @include list-reset;
 
   position: absolute;
-  bottom: 40px;
+  bottom: 36px;
   left: 50%;
 
   display: flex;

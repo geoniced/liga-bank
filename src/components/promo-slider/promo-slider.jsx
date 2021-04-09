@@ -17,7 +17,7 @@ const PromoSlider = () => {
         <li className="promo-slider__item promo-slider__item--department">
           <h2 className="promo-slider__title">Лига Банк</h2>
           <p className="promo-slider__description">Всегда рядом</p>
-          <a href="#" className="promo-slider__promo-button button">Найти отделение</a>
+          <a href="#" className="promo-slider__promo-button promo-slider__promo-button--department button">Найти отделение</a>
         </li>
       </ul>
 
