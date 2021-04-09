@@ -1,10 +1,16 @@
+.promo-slider {
+  position: relative;
+}
+
 .promo-slider__list {
   @include list-reset;
 }
 
 .promo-slider__item {
   padding-top: 115px;
+  padding-bottom: 60px;
   padding-left: 268px;
+
   min-height: 400px;
 
   &--credit {
@@ -49,4 +55,27 @@
 .promo-slider__promo-button {
   font-size: 18px;
   line-height: 21px;
+}
+
+.promo-slider__buttons-list {
+  @include list-reset;
+
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+
+  display: flex;
+  transform: translateX(-50%);
+}
+
+.promo-slider__button {
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+
+  padding: 4px;
+  border: none;
+
+  @include basic-hover;
+  @include basic-active;
 }
