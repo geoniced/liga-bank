@@ -1,4 +1,5 @@
 import logo from "../../assets/img/logo.svg";
+import {ReactComponent as IconLogin} from "../../assets/img/icon-login.svg";
 
 const PageHeader = () => {
   return (
@@ -23,7 +24,8 @@ const PageHeader = () => {
         </ul>
 
         <a href="#" className="main-navigation__login login">
-          Войти в Интернет-банк
+          <IconLogin className="login__icon" />
+          <span className="login__title">Войти в Интернет-банк</span>
         </a>
       </nav>
     </header>
