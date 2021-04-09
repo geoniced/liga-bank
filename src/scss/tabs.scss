@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.tabs__item {
+  display: flex;
+}
+
 .tabs__button {
   display: flex;
   justify-content: center;
@@ -11,7 +15,7 @@
   width: 293px;
   min-height: 93px;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 29px;
 
   font-family: inherit;
   font-size: 18px;

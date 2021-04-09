@@ -56,7 +56,7 @@ const Services = () => {
         </div>
       </article>
 
-      <article className="services__service-block service-block">
+      <article className="services__service-block service-block service-block--credit">
         <div className="service-block__description-column">
           <h3 className="service-block__title">Лига Банк выдает кредиты под любые цели</h3>
           <ul className="service-block__features">
@@ -64,14 +64,14 @@ const Services = () => {
             <li className="service-block__features-item">Автокредит</li>
             <li className="service-block__features-item">Потребительский кредит</li>
           </ul>
-          <p className="service-block__description">Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим <a className="service-block__link" href="#">кредитным калькулятором</a></p>
+          <p className="service-block__description">Рассчитайте ежемесячный платеж<br/> и ставку по кредиту воспользовавшись нашим <a className="service-block__link" href="#">кредитным калькулятором</a></p>
         </div>
         <div className="service-block__img-column">
           <img src={carOnAPileOfCoinsImg} alt="Автомобиль на стопке монет" width="440" height="290" />
         </div>
       </article>
 
-      <article className="services__service-block service-block">
+      <article className="services__service-block service-block service-block--insurance">
         <div className="service-block__description-column">
           <h3 className="service-block__title">Лига Страхование — застрахуем все что захотите</h3>
           <ul className="service-block__features">
@@ -86,11 +86,11 @@ const Services = () => {
         </div>
       </article>
 
-      <article className="services__service-block service-block">
+      <article className="services__service-block service-block service-block--mobile">
         <div className="service-block__description-column">
           <h3 className="service-block__title">Лига Банк — это огромное количество онлайн-сервисов для вашего удобства</h3>
           <ul className="service-block__features">
-            <li className="service-block__features-item">Мобильный банк, который всегда под рукой</li>
+            <li className="service-block__features-item">Мобильный банк,<br/> который всегда под рукой</li>
             <li className="service-block__features-item">Приложение Лига-проездной позволит вам оплачивать билеты по всему миру</li>
           </ul>
           <a href="#" className="service-block__more-button button">Узнать подробнее</a>

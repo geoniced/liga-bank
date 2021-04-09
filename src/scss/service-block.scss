@@ -3,12 +3,34 @@
   justify-content: space-between;
   align-items: flex-start;
 
-  padding-top: 60px;
+  padding-top: 54px;
   padding-right: 135px;
   padding-bottom: 60px;
   padding-left: 70px;
 
   background-color: $light-gray;
+
+  &--credit {
+    // TODO: Remove when the tabs will work
+    display: none;
+
+    padding-bottom: 48px;
+  }
+
+  &--insurance {
+    // TODO: Remove when the tabs will work
+    display: none;
+
+    padding-top: 48px;
+  }
+
+  &--mobile {
+    // TODO: Remove when the tabs will work
+    display: none;
+
+    padding-top: 53px;
+    padding-bottom: 46px;
+  }
 }
 
 .service-block__description-column {
@@ -18,11 +40,12 @@
 .service-block__img-column {
   flex-shrink: 0;
   width: 440px;
+  padding-top: 6px;
 }
 
 .service-block__title {
   margin: 0;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 
   font-size: 22px;
   line-height: 140%;
@@ -37,13 +60,13 @@
 }
 
 .service-block__features-item {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   padding-left: 21px;
 
   background-image: url("../assets/img/icon-tick.svg");
   background-repeat: no-repeat;
   background-size: 13px 10px;
-  background-position: left top 6px;
+  background-position: left -1px top 7px;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -51,6 +74,10 @@
 }
 
 .service-block__description {
+  max-width: 340px;
+  margin: 0;
+  margin-top: 29px;
+
   font-size: 18px;
   line-height: 140%;
 }
@@ -62,6 +89,41 @@
 }
 
 .service-block__more-button {
+  margin-top: 35px;
+
+  padding-left: 30px;
+  padding-top: 16px;
+  padding-right: 31px;
+  padding-bottom: 16px;
+
   font-size: 16px;
   line-height: 19px;
+}
+
+.service-block--credit .service-block__img-column {
+  padding-top: 0;
+}
+
+.service-block--credit .service-block__title {
+  max-width: 325px
+}
+
+.service-block--insurance .service-block__description-column {
+  padding-top: 6px;
+}
+
+.service-block--insurance .service-block__title {
+  max-width: 340px;
+}
+
+.service-block--mobile .service-block__img-column {
+  padding-top: 0;
+}
+
+.service-block--mobile .service-block__title {
+  padding-top: 1px;
+}
+
+.service-block--mobile .service-block__features {
+  max-width: 360px;
 }
