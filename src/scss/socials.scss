@@ -3,5 +3,42 @@
 
   width: 102px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.socials__item {
+  margin-right: 15px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.socials__link {
+  display: flex;
+}
+
+.socials__icon {
+  &--fb {
+    width: 9px;
+    height: 16px;
+  }
+
+  &--instagram {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--twitter {
+    width: 16px;
+    height: 13px;
+  }
+
+  &--yt {
+    width: 16px;
+    height: 13px;
+  }
+
+  @include basic-hover;
+  @include basic-active;
 }

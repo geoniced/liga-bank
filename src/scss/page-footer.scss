@@ -19,6 +19,8 @@
 }
 
 .page-footer__phone-contacts {
+  position: relative;
+
   &--mobile {
     width: 196px;
     padding-left: 29px;
@@ -36,6 +38,18 @@
 
   @include basic-hover;
   @include basic-active;
+}
+
+.page-footer__mobile-phone-icon {
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.page-footer__base-phone-icon {
+  position: absolute;
+  top: 2px;
+  left: 0;
 }
 
 .page-footer__phone-description {
