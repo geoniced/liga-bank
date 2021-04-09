@@ -1,3 +1,6 @@
+import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
+import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
+
 const CalculationForm = () => {
   return (
     <form action="#" className="credit-calculator__calculation-form calculation-form">
@@ -19,24 +22,36 @@ const CalculationForm = () => {
 
           <div className="calculation-form__input-field-row">
             <label htmlFor="calculation-form-property-cost" className="calculation-form__label">Стоимость недвижимости</label>
-            <input className="calculation-form__input" type="number" name="calculation-form-property-cost" id="calculation-form-property-cost" min="1200000" max="25000000" step="100000" />
+            <div className="calculation-form__input-with-operations">
+              <input className="calculation-form__input calculation-form__input--number" type="number" name="calculation-form-property-cost" id="calculation-form-property-cost" min="1200000" max="25000000" step="100000" />
+              <button className="calculation-form__operation-button calculation-form__operation-button--minus" type="button">
+                <IconMinus className="calculation-form__operation-minus"/>
+                <span className="visually-hidden">Уменьшить</span>
+              </button>
+              <button className="calculation-form__operation-button calculation-form__operation-button--plus" type="button">
+                <IconPlus className="calculation-form__operation-plus"/>
+                <span className="visually-hidden">Увеличить</span>
+              </button>
+            </div>
+
             <p className="calculation-form__field-description">От 1 200 000  до 25 000 000 рублей</p>
           </div>
 
           <div className="calculation-form__input-field-row">
             <label htmlFor="calculation-form-initial-fee" className="calculation-form__label">Первоначальный взнос</label>
-            <input className="calculation-form__input" type="number" name="calculation-form-initial-fee" id="calculation-form-initial-fee" />
+            {/* Maybe an output tag... */}
+            <input className="calculation-form__input calculation-form__input--number" type="number" name="calculation-form-initial-fee" id="calculation-form-initial-fee" />
             <input className="calculation-form__range" type="range" name="calculation-form-initial-fee-range" id="calculation-form-initial-fee-range" step="5" min="10" max="100" />
           </div>
 
           <div className="calculation-form__input-field-row">
             <label htmlFor="calculation-form-credit-time" className="calculation-form__label">Срок кредитования</label>
-            <input className="calculation-form__input" type="number" name="calculation-form-credit-time" id="calculation-form-credit-time" />
+            <input className="calculation-form__input calculation-form__input--number" type="number" name="calculation-form-credit-time" id="calculation-form-credit-time" />
             <input className="calculation-form__range" type="range" name="calculation-form-credit-time-range" id="calculation-form-credit-time-range" step="1" min="5" max="30" />
           </div>
 
           <div className="calculation-form__checkbox-row">
-            <input className="calculation-form__checkbox" type="checkbox" name="calculation-form-use-maternal-capital" id="calculation-form-use-maternal-capital" checked readOnly />
+            <input className="calculation-form__checkbox visually-hidden" type="checkbox" name="calculation-form-use-maternal-capital" id="calculation-form-use-maternal-capital" />
             <label className="calculation-form__checkbox-label" htmlFor="calculation-form-use-maternal-capital">Использовать материнский капитал</label>
           </div>
         </fieldset>
