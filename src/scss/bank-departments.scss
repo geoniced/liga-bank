@@ -10,6 +10,39 @@
   font-weight: 700;
 }
 
+.bank-departments__map-wrapper {
+  position: relative;
+}
+
 .bank-departments__map {
   display: flex;
+}
+
+.bank-departments__blip {
+  position: absolute;
+
+  &--moscow {
+    top: 248px;
+    left: 70px;
+  }
+
+  &--saratov {
+    top: 402px;
+    left: 250px;
+  }
+
+  &--kazan {
+    top: 248px;
+    left: 316px;
+  }
+
+  &--tyumen {
+    top: 196px;
+    left: 669px;
+  }
+
+  &--omsk {
+    top: 277px;
+    left: 837px;
+  }
 }
