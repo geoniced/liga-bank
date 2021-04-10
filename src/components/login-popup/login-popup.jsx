@@ -29,7 +29,7 @@ const LoginPopup = () => {
           </p>
         </div>
 
-        <button className="login-popup__submit" type="submit">Войти</button>
+        <button className="login-popup__submit button" type="submit">Войти</button>
       </form>
     </section>
   );

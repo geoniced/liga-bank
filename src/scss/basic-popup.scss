@@ -1,0 +1,18 @@
+.basic-popup {
+  width: 500px;
+  padding: 60px 58px;
+  background-color: $light-gray;
+}
+
+.basic-popup__title {
+  margin: 0;
+  margin-bottom: 25px;
+
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.basic-popup__description {
+  color: $faded-black;
+}
