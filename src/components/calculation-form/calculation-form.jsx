@@ -1,11 +1,13 @@
+import React from "react";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
+import CalculationFormRange from "../calculation-form-range/calculation-form-range";
 
 const CalculationForm = () => {
   return (
     <form action="#" className="credit-calculator__calculation-form calculation-form">
       <div className="calculation-form__form-column-wrapper">
-        <fieldset className="calculation-form__step-field-area">
+        <fieldset className="calculation-form__step-field-area calculation-form__step-field-area--step-1">
           <legend className="calculation-form__step-legend">Шаг 1. Цель кредита</legend>
 
           <div className="calculation-form__input-field-row">
@@ -17,7 +19,7 @@ const CalculationForm = () => {
           </div>
         </fieldset>
 
-        <fieldset className="calculation-form__step-field-area">
+        <fieldset className="calculation-form__step-field-area calculation-form__step-field-area--step-2">
           <legend className="calculation-form__step-legend">Шаг 2. Введите параметры кредита</legend>
 
           <div className="calculation-form__input-field-row">
@@ -40,14 +42,32 @@ const CalculationForm = () => {
           <div className="calculation-form__input-field-row">
             <label htmlFor="calculation-form-initial-fee" className="calculation-form__label">Первоначальный взнос</label>
             {/* Maybe an output tag... */}
-            <input className="calculation-form__input calculation-form__input--number" type="number" name="calculation-form-initial-fee" id="calculation-form-initial-fee" />
-            <input className="calculation-form__range" type="range" name="calculation-form-initial-fee-range" id="calculation-form-initial-fee-range" step="5" min="10" max="100" />
+            <input className="calculation-form__input calculation-form__input--range" type="text" name="calculation-form-initial-fee" id="calculation-form-initial-fee" />
+            <CalculationFormRange
+              step={5}
+              min={10}
+              max={100}
+              scaleValues={[100]}
+            />
+            <div className="calculation-form__range-description">
+              <span className="calculation-form__range-value">10%</span>
+            </div>
           </div>
 
           <div className="calculation-form__input-field-row">
             <label htmlFor="calculation-form-credit-time" className="calculation-form__label">Срок кредитования</label>
-            <input className="calculation-form__input calculation-form__input--number" type="number" name="calculation-form-credit-time" id="calculation-form-credit-time" />
-            <input className="calculation-form__range" type="range" name="calculation-form-credit-time-range" id="calculation-form-credit-time-range" step="1" min="5" max="30" />
+            <input className="calculation-form__input calculation-form__input--range" type="text" name="calculation-form-credit-time" id="calculation-form-credit-time" />
+            {/* <input className="calculation-form__range" type="range" name="calculation-form-credit-time-range" id="calculation-form-credit-time-range" step="1" min="5" max="30" /> */}
+            <CalculationFormRange
+              step={1}
+              min={5}
+              max={30}
+              scaleValues={[30]}
+            />
+            <div className="calculation-form__range-description">
+              <span className="calculation-form__range-value">5 лет</span>
+              <span className="calculation-form__range-value">30 лет</span>
+            </div>
           </div>
 
           <div className="calculation-form__checkbox-row">
