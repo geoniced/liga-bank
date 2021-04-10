@@ -3,7 +3,7 @@ import CloseButton from "../close-button/close-button";
 
 const LoginPopup = () => {
   return (
-    <section className="login-popup">
+    <section className="login-popup basic-popup">
       <h2 className="visually-hidden">Вход в интернет-банк</h2>
 
       <a href="#" className="login-popup__logo logo">
