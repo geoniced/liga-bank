@@ -27,12 +27,12 @@ const RequestForm = () => {
       </dl>
 
       <form action="#" className="request-form__form">
-        <div className="request-form__full-field-row">
+        <div className="request-form__field-row">
           <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
           <input className="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО" />
         </div>
 
-        <div className="request-form__halves-field-row">
+        <div className="request-form__field-row request-form__field-row--halves">
           <div className="request-form__half-field-wrapper">
             <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
             <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" />

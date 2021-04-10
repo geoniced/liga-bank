@@ -1,13 +1,17 @@
 .request-form {
   width: 770px;
   min-height: 722px;
+  margin: 0 auto;
+  margin-top: 62px; // TODO: Temporary until this popup will have its logic
   padding: 70px;
+  padding-top: 64px;
 
   background-color: $light-gray;
 }
 
 .request-form__title {
   margin: 0;
+  margin-bottom: 12px;
 
   font-size: 22px;
   line-height: 140%;
@@ -15,10 +19,18 @@
   text-align: center;
 }
 
+.request-form__data {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
 .request-form__data-item {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  padding-top: 13px;
+  padding-bottom: 11px;
+
   border-bottom: 1px solid #C4C4C4;
 }
 
@@ -40,13 +52,18 @@
   flex-direction: column;
 }
 
-.request-form__full-field-row {
+.request-form__field-row {
   display: flex;
-}
 
-.request-form__halves-field-row {
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &--halves {
+    justify-content: space-between;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .request-form__half-field-wrapper {
@@ -56,7 +73,11 @@
 
 .request-form__input {
   flex-grow: 1;
-  padding: 20px;
+
+  padding-top: 17px;
+  padding-right: 23px;
+  padding-bottom: 16px;
+  padding-left: 23px;
 
   font-family: inherit;
   font-size: 18px;
@@ -69,4 +90,9 @@
 
 .request-form__send {
   align-self: center;
+  margin-top: 40px;
+  padding-top: 16px;
+  padding-right: 60px;
+  padding-bottom: 16px;
+  padding-left: 59px;
 }
