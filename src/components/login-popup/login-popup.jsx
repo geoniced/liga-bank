@@ -1,5 +1,6 @@
 import LogoLoginImg from "../../assets/img/logo-login.svg";
 import CloseButton from "../close-button/close-button";
+import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-password-eye-closed.svg";
 
 const LoginPopup = () => {
   return (
@@ -20,10 +21,14 @@ const LoginPopup = () => {
 
         <div className="login-popup__row-wrapper">
           <label className="login-popup__label" htmlFor="login-form-password">Пароль</label>
-          <input className="login-popup__input" type="password" name="login-form-password" id="login-form-password"/>
-          <button className="login-popup__reveal-password-button" type="button">
-            <span className="visually-hidden">Показать пароль</span>
-          </button>
+          <div className="login-popup__reveal-password-wrapper">
+            <input className="login-popup__input" type="password" name="login-form-password" id="login-form-password"/>
+            <button className="login-popup__reveal-password-button" type="button">
+              <IconPasswordEyeClosed className="login-popup__reveal-password-icon" />
+              <span className="visually-hidden">Показать пароль</span>
+            </button>
+          </div>
+
           <p className="login-popup__forgot-password">
             <a href="forgot.html" className="login-popup__forgot-password-link">Забыли пароль?</a>
           </p>

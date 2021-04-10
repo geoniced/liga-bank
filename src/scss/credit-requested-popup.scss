@@ -1,0 +1,12 @@
+.credit-requested-popup__title {
+  text-align: center;
+}
+
+.credit-requested-popup__description {
+  text-align: center;
+}
+
+.credit-requested-popup__close-button {
+  top: 25px - $close-button-offset;
+  right: 25px - $close-button-offset;
+}

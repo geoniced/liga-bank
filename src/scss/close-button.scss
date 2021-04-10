@@ -1,0 +1,17 @@
+.close-button {
+  position: absolute;
+
+  box-sizing: content-box;
+  display: flex;
+  width: $close-button-size;
+  height: $close-button-size;
+  padding: $close-button-offset;
+
+  background-color: transparent;
+  border: none;
+}
+
+.close-button__icon {
+  width: $close-button-size;
+  height: $close-button-size;
+}
