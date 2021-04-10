@@ -30,10 +30,10 @@ const PageFooter = () => {
             <a href="#" className="site-navigation__link">Рассчитать кредит</a>
           </li>
           <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Конвертер валют</a>
+            <a href="#" className="site-navigation__link">Контакты</a>
           </li>
           <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Контакты</a>
+            <a href="#" className="site-navigation__link">Задать вопрос</a>
           </li>
         </ul>
 
