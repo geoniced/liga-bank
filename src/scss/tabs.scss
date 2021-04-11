@@ -37,3 +37,9 @@
 .tabs__icon {
   margin-right: 10px;
 }
+
+@media (max-width: $tablet-max-width) {
+  .tabs {
+    display: none;
+  }
+}

@@ -3,3 +3,26 @@
 
   padding-top: 60px;
 }
+
+.services__buttons-list {
+  display: none;
+}
+
+@media (max-width: $tablet-max-width) {
+  .services {
+    position: relative;
+    // TODO: move to mixin centered layout
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .services__buttons-list {
+    bottom: 15px;
+
+    display: flex;
+  }
+
+  .services__buttons-list .slider-buttons__item--active .slider-buttons__icon {
+    fill: #E0E0E0;
+  }
+}

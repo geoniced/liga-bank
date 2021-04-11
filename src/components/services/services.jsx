@@ -1,12 +1,16 @@
 import piggyBankImg from "../../assets/img/piggybank.png";
+import piggyBankImgTablet from "../../assets/img/piggybank-tablet.png";
 import carOnAPileOfCoinsImg from "../../assets/img/car-on-a-pile-of-coins.png";
+import carOnAPileOfCoinsImgTablet from "../../assets/img/car-on-a-pile-of-coins-tablet.png";
 import heartShapedLockImg from "../../assets/img/heart-shaped-lock.png";
+import heartShapedLockImgTablet from "../../assets/img/heart-shaped-lock-tablet.png";
 import ligaBankOnMobileImg from "../../assets/img/liga-bank-on-mobile.png";
+import ligaBankOnMobileImgTablet from "../../assets/img/liga-bank-on-mobile-tablet.png";
 import {ReactComponent as IconVault} from "../../assets/img/icon-vault.svg";
 import {ReactComponent as IconCards} from "../../assets/img/icon-cards.svg";
 import {ReactComponent as IconSecurity} from "../../assets/img/icon-security.svg";
 import {ReactComponent as IconPhone} from "../../assets/img/icon-phone.svg";
-
+import SliderButtons from "../slider-buttons/slider-buttons";
 
 const Services = () => {
   return (
@@ -41,6 +45,11 @@ const Services = () => {
         </li>
       </ul>
 
+      <SliderButtons
+        className="services__buttons-list"
+        sliderItems={4}
+      />
+
       <article className="services__service-block service-block">
         <div className="service-block__description-column">
           <h3 className="service-block__title">Вклады Лига Банка – это выгодная инвестиция в свое будущее</h3>
@@ -52,7 +61,11 @@ const Services = () => {
           <a href="#" className="service-block__more-button button">Узнать подробнее</a>
         </div>
         <div className="service-block__img-column">
-          <img src={piggyBankImg} alt="Копилка с возрастающими столбиками монет" width="440" height="290" />
+          <picture>
+            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 1023px)" srcSet={piggyBankImgTablet} />
+            <img className="service-block__image" src={piggyBankImg} alt="Копилка с возрастающими столбиками монет" width="440" height="290" />
+          </picture>
         </div>
       </article>
 
@@ -67,7 +80,11 @@ const Services = () => {
           <p className="service-block__description">Рассчитайте ежемесячный платеж<br/> и ставку по кредиту воспользовавшись нашим <a className="service-block__link" href="#">кредитным калькулятором</a></p>
         </div>
         <div className="service-block__img-column">
-          <img src={carOnAPileOfCoinsImg} alt="Автомобиль на стопке монет" width="440" height="290" />
+          <picture>
+            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 1023px)" srcSet={carOnAPileOfCoinsImgTablet} />
+            <img className="service-block__image" src={carOnAPileOfCoinsImg} alt="Автомобиль на стопке монет" width="440" height="290" />
+          </picture>
         </div>
       </article>
 
@@ -82,7 +99,11 @@ const Services = () => {
           <a href="#" className="service-block__more-button button">Узнать подробнее</a>
         </div>
         <div className="service-block__img-column">
-          <img src={heartShapedLockImg} alt="Замок с иконкой сердечка на нем" width="440" height="290" />
+          <picture>
+            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 1023px)" srcSet={heartShapedLockImgTablet} />
+            <img className="service-block__image" src={heartShapedLockImg} alt="Замок с иконкой сердечка на нем" width="440" height="290" />
+          </picture>
         </div>
       </article>
 
@@ -96,7 +117,11 @@ const Services = () => {
           <a href="#" className="service-block__more-button button">Узнать подробнее</a>
         </div>
         <div className="service-block__img-column">
-          <img src={ligaBankOnMobileImg} alt="Приложение Лига-Банка на телефоне" width="440" height="290" />
+          <picture>
+            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 1023px)" srcSet={ligaBankOnMobileImgTablet} />
+            <img className="service-block__image" src={ligaBankOnMobileImg} alt="Приложение Лига-Банка на телефоне" width="440" height="290" />
+          </picture>
         </div>
       </article>
     </section>

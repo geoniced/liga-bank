@@ -127,3 +127,23 @@
 .service-block--mobile .service-block__features {
   max-width: 360px;
 }
+
+.service-block__image {
+  display: block;
+}
+
+@media (max-width: $tablet-max-width) {
+  .service-block {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .service-block__img-column {
+    width: 289px;
+  }
+
+  .service-block__image {
+    width: 289px;
+    height: 260px;
+  }
+}

@@ -23,6 +23,7 @@
 
 @media (max-width: $tablet-max-width) {
   .main-navigation {
+    // TODO: move to mixin centered layout
     width: 100%;
     min-height: 69px;
 

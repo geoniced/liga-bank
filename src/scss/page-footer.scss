@@ -78,6 +78,7 @@
 
 @media (max-width: $tablet-max-width) {
   .page-footer__wrapper {
+    // TODO: move to mixin centered layout
     width: 100%;
 
     padding-right: 45px;

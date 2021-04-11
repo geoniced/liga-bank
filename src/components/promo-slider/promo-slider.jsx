@@ -1,4 +1,4 @@
-import {ReactComponent as IconSliderItem} from "../../assets/img/icon-slider-item.svg";
+import SliderButtons from "../slider-buttons/slider-buttons";
 
 const PromoSlider = () => {
   return (
@@ -21,26 +21,10 @@ const PromoSlider = () => {
         </li>
       </ul>
 
-      <ul className="promo-slider__buttons-list">
-        <li className="promo-slider__buttons-item promo-slider__buttons-item--active">
-          <button className="promo-slider__button" type="button">
-            <IconSliderItem className="promo-slider__icon" />
-            <span className="visually-hidden">1 слайд</span>
-          </button>
-        </li>
-        <li className="promo-slider__buttons-item">
-          <button className="promo-slider__button" type="button">
-            <IconSliderItem className="promo-slider__icon" />
-            <span className="visually-hidden">2 слайд</span>
-          </button>
-        </li>
-        <li className="promo-slider__buttons-item">
-          <button className="promo-slider__button" type="button">
-            <IconSliderItem className="promo-slider__icon" />
-            <span className="visually-hidden">3 слайд</span>
-          </button>
-        </li>
-      </ul>
+      <SliderButtons
+        className="promo-slider__buttons-list"
+        sliderItems={3}
+      />
     </section>
   );
 };
