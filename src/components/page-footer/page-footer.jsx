@@ -10,32 +10,35 @@ const PageFooter = () => {
   return (
     <footer className="page-footer">
       <div className="page-footer__wrapper">
-        <div className="page-footer__contact-address contact-address">
-          <a href="#" className="contact-address__logo logo">
+        <div className="page-footer__contacts-navigation contacts-navigation">
+          <a href="#" className="contacts-navigation__logo logo">
             <img className="logo__image" src={logo} alt="Логотип сайта Лига Банк" width="149" height="25" />
           </a>
 
-          <address className="contact-address__address">150015, г. Москва, ул. Московская, д. 32</address>
-          <p className="contact-address__copyright">
+          <address className="contacts-navigation__address">150015, г. Москва, ул. Московская, д. 32</address>
+          <p className="contacts-navigation__copyright">
             Генеральная лицензия Банка России №1050
             Ⓒ Лига Банк, 2019
           </p>
-        </div>
 
-        <ul className="page-footer__site-navigation site-navigation site-navigation--vertical">
-          <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Услуги</a>
-          </li>
-          <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Рассчитать кредит</a>
-          </li>
-          <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Контакты</a>
-          </li>
-          <li className="site-navigation__item">
-            <a href="#" className="site-navigation__link">Задать вопрос</a>
-          </li>
-        </ul>
+          <ul className="contacts-navigation__site-navigation site-navigation site-navigation--vertical">
+            <li className="site-navigation__item">
+              <a href="#" className="site-navigation__link">Услуги</a>
+            </li>
+            <li className="site-navigation__item">
+              <a href="#" className="site-navigation__link">Рассчитать кредит</a>
+            </li>
+            <li className="site-navigation__item">
+              <a href="#" className="site-navigation__link">Контакты</a>
+            </li>
+            <li className="site-navigation__item">
+              <a href="#" className="site-navigation__link">Задать вопрос</a>
+            </li>
+          </ul>
+        </div>
+        {/* <div className="page-footer__contact-address contact-address">
+
+        </div> */}
 
         <div className="page-footer__phone-contacts page-footer__phone-contacts--mobile">
           <a href="tel:*0904" className="page-footer__phone">

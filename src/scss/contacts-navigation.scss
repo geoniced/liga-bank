@@ -1,0 +1,32 @@
+.contacts-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  width: 477px;
+  max-height: 115px;
+}
+
+.contacts-navigation__logo {
+  width: 252px;
+  margin-bottom: 16px;
+}
+
+.contacts-navigation__address,
+.contacts-navigation__copyright {
+  width: 252px;
+
+  font-size: 12px;
+  line-height: 17px;
+  font-style: normal;
+  color: $faded-gray;
+}
+
+.contacts-navigation__copyright {
+  margin: 0;
+}
+
+.contacts-navigation__site-navigation {
+  margin-left: 81px;
+  padding-top: 7px;
+}
