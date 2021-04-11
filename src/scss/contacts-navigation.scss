@@ -12,10 +12,12 @@
   margin-bottom: 16px;
 }
 
+.contacts-navigation__information {
+  width: 252px;
+}
+
 .contacts-navigation__address,
 .contacts-navigation__copyright {
-  width: 252px;
-
   font-size: 12px;
   line-height: 17px;
   font-style: normal;
@@ -29,4 +31,20 @@
 .contacts-navigation__site-navigation {
   margin-left: 81px;
   padding-top: 7px;
+}
+
+@media (max-width: $tablet-max-width) {
+  .contacts-navigation {
+    width: auto;
+    max-height: initial;
+  }
+
+  .contacts-navigation__site-navigation {
+    order: 1;
+    margin-left: 0;
+  }
+
+  .contacts-navigation__information {
+    order: 2;
+  }
 }
