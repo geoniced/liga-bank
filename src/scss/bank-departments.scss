@@ -13,9 +13,16 @@
 
 .bank-departments__map-wrapper {
   position: relative;
+  display: flex;
+}
+
+.bank-departments__picture-container {
+  flex-shrink: 0;
+  display: flex;
 }
 
 .bank-departments__map {
+  flex-shrink: 0;
   display: flex;
 }
 
@@ -45,5 +52,53 @@
   &--omsk {
     top: 276px;
     left: 836px;
+  }
+
+  &--surgut,
+  &--perm {
+    display: none;
+  }
+}
+
+@media (max-width: $tablet-max-width) {
+  .bank-departments {
+    // TODO: move to mixin centered layout
+    width: 100%;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .bank-departments__map {
+    width: 678px;
+    height: 462px;
+  }
+
+  .bank-departments__blip {
+    &--moscow,
+    &--saratov,
+    &--kazan,
+    &--tyumen {
+      display: none;
+    }
+
+    &--omsk {
+      top: 292px;
+      left: 390px;
+    }
+
+    &--surgut,
+    &--perm {
+      display: block;
+    }
+
+    &--surgut {
+      top: 77px;
+      left: 390px;
+    }
+
+    &--perm {
+      top: 191px;
+      left: 72px;
+    }
   }
 }
