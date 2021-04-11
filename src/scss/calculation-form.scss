@@ -252,3 +252,23 @@
 
   line-height: 140%;
 }
+
+@media (max-width: $tablet-max-width) {
+  .calculation-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calculation-form__form-column-wrapper {
+    width: auto;
+    margin-right: 0;
+  }
+
+  .calculation-form__result {
+    width: 678px;
+  }
+
+  .calculation-form__offers {
+    width: 376px;
+  }
+}

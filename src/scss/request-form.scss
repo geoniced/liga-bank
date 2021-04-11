@@ -97,3 +97,15 @@
   padding-bottom: 16px;
   padding-left: 59px;
 }
+
+@media (max-width: $tablet-max-width) {
+  .request-form {
+    width: 678px;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .request-form__send {
+    align-self: stretch;
+  }
+}
