@@ -42,6 +42,10 @@
 
 @media (max-width: $tablet-max-width) {
   .site-navigation__item {
-    margin-right: 20px;
+    margin-right: 21px;
+  }
+
+  .site-navigation__link {
+    font-size: 14px;
   }
 }
