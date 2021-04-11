@@ -74,3 +74,56 @@
 .promo-slider__buttons-list {
   bottom: 36px;
 }
+
+@media (max-width: $tablet-max-width) {
+  .promo-slider__item {
+    min-height: 300px;
+    padding-top: 65px;
+    padding-left: 86px;
+
+    &--credit {
+      background-image: url("../assets/img/main-banner-bg-tablet.png");
+    }
+
+    &--confidence {
+      background-image: url("../assets/img/a-man-in-a-suit-tablet.png");
+    }
+
+    &--department {
+      background-image: url("../assets/img/a-woman-with-a-card-tablet.png");
+    }
+  }
+
+  .promo-slider__title {
+    margin-bottom: 5px;
+
+    font-size: 46px;
+    line-height: 54px;
+  }
+
+  .promo-slider__description {
+    margin-bottom: 31px;
+
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  .promo-slider__promo-button {
+    padding-top: 14px;
+    padding-right: 31px;
+    padding-bottom: 15px;
+    padding-left: 31px;
+
+    font-size: 16px;
+    line-height: 19px;
+
+    &--department {
+      padding-left: 38px;
+      padding-right: 38px;
+    }
+  }
+
+  .promo-slider__buttons-list {
+    bottom: 11px;
+  }
+}
