@@ -39,3 +39,9 @@
   font-weight: 500;
   line-height: 22px;
 }
+
+@media (max-width: $tablet-max-width) {
+  .site-navigation__item {
+    margin-right: 20px;
+  }
+}

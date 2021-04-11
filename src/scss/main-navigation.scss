@@ -7,10 +7,30 @@
 }
 
 .main-navigation__logo {
+  flex-shrink: 0;
   margin-right: 109px;
   margin-bottom: 12px;
 }
 
+.main-navigation__site-navigation {
+  flex-shrink: 0;
+}
+
 .main-navigation__login {
+  flex-shrink: 0;
   margin-left: auto;
+}
+
+@media (max-width: $tablet-max-width) {
+  .main-navigation {
+    width: 100%;
+    min-height: 69px;
+
+    padding-right: 45px;
+    padding-left: 45px;
+  }
+
+  .main-navigation__logo {
+    margin-right: 23px;
+  }
 }

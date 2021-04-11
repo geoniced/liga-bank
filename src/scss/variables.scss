@@ -10,8 +10,13 @@ $faded-gray: #707C87;
 
 $track-color: #C1C2CA;
 
-$desktop-width: 1170px; // TODO: temporary until I start doing adaptive/rubber
+$min-content-desktop-width: 1024px; // TODO: temporary until I start doing adaptive/rubber
 
+$tablet-max-width: 1023px;
+$tablet-width: 768px;
+
+$mobile-max-width: 767px;
+$mobile-width: 320px;
 
 $track-size: 14px;
 $close-button-size: 18px;
