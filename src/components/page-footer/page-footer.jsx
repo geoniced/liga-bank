@@ -1,3 +1,4 @@
+import Logo from "../logo/logo";
 import logo from "../../assets/img/logo.svg";
 import {ReactComponent as IconSmartPhone} from "../../assets/img/icon-smartphone.svg";
 import {ReactComponent as IconBasePhone} from "../../assets/img/icon-basephone.svg";
@@ -11,9 +12,7 @@ const PageFooter = () => {
     <footer className="page-footer">
       <div className="page-footer__wrapper">
         <div className="page-footer__contacts-navigation contacts-navigation">
-          <a href="#" className="contacts-navigation__logo logo">
-            <img className="logo__image" src={logo} alt="Логотип сайта Лига Банк" width="149" height="25" />
-          </a>
+          <Logo className="contacts-navigation__logo "/>
 
           <div className="contacts-navigation__information">
             <address className="contacts-navigation__address">150015, г. Москва, ул. Московская, д. 32</address>
