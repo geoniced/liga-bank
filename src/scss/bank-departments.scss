@@ -55,7 +55,8 @@
   }
 
   &--surgut,
-  &--perm {
+  &--perm,
+  &--novosib {
     display: none;
   }
 }
@@ -108,3 +109,48 @@
     }
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .bank-departments {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .bank-departments__title {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .bank-departments__map-wrapper {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .bank-departments__map {
+    width: 320px;
+    height: 381px;
+  }
+
+  .bank-departments__blip {
+    &--perm {
+      display: none;
+    }
+
+    &--omsk {
+      top: 244px;
+      left: 82px;
+    }
+
+    &--surgut {
+      top: 62px;
+      left: 82px;
+    }
+
+    &--novosib {
+      display: block;
+      top: 244px;
+      left: 229px;
+    }
+  }
+}
+
