@@ -1,5 +1,4 @@
 import Logo from "../logo/logo";
-import logo from "../../assets/img/logo.svg";
 import {ReactComponent as IconSmartPhone} from "../../assets/img/icon-smartphone.svg";
 import {ReactComponent as IconBasePhone} from "../../assets/img/icon-basephone.svg";
 import {ReactComponent as IconFacebook} from "../../assets/img/icon-fb.svg";

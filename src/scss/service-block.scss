@@ -134,8 +134,34 @@
 
 @media (max-width: $tablet-max-width) {
   .service-block {
-    padding-left: 45px;
+    padding-bottom: 60px;
     padding-right: 45px;
+    padding-left: 45px;
+  }
+
+  .service-block__description-column {
+    max-width: 380px;
+  }
+
+  .service-block__title {
+    margin-bottom: 25px;
+    font-size: 18px;
+  }
+
+  .service-block__features {
+    font-size: 16px;
+  }
+
+  .service-block__features-item {
+    margin-bottom: 16px;
+
+    background-position: left -1px top 5px;
+  }
+
+  .service-block__more-button {
+    margin-top: 31px;
+    padding-top: 14px;
+    padding-bottom: 15px;
   }
 
   .service-block__img-column {
