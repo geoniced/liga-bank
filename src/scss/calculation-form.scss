@@ -301,3 +301,36 @@
     width: 383px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .credit-calculator {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .calculation-form__result {
+    width: 100%;
+  }
+
+  .calculation-form__offers {
+    flex-direction: column;
+  }
+
+  .calculation-form__offer-item {
+    width: auto;
+    margin-bottom: 20px;
+
+    &:nth-of-type(-n + 2) {
+      margin-bottom: 20px;
+    }
+
+    &:nth-of-type(2n) {
+      width: auto;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
