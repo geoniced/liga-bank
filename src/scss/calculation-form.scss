@@ -108,6 +108,10 @@
   }
 }
 
+.calculation-form__input-field-row:nth-of-type(3) .calculation-form__input--range {
+  margin-bottom: 17px;
+}
+
 .calculation-form__input--number::-webkit-outer-spin-button,
 .calculation-form__input--number::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -262,7 +266,31 @@
   .calculation-form__form-column-wrapper {
     width: auto;
     margin-right: 0;
+    padding-bottom: 33px;
   }
+
+  .calculation-form__step-legend {
+    margin-bottom: 19px;
+
+    font-size: 18px;
+  }
+
+  .calculation-form__step-field-area--step-2 .calculation-form__step-legend {
+    margin-bottom: 14px;
+  }
+
+  .calculation-form__input-field-row {
+    margin-bottom: 15px;
+  }
+
+  .calculation-form__range-track {
+    width: calc(100% - #{$track-size});
+  }
+
+  .calculation-form__checkbox-row {
+    margin-top: 18px;
+  }
+
 
   .calculation-form__result {
     width: 678px;

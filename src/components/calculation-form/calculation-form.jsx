@@ -36,7 +36,7 @@ const CalculationForm = () => {
               </button>
             </div>
 
-            <p className="calculation-form__field-description">От 1 200 000  до 25 000 000 рублей</p>
+            <p className="calculation-form__field-description">От 1 200 000 ​​&nbsp;до 25 000 000 рублей</p>
           </div>
 
           <div className="calculation-form__input-field-row">
