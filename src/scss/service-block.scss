@@ -150,6 +150,7 @@
 
   .service-block__features {
     font-size: 16px;
+    line-height: 130%;
   }
 
   .service-block__features-item {
@@ -171,5 +172,36 @@
   .service-block__image {
     width: 289px;
     height: 260px;
+  }
+
+  .service-block__description {
+    margin-top: 29px;
+
+    font-size: 16px;
+  }
+
+
+  .service-block--credit .service-block__img-column {
+    padding-top: 6px;
+  }
+
+  .service-block--credit .service-block__title {
+    max-width: 265px;
+  }
+
+  .service-block--insurance .service-block__img-column {
+    padding-top: 12px;
+  }
+
+  .service-block--insurance .service-block__title {
+    max-width: 280px;
+  }
+
+  .service-block--mobile .service-block__img-column {
+    padding-top: 7px;
+  }
+
+  .service-block--mobile .service-block__features {
+    max-width: 350px;
   }
 }
