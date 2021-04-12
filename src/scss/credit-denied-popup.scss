@@ -2,3 +2,9 @@
   padding-top: 54px;
   padding-left: 58px;
 }
+
+@media (max-width: $tablet-max-width) {
+  .credit-denied-popup {
+    padding-left: 60px;
+  }
+}

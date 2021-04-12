@@ -7,8 +7,8 @@ const LoginPopup = () => {
     <section className="login-popup basic-popup">
       <h2 className="visually-hidden">Вход в интернет-банк</h2>
 
-      <a href="#" className="login-popup__logo logo">
-        <img className="logo__image" src={LogoLoginImg} alt="Логотип сайта Лига Банк" width="150" height="27" />
+      <a href="#" className="login-popup__logo">
+        <img className="login-popup__logo-image" src={LogoLoginImg} alt="Логотип сайта Лига Банк" width="150" height="27" />
       </a>
 
       <CloseButton className="login-popup__close-button" />

@@ -24,3 +24,9 @@
 
   color: $faded-black;
 }
+
+@media (max-width: $tablet-max-width) {
+  .basic-popup {
+    width: 678px;
+  }
+}

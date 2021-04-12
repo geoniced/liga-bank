@@ -9,7 +9,13 @@
 }
 
 .login-popup__logo {
-  margin-bottom: 37px;
+  margin-bottom: 31px;
+  margin-left: -1px;
+}
+
+.login-popup__logo-image {
+  width: 151px;
+  height: 31px;
 }
 
 .login-popup__close-button {
@@ -101,4 +107,18 @@
   font-size: 18px;
   line-height: 21px;
   font-weight: 500;
+}
+
+@media (max-width: $tablet-max-width) {
+  .login-popup {
+    width: 678px;
+    padding-top: 55px;
+    padding-right: 84px;
+    padding-left: 84px;
+  }
+
+  .login-popup__close-button {
+    top: 55px - $close-button-offset;
+    right: 83px - $close-button-offset;
+  }
 }
