@@ -7,6 +7,10 @@
 }
 
 @media (max-width: $tablet-max-width) {
+  .logo {
+    margin-left: -1px;
+  }
+
   .logo__image {
     width: 134px;
     height: 24px;
