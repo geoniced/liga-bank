@@ -68,6 +68,12 @@
     padding-right: 45px;
   }
 
+  .bank-departments__title {
+    margin-bottom: 34px;
+
+    font-size: 32px;
+  }
+
   .bank-departments__map {
     width: 678px;
     height: 462px;
@@ -82,8 +88,8 @@
     }
 
     &--omsk {
-      top: 292px;
-      left: 390px;
+      top: 291px;
+      left: 389px;
     }
 
     &--surgut,
@@ -92,13 +98,13 @@
     }
 
     &--surgut {
-      top: 77px;
-      left: 390px;
+      top: 76px;
+      left: 389px;
     }
 
     &--perm {
-      top: 191px;
-      left: 72px;
+      top: 190px;
+      left: 71px;
     }
   }
 }
