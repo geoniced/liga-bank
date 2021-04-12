@@ -205,3 +205,26 @@
     max-width: 350px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .service-block {
+    position: relative;
+  }
+
+  .service-block__img-column {
+    position: absolute;
+    top: 98px;
+    right: 0;
+
+    width: 87px;
+  }
+
+  .service-block__image {
+    width: 87px;
+    height: 113px;
+  }
+
+  .service-block__more-button {
+    width: 100%;
+  }
+}

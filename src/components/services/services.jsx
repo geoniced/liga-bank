@@ -1,11 +1,15 @@
 import piggyBankImg from "../../assets/img/piggybank.png";
 import piggyBankImgTablet from "../../assets/img/piggybank-tablet.png";
+import piggyBankImgMobile from "../../assets/img/piggybank-mobile.png";
 import carOnAPileOfCoinsImg from "../../assets/img/car-on-a-pile-of-coins.png";
 import carOnAPileOfCoinsImgTablet from "../../assets/img/car-on-a-pile-of-coins-tablet.png";
+import carOnAPileOfCoinsImgMobile from "../../assets/img/car-on-a-pile-of-coins-mobile.png";
 import heartShapedLockImg from "../../assets/img/heart-shaped-lock.png";
 import heartShapedLockImgTablet from "../../assets/img/heart-shaped-lock-tablet.png";
+import heartShapedLockImgMobile from "../../assets/img/heart-shaped-lock-mobile.png";
 import ligaBankOnMobileImg from "../../assets/img/liga-bank-on-mobile.png";
 import ligaBankOnMobileImgTablet from "../../assets/img/liga-bank-on-mobile-tablet.png";
+import ligaBankOnMobileImgMobile from "../../assets/img/liga-bank-on-mobile-mobile.png";
 import {ReactComponent as IconVault} from "../../assets/img/icon-vault.svg";
 import {ReactComponent as IconCards} from "../../assets/img/icon-cards.svg";
 import {ReactComponent as IconSecurity} from "../../assets/img/icon-security.svg";
@@ -62,7 +66,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 767px)" srcset={piggyBankImgMobile} />
             <source media="(max-width: 1023px)" srcSet={piggyBankImgTablet} />
             <img className="service-block__image" src={piggyBankImg} alt="Копилка с возрастающими столбиками монет" width="440" height="290" />
           </picture>
@@ -81,7 +85,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 767px)" srcset={carOnAPileOfCoinsImgMobile} />
             <source media="(max-width: 1023px)" srcSet={carOnAPileOfCoinsImgTablet} />
             <img className="service-block__image" src={carOnAPileOfCoinsImg} alt="Автомобиль на стопке монет" width="440" height="290" />
           </picture>
@@ -100,7 +104,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 767px)" srcset={heartShapedLockImgMobile} />
             <source media="(max-width: 1023px)" srcSet={heartShapedLockImgTablet} />
             <img className="service-block__image" src={heartShapedLockImg} alt="Замок с иконкой сердечка на нем" width="440" height="290" />
           </picture>
@@ -118,7 +122,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            {/* <source media="(max-width: 767px)" srcset="img/logo-mobile.svg" /> */}
+            <source media="(max-width: 767px)" srcset={ligaBankOnMobileImgMobile} />
             <source media="(max-width: 1023px)" srcSet={ligaBankOnMobileImgTablet} />
             <img className="service-block__image" src={ligaBankOnMobileImg} alt="Приложение Лига-Банка на телефоне" width="440" height="290" />
           </picture>
