@@ -98,3 +98,17 @@
     margin-bottom: 13px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .page-footer__wrapper {
+    flex-direction: column;
+
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .page-footer__contacts-navigation {
+    margin-right: 0;
+  }
+}
+

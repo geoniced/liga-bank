@@ -54,3 +54,9 @@
     order: 2;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .contacts-navigation__information {
+    display: none;
+  }
+}
