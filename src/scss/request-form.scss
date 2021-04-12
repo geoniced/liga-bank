@@ -101,8 +101,21 @@
 @media (max-width: $tablet-max-width) {
   .request-form {
     width: 678px;
+    margin-top: 54px;
+
     padding: 0;
     background-color: transparent;
+  }
+
+  .request-form__title {
+    margin-bottom: 27px;
+
+    font-size: 18px;
+  }
+
+  .request-form__half-field-wrapper {
+    display: flex;
+    width: 324px;
   }
 
   .request-form__send {
