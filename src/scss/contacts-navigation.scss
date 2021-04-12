@@ -39,9 +39,15 @@
     max-height: initial;
   }
 
+  .contacts-navigation__logo {
+    margin-top: 2px;
+    margin-bottom: 22px;
+  }
+
   .contacts-navigation__site-navigation {
     order: 1;
     margin-left: 0;
+    margin-bottom: 26px;
   }
 
   .contacts-navigation__information {

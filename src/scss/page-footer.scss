@@ -85,7 +85,16 @@
     padding-left: 45px;
   }
 
+  .page-footer__contacts-navigation {
+    margin-right: 102px;
+  }
+
   .page-footer__phones-and-socials {
     flex-direction: column;
+  }
+
+  .page-footer__phone-contacts {
+    margin-right: 0;
+    margin-bottom: 13px;
   }
 }
