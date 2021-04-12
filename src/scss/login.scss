@@ -30,3 +30,35 @@
     display: none;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .login {
+    display: flex;
+    right: -13px;
+    padding: 13px;
+
+    &--with-text {
+      right: auto;
+
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $track-color;
+
+      padding-top: 25px;
+      padding-right: 15px;
+      padding-bottom: 24px;
+      padding-left: 15px;
+    }
+  }
+
+  .login--with-text .login__icon {
+    margin-right: 15px;
+  }
+
+  .login--with-text .login__title {
+    display: initial;
+
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

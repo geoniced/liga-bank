@@ -53,3 +53,37 @@
     font-size: 16px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .site-navigation {
+    flex-direction: column;
+  }
+
+  .site-navigation__item {
+    margin-right: 0;
+    border-bottom: 1px solid $track-color;
+
+    &:first-of-type {
+      border-top: 1px solid $track-color;
+    }
+  }
+
+  .site-navigation--header .site-navigation__link {
+    display: block;
+
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 24px;
+    padding-left: 15px;
+  }
+
+  .site-navigation--vertical .site-navigation__item {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .site-navigation__link {
+    font-size: 16px;
+  }
+}
+

@@ -127,3 +127,22 @@
     bottom: 11px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .promo-slider__item {
+    &--credit {
+      background-image: url("../assets/img/main-banner-bg-mobile.png");
+      background-position: right;
+    }
+
+    &--confidence {
+      background-image: url("../assets/img/a-man-in-a-suit-mobile.png");
+      background-position: right;
+    }
+
+    &--department {
+      background-image: url("../assets/img/a-woman-with-a-card-mobile.png");
+      background-position: right;
+    }
+  }
+}
