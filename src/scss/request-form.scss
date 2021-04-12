@@ -123,3 +123,34 @@
     align-self: stretch;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .request-form {
+    width: 100%;
+  }
+
+  .request-form__data-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .request-form__data-title {
+    order: 1;
+  }
+
+  .request-form__half-field-wrapper {
+    width: auto;
+    margin-bottom: 30px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .request-form__field-row {
+    &--halves {
+      flex-direction: column;
+    }
+  }
+}
+
