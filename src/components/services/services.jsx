@@ -66,7 +66,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            <source media="(max-width: 767px)" srcset={piggyBankImgMobile} />
+            <source media="(max-width: 767px)" srcSet={piggyBankImgMobile} />
             <source media="(max-width: 1023px)" srcSet={piggyBankImgTablet} />
             <img className="service-block__image" src={piggyBankImg} alt="Копилка с возрастающими столбиками монет" width="440" height="290" />
           </picture>
@@ -85,7 +85,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            <source media="(max-width: 767px)" srcset={carOnAPileOfCoinsImgMobile} />
+            <source media="(max-width: 767px)" srcSet={carOnAPileOfCoinsImgMobile} />
             <source media="(max-width: 1023px)" srcSet={carOnAPileOfCoinsImgTablet} />
             <img className="service-block__image" src={carOnAPileOfCoinsImg} alt="Автомобиль на стопке монет" width="440" height="290" />
           </picture>
@@ -104,7 +104,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            <source media="(max-width: 767px)" srcset={heartShapedLockImgMobile} />
+            <source media="(max-width: 767px)" srcSet={heartShapedLockImgMobile} />
             <source media="(max-width: 1023px)" srcSet={heartShapedLockImgTablet} />
             <img className="service-block__image" src={heartShapedLockImg} alt="Замок с иконкой сердечка на нем" width="440" height="290" />
           </picture>
@@ -122,7 +122,7 @@ const Services = () => {
         </div>
         <div className="service-block__img-column">
           <picture>
-            <source media="(max-width: 767px)" srcset={ligaBankOnMobileImgMobile} />
+            <source media="(max-width: 767px)" srcSet={ligaBankOnMobileImgMobile} />
             <source media="(max-width: 1023px)" srcSet={ligaBankOnMobileImgTablet} />
             <img className="service-block__image" src={ligaBankOnMobileImg} alt="Приложение Лига-Банка на телефоне" width="440" height="290" />
           </picture>

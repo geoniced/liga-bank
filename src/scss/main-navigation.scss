@@ -26,13 +26,14 @@
 
 .main-navigation__menu-button {
   position: relative;
-  left: -10px;
+  left: -5px;
   box-sizing: content-box;
   display: none;
 
   width: 16px;
   height: 10px;
-  padding: 13px 10px;
+  margin-bottom: 2px;
+  padding: 13px 5px;
 
   background-color: transparent;
   border: none;
@@ -45,7 +46,8 @@
 
   width: 15px;
   height: 15px;
-  padding: 15px;
+  padding: 14px;
+  margin-bottom: 3px;
 
   background-color: transparent;
   border: none;
@@ -98,6 +100,7 @@
 
   .main-navigation__menu-button {
     display: flex;
+    margin-right: 4px;
   }
 
   .main-navigation__top-menu-wrapper {
@@ -126,8 +129,8 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    min-height: 638px;
-    margin-top: 32px;
+    min-height: 607px;
+    margin-top: 29px;
   }
 
   .main-navigation--opened .main-navigation__login--togglable {
