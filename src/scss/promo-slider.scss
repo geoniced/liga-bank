@@ -130,6 +130,11 @@
 
 @media (max-width: $mobile-max-width) {
   .promo-slider__item {
+    min-height: 226px;
+    padding-top: 39px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+
     &--credit {
       background-image: url("../assets/img/main-banner-bg-mobile.png");
       background-position: right;
@@ -144,5 +149,31 @@
       background-image: url("../assets/img/a-woman-with-a-card-mobile.png");
       background-position: right;
     }
+  }
+
+  .promo-slider__title {
+    margin-bottom: 6px;
+
+    font-size: 38px;
+    line-height: 45px;
+  }
+
+  .promo-slider__description {
+    margin-bottom: 26px;
+
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .promo-slider__promo-button {
+    padding-top: 13px;
+    padding-bottom: 14px;
+
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .promo-slider__buttons-list {
+    bottom: 7px;
   }
 }

@@ -38,3 +38,17 @@
 .slider-buttons__item--active .slider-buttons__icon {
   fill: $light-gray;
 }
+
+
+@media (max-width: $mobile-max-width) {
+  .slider-buttons__button {
+    width: 6px;
+    height: 6px;
+    padding: 3px;
+  }
+
+  .slider-buttons__icon {
+    width: 6px;
+    height: 6px;
+  }
+}
