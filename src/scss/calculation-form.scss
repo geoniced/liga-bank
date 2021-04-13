@@ -303,9 +303,46 @@
 }
 
 @media (max-width: $mobile-max-width) {
-  .credit-calculator {
-    padding-left: 15px;
-    padding-right: 15px;
+  .calculation-form__form-column-wrapper {
+    padding-bottom: 24px;
+  }
+
+  .calculation-form__step-legend {
+    margin-bottom: 14px;
+
+    font-size: 16px;
+  }
+
+  .calculation-form__select-field,
+  .calculation-form__input {
+    padding-left: 14px;
+  }
+
+  .calculation-form__select-field {
+    background-position: right 13px center;
+  }
+
+  .calculation-form__step-field-area {
+    margin-bottom: 25px;
+  }
+
+  .calculation-form__step-field-area--step-2 .calculation-form__step-legend {
+    margin-bottom: 9px;
+  }
+
+  .calculation-form__input-field-row {
+    margin-bottom: 10px;
+  }
+
+  .calculation-form__checkbox-row {
+    margin-top: 13px;
+  }
+
+  .calculation-form__checkbox-label {
+    padding-top: 1px;
+
+    font-size: 14px;
+    line-height: 140%;
   }
 
   .calculation-form__result {

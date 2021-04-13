@@ -28,3 +28,17 @@
     font-size: 32px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .credit-calculator {
+    padding-top: 54px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .credit-calculator__title {
+    margin-bottom: 22px;
+    font-size: 22px;
+  }
+}
+
