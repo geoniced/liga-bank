@@ -150,7 +150,6 @@
 
   .service-block__features {
     font-size: 16px;
-    line-height: 130%;
   }
 
   .service-block__features-item {
@@ -209,6 +208,69 @@
 @media (max-width: $mobile-max-width) {
   .service-block {
     position: relative;
+    padding-top: 55px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &--credit {
+      padding-bottom: 85px;
+    }
+
+    &--insurance {
+      padding-bottom: 95px;
+    }
+
+    &--mobile {
+      padding-top: 54px;
+      padding-bottom: 50px;
+    }
+  }
+
+  .service-block__description-column {
+    width: 100%;
+    max-width: initial;
+  }
+
+  .service-block__title {
+    max-width: 270px;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+  }
+
+  .service-block__features {
+    position: relative;
+    z-index: 1;
+    max-width: 260px;
+
+    font-size: 14px;
+  }
+
+  .service-block__features-item {
+    margin-left: -1px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+
+    background-image: url("../assets/img/icon-tick-small.svg");
+    background-size: 10px 8px;
+    background-position: left 0 top 5px;
+  }
+
+  .service-block__description {
+    margin-top: 23px;
+
+    font-size: 14px;
+  }
+
+  .service-block__more-button {
+    width: 100%;
+    margin-top: 26px;
+    padding-top: 13px;
+    padding-bottom: 14px;
+    padding-left: 25px;
+
+    font-size: 14px;
+    line-height: 16px;
   }
 
   .service-block__img-column {
@@ -217,6 +279,7 @@
     right: 0;
 
     width: 87px;
+    padding-top: 0;
   }
 
   .service-block__image {
@@ -224,7 +287,37 @@
     height: 113px;
   }
 
-  .service-block__more-button {
-    width: 100%;
+  .service-block--credit .service-block__title {
+    max-width: 210px;
+  }
+
+  .service-block--insurance .service-block__description-column {
+    padding-top: 0;
+  }
+
+  .service-block--insurance .service-block__title {
+    max-width: 250px;
+  }
+
+  .service-block--mobile .service-block__title {
+    padding-top: 0;
+    max-width: 250px;
+  }
+
+  .service-block--mobile .service-block__features {
+    max-width: 220px;
+  }
+
+  .service-block--insurance .service-block__more-button,
+  .service-block--mobile .service-block__more-button {
+    padding-top: 14px;
+    padding-left: 29px;
+    padding-bottom: 13px;
+  }
+
+  .service-block--credit .service-block__img-column,
+  .service-block--insurance .service-block__img-column,
+  .service-block--mobile .service-block__img-column {
+    padding-top: 0;
   }
 }
