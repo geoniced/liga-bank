@@ -10,6 +10,7 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  margin-right: 9.32%; // 109px
 }
 
 .main-navigation__toggle-menu-wrapper {
@@ -55,7 +56,6 @@
 
 .main-navigation__logo {
   flex-shrink: 0;
-  margin-right: 109px;
   margin-bottom: 12px;
 }
 
@@ -66,6 +66,13 @@
 .main-navigation__login {
   flex-shrink: 0;
   margin-left: auto;
+}
+
+@media (min-width: $desktop-threshold) {
+  .main-navigation {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 @media (max-width: $tablet-max-width) {

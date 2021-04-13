@@ -1,10 +1,9 @@
 @mixin centered-layout {
-  width: 1170px;
+  width: auto;
+  max-width: 1170px;
   margin: 0 auto;
-
-  // TODO: when rubber
-  // width: auto;
-  // max-width: 1170px;
+  padding-right: 3.3%;
+  padding-left: 3.3%;
 }
 
 @mixin list-reset {
