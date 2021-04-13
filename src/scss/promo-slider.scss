@@ -165,12 +165,23 @@
     line-height: 19px;
   }
 
+  .promo-slider__item--confidence .promo-slider__description {
+    max-width: 140px;
+  }
+
   .promo-slider__promo-button {
     padding-top: 13px;
     padding-bottom: 14px;
 
     font-size: 14px;
     line-height: 16px;
+
+    &--department {
+      padding-top: 14px;
+      padding-right: 37px;
+      padding-bottom: 13px;
+      padding-left: 37px;
+    }
   }
 
   .promo-slider__buttons-list {
