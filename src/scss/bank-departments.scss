@@ -117,8 +117,11 @@
   }
 
   .bank-departments__title {
+    margin-bottom: 27px;
     padding-right: 15px;
     padding-left: 15px;
+
+    font-size: 22px;
   }
 
   .bank-departments__map-wrapper {
@@ -132,6 +135,9 @@
   }
 
   .bank-departments__blip {
+    width: 29px;
+    height: 33px;
+
     &--perm {
       display: none;
     }

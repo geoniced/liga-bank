@@ -11,3 +11,10 @@
     padding-bottom: 80px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .page-content {
+    padding-bottom: 60px;
+  }
+}
+
