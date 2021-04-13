@@ -28,11 +28,11 @@ const LoginPopup = () => {
               <span className="visually-hidden">Показать пароль</span>
             </button>
           </div>
-
-          <p className="login-popup__forgot-password">
-            <a href="forgot.html" className="login-popup__forgot-password-link">Забыли пароль?</a>
-          </p>
         </div>
+
+        <p className="login-popup__forgot-password">
+          <a href="forgot.html" className="login-popup__forgot-password-link">Забыли пароль?</a>
+        </p>
 
         <button className="login-popup__submit button" type="submit">Войти</button>
       </form>

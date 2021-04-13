@@ -8,3 +8,20 @@
     padding-left: 60px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .credit-denied-popup {
+    padding-top: 33px;
+    padding-right: 15px;
+    padding-bottom: 33px;
+    padding-left: 15px;
+  }
+
+  .credit-denied-popup__title {
+    max-width: 220px;
+  }
+
+  .credit-denied-popup__word-break {
+    display: none;
+  }
+}

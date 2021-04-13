@@ -15,3 +15,15 @@
   width: $close-button-size;
   height: $close-button-size;
 }
+
+@media (max-width: $mobile-max-width) {
+  .close-button {
+    width: 14px;
+    height: 14px;
+  }
+
+  .close-button__icon {
+    width: 14px;
+    height: 14px;
+  }
+}

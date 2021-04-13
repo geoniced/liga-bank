@@ -30,3 +30,18 @@
     width: 678px;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .basic-popup {
+    width: 290px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .basic-popup__title {
+    margin-bottom: 14px;
+
+    font-size: 18px;
+    line-height: 140%;
+  }
+}

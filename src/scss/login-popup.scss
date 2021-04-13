@@ -122,3 +122,61 @@
     right: 83px - $close-button-offset;
   }
 }
+
+@media (max-width: $mobile-max-width) {
+  .login-popup {
+    width: 290px;
+    min-height: 455px;
+    padding-top: 45px;
+    padding-right: 16px;
+    padding-bottom: 40px;
+    padding-left: 16px;
+  }
+
+  .login-popup__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-popup__logo {
+    margin-bottom: 21px;
+  }
+
+  .login-popup__logo-image {
+    margin-left: -5px;
+  }
+
+  .login-popup__close-button {
+    top: 45px - $close-button-offset;
+    right: 15px - $close-button-offset;
+  }
+
+
+  .login-popup__row-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .login-popup__reveal-password-button {
+    width: 52px;
+  }
+
+  .login-popup__forgot-password {
+    order: 1;
+    align-self: center;
+    margin-top: 9px;
+  }
+
+  .login-popup__forgot-password-link {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  .login-popup__submit {
+    margin-top: 30px;
+    padding-top: 18px;
+    padding-bottom: 17px;
+
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

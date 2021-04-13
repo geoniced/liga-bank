@@ -16,3 +16,28 @@
   top: 29px - $close-button-offset;
   right: 29px - $close-button-offset;
 }
+
+@media (max-width: $mobile-max-width) {
+  .credit-requested-popup {
+    padding-top: 34px;
+    padding-right: 15px;
+    padding-bottom: 33px;
+    padding-left: 15px;
+  }
+
+  .credit-requested-popup__title {
+    max-width: 200px;
+    margin-bottom: 14px;
+
+    text-align: center;
+  }
+
+  .credit-requested-popup__description {
+    max-width: 240px;
+  }
+
+  .credit-requested-popup__close-button {
+    top: 14px - $close-button-offset;
+    right: 14px - $close-button-offset;
+  }
+}
