@@ -347,18 +347,30 @@
 
   .calculation-form__result {
     width: 100%;
+    padding-top: 34px;
+    padding-right: 15px;
+    padding-bottom: 40px;
+    padding-left: 15px;
+  }
+
+  .calculation-form__result-title {
+    margin-bottom: 23px;
+
+    font-size: 18px;
   }
 
   .calculation-form__offers {
     flex-direction: column;
+    width: auto;
+    margin-bottom: 29px;
   }
 
   .calculation-form__offer-item {
     width: auto;
-    margin-bottom: 20px;
+    margin-bottom: 13px;
 
     &:nth-of-type(-n + 2) {
-      margin-bottom: 20px;
+      margin-bottom: 13px;
     }
 
     &:nth-of-type(2n) {
@@ -368,6 +380,19 @@
     &:last-of-type {
       margin-bottom: 0;
     }
+  }
+
+  .calculation-form__offer-value {
+    margin-bottom: 1px;
+
+    font-size: 18px;
+  }
+
+  .calculation-form__request-button {
+    padding-top: 17px;
+    padding-bottom: 15px;
+
+    font-size: 14px;
   }
 }
 
