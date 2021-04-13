@@ -127,20 +127,35 @@
 @media (max-width: $mobile-max-width) {
   .request-form {
     width: 100%;
+    margin-top: 43px;
+  }
+
+  .request-form__title {
+    margin-bottom: 19px;
+
+    font-size: 16px;
   }
 
   .request-form__data-item {
     align-items: flex-start;
     flex-direction: column;
+    padding-bottom: 13px;
+    padding-top: 14px;
   }
 
   .request-form__data-title {
     order: 1;
   }
 
+  .request-form__data-value {
+    margin-bottom: 1px;
+
+    font-size: 18px;
+  }
+
   .request-form__half-field-wrapper {
     width: auto;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     &:last-of-type {
       margin-bottom: 0;
@@ -148,9 +163,28 @@
   }
 
   .request-form__field-row {
+    margin-bottom: 20px;
+
     &--halves {
       flex-direction: column;
     }
+  }
+
+  .request-form__input {
+    padding-top: 19px;
+    padding-right: 14px;
+    padding-bottom: 17px;
+    padding-left: 14px;
+
+    font-size: 16px;
+  }
+
+  .request-form__send {
+    margin-top: 30px;
+    padding-top: 17px;
+    padding-bottom: 15px;
+
+    font-size: 14px;
   }
 }
 
