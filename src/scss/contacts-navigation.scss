@@ -56,7 +56,16 @@
 }
 
 @media (max-width: $mobile-max-width) {
+  .contacts-navigation__logo {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
   .contacts-navigation__information {
     display: none;
+  }
+
+  .contacts-navigation__site-navigation {
+    margin-bottom: 10px;
   }
 }

@@ -103,12 +103,26 @@
   .page-footer__wrapper {
     flex-direction: column;
 
+    padding-top: 30px;
     padding-right: 15px;
+    padding-bottom: 49px;
     padding-left: 15px;
   }
 
   .page-footer__contacts-navigation {
     margin-right: 0;
+  }
+
+  .page-footer__phone-contacts {
+    margin-bottom: 6px;
+
+    &:last-of-type {
+      margin-bottom: 7px;
+    }
+  }
+
+  .page-footer__phone {
+    margin-bottom: 0;
   }
 }
 
