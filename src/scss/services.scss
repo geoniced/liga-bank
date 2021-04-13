@@ -8,6 +8,13 @@
   display: none;
 }
 
+@media (min-width: $desktop-threshold) {
+  .services {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 @media (max-width: $tablet-max-width) {
   .services {
     position: relative;

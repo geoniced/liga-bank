@@ -6,13 +6,14 @@
 
 .tabs__item {
   display: flex;
+  width: 25%;
 }
 
 .tabs__button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 293px;
+  width: 100%;
   min-height: 93px;
   padding-top: 30px;
   padding-bottom: 29px;
