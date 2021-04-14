@@ -4,8 +4,8 @@
 }
 
 .calculation-form__form-column-wrapper {
-  width: 600px;
-  margin-right: 70px;
+  width: (600px / $desktop-content) * 100%; // 600
+  margin-right: (70px / $desktop-content) * 100%; // 70px
 }
 
 .calculation-form__step-field-area {
@@ -143,7 +143,8 @@
 
 .calculation-form__range-track {
   align-self: center;
-  width: 600px - $track-size;
+  width: calc(100% - #{$track-size});
+
   height: 1px;
   margin-bottom: 8px;
 
@@ -197,11 +198,14 @@
 
 
 .calculation-form__result {
-  width: 500px;
+  width: (500px / $desktop-content) * 100%;
   margin-top: 6px;
   padding: 60px;
   padding-top: 54px;
   padding-left: 58px;
+
+  // padding: (60px / $desktop-content) * 100%;
+  // padding-left: (58px / $desktop-content) * 100%;
   background-color: $light-gray;
 }
 
@@ -281,10 +285,6 @@
 
   .calculation-form__input-field-row {
     margin-bottom: 15px;
-  }
-
-  .calculation-form__range-track {
-    width: calc(100% - #{$track-size});
   }
 
   .calculation-form__checkbox-row {

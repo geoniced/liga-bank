@@ -13,6 +13,13 @@
   line-height: 140%;
 }
 
+@media (min-width: $desktop-threshold) {
+  .credit-calculator {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 @media (max-width: $tablet-max-width) {
   .credit-calculator {
     // TODO: move to mixin centered layout
