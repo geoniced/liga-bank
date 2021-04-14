@@ -14,18 +14,20 @@
   padding-bottom: 60px;
 }
 
-.page-footer__contacts-navigation,
-.page-footer__phone-contacts {
-  margin-right: 80px;
+.page-footer__contacts-navigation {
+  margin-right: 80px / $desktop-threshold * 100%;
 }
 
 .page-footer__phones-and-socials {
+  flex-grow: 1;
+
   display: flex;
   align-items: flex-start;
 }
 
 .page-footer__phone-contacts {
   position: relative;
+  margin-right: 80px / 613px * 100%;
 
   &--mobile {
     width: 196px;
@@ -75,6 +77,14 @@
 .page-footer__socials {
   padding-top: 12px;
 }
+
+@media (min-width: $desktop-threshold) {
+  .page-footer__wrapper {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 
 @media (max-width: $tablet-max-width) {
   .page-footer__wrapper {
