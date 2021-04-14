@@ -293,12 +293,17 @@
 
 
   .calculation-form__result {
-    width: 678px;
+    width: 100%;
     padding-left: 60px;
   }
 
   .calculation-form__offers {
-    width: 383px;
+    // width: 382px;
+    width: 69.66%;
+  }
+
+  .calculation-form__offer-item:nth-of-type(2n) {
+    width: 41.49%;
   }
 }
 

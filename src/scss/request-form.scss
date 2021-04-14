@@ -100,7 +100,7 @@
 
 @media (max-width: $tablet-max-width) {
   .request-form {
-    width: 678px;
+    width: auto;
     min-height: 592px;
     margin-top: 54px;
 
@@ -116,7 +116,7 @@
 
   .request-form__half-field-wrapper {
     display: flex;
-    width: 324px;
+    width: 47.788%;
   }
 
   .request-form__send {

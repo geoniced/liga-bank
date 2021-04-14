@@ -22,11 +22,9 @@
 
 @media (max-width: $tablet-max-width) {
   .credit-calculator {
-    // TODO: move to mixin centered layout
-    width: 100%;
     margin-bottom: 69px;
-    padding-left: 45px;
-    padding-right: 45px;
+    padding-left: $tablet-paddings;
+    padding-right: $tablet-paddings;
     padding-top: 69px;
   }
 
