@@ -70,21 +70,14 @@
 
 @media (max-width: $tablet-max-width) {
   .bank-departments {
-    // TODO: move to mixin centered layout
-    width: 100%;
-    padding-left: 45px;
-    padding-right: 45px;
+    padding-left: $tablet-paddings;
+    padding-right: $tablet-paddings;
   }
 
   .bank-departments__title {
     margin-bottom: 34px;
 
     font-size: 32px;
-  }
-
-  .bank-departments__map {
-    width: 678px;
-    height: 462px;
   }
 
   .bank-departments__blip {
