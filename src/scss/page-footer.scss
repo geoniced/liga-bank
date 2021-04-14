@@ -88,15 +88,12 @@
 
 @media (max-width: $tablet-max-width) {
   .page-footer__wrapper {
-    // TODO: move to mixin centered layout
-    width: 100%;
-
-    padding-right: 45px;
-    padding-left: 45px;
+    padding-right: $tablet-paddings;
+    padding-left: $tablet-paddings;
   }
 
   .page-footer__contacts-navigation {
-    margin-right: 102px;
+    margin-right: 15.045%;
   }
 
   .page-footer__phones-and-socials {
