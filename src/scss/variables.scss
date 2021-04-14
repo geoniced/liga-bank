@@ -24,6 +24,8 @@ $min-content-desktop-width: 1024px; // TODO: temporary until I start doing adapt
 
 $tablet-max-width: 1023px;
 $tablet-width: 768px;
+$tablet-offset: 45px;
+$tablet-paddings: ($tablet-offset / $tablet-width) * 100%;
 
 $mobile-max-width: 767px;
 $mobile-width: 320px;

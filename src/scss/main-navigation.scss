@@ -77,17 +77,18 @@
 
 @media (max-width: $tablet-max-width) {
   .main-navigation {
-    // TODO: move to mixin centered layout
-    width: 100%;
     min-height: 69px;
 
-    padding-right: 45px;
-    padding-left: 45px;
+    padding-right: $tablet-paddings;
+    padding-left: $tablet-paddings;
+  }
+
+  .main-navigation__top-menu-wrapper {
+    margin-right: 66px
   }
 
   .main-navigation__logo {
     margin-bottom: 1px;
-    margin-right: 66px;
   }
 
   .main-navigation__site-navigation {
