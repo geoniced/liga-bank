@@ -135,12 +135,13 @@
 @media (max-width: $tablet-max-width) {
   .service-block {
     padding-bottom: 60px;
-    padding-right: 45px;
-    padding-left: 45px;
+    padding-right: $tablet-paddings;
+    padding-left: $tablet-paddings;
   }
 
   .service-block__description-column {
-    max-width: 380px;
+    // max-width: 380px;
+    max-width: 56.05%;
   }
 
   .service-block__title {
