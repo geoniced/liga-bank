@@ -10,7 +10,7 @@ const DropdownIndicator = (props) => (
   </components.DropdownIndicator>
 );
 
-const SelectField = (props) => {
+const SelectField = () => {
   return (
     <Select
       className="select-field"

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import PropTypes from "prop-types";
 import {Range} from "react-range";
 import {ReactComponent as IconRangeThumb} from "../../assets/img/icon-range-thumb.svg";
 
@@ -34,6 +35,13 @@ const CalculationFormRange = (props) => {
       )}
     />
   );
+};
+
+CalculationFormRange.propTypes = {
+  step: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  scaleValues: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default CalculationFormRange;

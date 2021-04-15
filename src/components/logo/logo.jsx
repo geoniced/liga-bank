@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import logoDesktop from "../../assets/img/logo.svg";
 import logoTablet from "../../assets/img/logo-tablet.svg";
 import logoMobile from "../../assets/img/logo-mobile.svg";
@@ -15,6 +16,10 @@ const Logo = (props) => {
       </picture>
     </a>
   );
+};
+
+Logo.propTypes = {
+  className: PropTypes.string,
 };
 
 export default Logo;

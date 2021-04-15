@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {ReactComponent as IconSliderItem} from "../../assets/img/icon-slider-item.svg";
 
 const SliderButtons = (props) => {
@@ -19,6 +20,11 @@ const SliderButtons = (props) => {
       ))}
     </ul>
   );
+};
+
+SliderButtons.propTypes = {
+  sliderItems: PropTypes.number.isRequired,
+  className: PropTypes.string,
 };
 
 export default SliderButtons;
