@@ -2,6 +2,7 @@ import React from "react";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
+import SelectField from "../select-field/select-field";
 
 const CalculationForm = () => {
   return (
@@ -12,10 +13,11 @@ const CalculationForm = () => {
 
           <div className="calculation-form__input-field-row">
             <label htmlFor="calculation-form-credit-goal" className="visually-hidden">Выберите цель кредита</label>
-            <select className="calculation-form__select-field" name="calculation-form-credit-goal" id="calculation-form-credit-goal">
+            {/* <select className="calculation-form__select-field" name="calculation-form-credit-goal" id="calculation-form-credit-goal">
               <option className="calculation-form__option" value="mortgage">Ипотечное кредитование</option>
               <option className="calculation-form__option" value="auto">Автомобильное кредитование</option>
-            </select>
+            </select> */}
+            <SelectField />
           </div>
         </fieldset>
 

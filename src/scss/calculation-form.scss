@@ -69,7 +69,6 @@
   position: relative;
 }
 
-.calculation-form__select-field,
 .calculation-form__input {
   width: 100%;
   padding-top: 19px;
@@ -80,21 +79,6 @@
   line-height: 140%;
   border: 1px solid $black;
   border-radius: 4px;
-}
-
-.calculation-form__select-field {
-  padding-right: 45px;
-
-  font-size: 16px;
-  font-weight: 500;
-
-  background-image: url("../assets/img/icon-select-drop.svg");
-  background-repeat: no-repeat;
-  background-position: right 22px center;
-
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
-  appearance: none;
 }
 
 .calculation-form__input {
@@ -318,13 +302,8 @@
     font-size: 16px;
   }
 
-  .calculation-form__select-field,
   .calculation-form__input {
     padding-left: 14px;
-  }
-
-  .calculation-form__select-field {
-    background-position: right 13px center;
   }
 
   .calculation-form__step-field-area {
