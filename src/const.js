@@ -5,6 +5,11 @@ export const CREDIT_OPTIONS = [
 
 export const CREDIT_SELECT_PLACEHOLDER_TEXT = `Выберите цель кредита`;
 
+export const LoginField = {
+  LOGIN: `login-form-login`,
+  PASSWORD: `login-form-password`,
+};
+
 const MediaQuery = {
   MOBILE: `@media (max-width: 767px)`
 };
