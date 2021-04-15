@@ -17,6 +17,7 @@ const LoginPopup = (props) => {
 
   const [loginValue, setLoginValue] = useState(``);
   const [passwordValue, setPasswordValue] = useState(``);
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   const FieldMap = {
     [LoginField.LOGIN]: {value: loginValue, setter: setLoginValue},
@@ -25,6 +26,26 @@ const LoginPopup = (props) => {
 
   const onLoginChangeHandler = createFieldChangeHandler(LoginField.LOGIN, setLoginValue);
   const onPasswordChangeHandler = createFieldChangeHandler(LoginField.PASSWORD, setPasswordValue);
+
+  const onRevealPasswordMouseDown = () => {
+    setIsPasswordShown(true);
+  };
+
+  const onRevealPasswordMouseUp = () => {
+    setIsPasswordShown(false);
+  };
+
+  const onRevealPasswordKeyDown = () => {
+    setIsPasswordShown(true);
+  };
+
+  const onRevealPasswordKeyUp = () => {
+    setIsPasswordShown(false);
+  };
+
+  const onRevealPasswordBlur = () => {
+    setIsPasswordShown(false);
+  };
 
   const onCloseButtonClick = (evt) => {
     evt.preventDefault();
@@ -77,11 +98,20 @@ const LoginPopup = (props) => {
                 onChange={onPasswordChangeHandler}
                 value={passwordValue}
                 className="login-popup__input"
-                type="password"
+                type={`${isPasswordShown ? `text` : `password`}`}
                 name="login-form-password"
                 id="login-form-password"
               />
-              <button className="login-popup__reveal-password-button" type="button">
+              <button
+                onMouseDown={onRevealPasswordMouseDown}
+                onMouseUp={onRevealPasswordMouseUp}
+                onKeyDown={onRevealPasswordKeyDown}
+                onKeyUp={onRevealPasswordKeyUp}
+                onMouseLeave={onRevealPasswordBlur}
+                onBlur={onRevealPasswordBlur}
+                className="login-popup__reveal-password-button"
+                type="button"
+              >
                 <IconPasswordEyeClosed className="login-popup__reveal-password-icon" />
                 <span className="visually-hidden">Показать пароль</span>
               </button>
