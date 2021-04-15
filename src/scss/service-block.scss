@@ -210,8 +210,8 @@
   .service-block {
     position: relative;
     padding-top: 55px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: $mobile-paddings;
+    padding-right: $mobile-paddings;
 
     &--credit {
       padding-bottom: 85px;
