@@ -29,3 +29,5 @@ $tablet-paddings: ($tablet-offset / $tablet-width) * 100%;
 
 $mobile-max-width: 767px;
 $mobile-width: 320px;
+$mobile-offset: 15px;
+$mobile-paddings: ($mobile-offset / $mobile-width) * 100%;

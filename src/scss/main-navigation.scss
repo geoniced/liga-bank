@@ -102,8 +102,8 @@
     align-items: stretch;
 
     min-height: 48px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: $mobile-paddings;
+    padding-left: $mobile-paddings;
   }
 
   .main-navigation__menu-button {
@@ -113,6 +113,7 @@
 
   .main-navigation__top-menu-wrapper {
     min-height: 48px;
+    margin-right: 0;
   }
 
   .main-navigation__toggle-menu-wrapper {
