@@ -26,7 +26,11 @@ const PageHeader = (props) => {
           <Logo className="main-navigation__logo" />
 
           <div className="main-navigation__toggle-menu-wrapper">
-            <a href="#" className="main-navigation__login main-navigation__login--togglable login login--always-short">
+            <a
+              onClick={onLoginClick}
+              href="#"
+              className="main-navigation__login main-navigation__login--togglable login login--always-short"
+            >
               <IconLogin className="login__icon" />
               <span className="login__title">Войти в Интернет-банк</span>
             </a>

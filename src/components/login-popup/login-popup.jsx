@@ -1,8 +1,19 @@
+import PropTypes from "prop-types";
 import LogoLoginImg from "../../assets/img/logo-login.svg";
 import CloseButton from "../close-button/close-button";
 import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-password-eye-closed.svg";
+import {connect} from "react-redux";
+import {closeLoginPopup} from "../../store/actions";
 
-const LoginPopup = () => {
+const LoginPopup = (props) => {
+  const {closeLoginPopupAction} = props;
+
+  const onCloseButtonClick = (evt) => {
+    evt.preventDefault();
+
+    closeLoginPopupAction();
+  };
+
   return (
     <section className="login-popup basic-popup">
       <div className="login-popup__content-wrapper basic-popup__content-wrapper">
@@ -12,7 +23,10 @@ const LoginPopup = () => {
           <img className="login-popup__logo-image" src={LogoLoginImg} alt="Логотип сайта Лига Банк" width="150" height="27" />
         </a>
 
-        <CloseButton className="login-popup__close-button" />
+        <CloseButton
+          className="login-popup__close-button"
+          onCloseButtonClick={onCloseButtonClick}
+        />
 
         <form action="#" className="login-popup__form">
           <div className="login-popup__row-wrapper">
@@ -42,4 +56,14 @@ const LoginPopup = () => {
   );
 };
 
-export default LoginPopup;
+LoginPopup.propTypes = {
+  closeLoginPopupAction: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  closeLoginPopupAction() {
+    dispatch(closeLoginPopup());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(LoginPopup);
