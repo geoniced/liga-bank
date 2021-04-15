@@ -25,41 +25,6 @@
   display: flex;
 }
 
-.bank-departments__blip {
-  position: absolute;
-
-  &--moscow {
-    top: 247px;
-    left: 69px;
-  }
-
-  &--saratov {
-    top: 401px;
-    left: 249px;
-  }
-
-  &--kazan {
-    top: 247px;
-    left: 315px;
-  }
-
-  &--tyumen {
-    top: 195px;
-    left: 668px;
-  }
-
-  &--omsk {
-    top: 276px;
-    left: 836px;
-  }
-
-  &--surgut,
-  &--perm,
-  &--novosib {
-    display: none;
-  }
-}
-
 @media (min-width: $desktop-threshold) {
   .bank-departments {
     padding-right: 0;
@@ -79,35 +44,6 @@
 
     font-size: 32px;
   }
-
-  .bank-departments__blip {
-    &--moscow,
-    &--saratov,
-    &--kazan,
-    &--tyumen {
-      display: none;
-    }
-
-    &--omsk {
-      top: 291px;
-      left: 389px;
-    }
-
-    &--surgut,
-    &--perm {
-      display: block;
-    }
-
-    &--surgut {
-      top: 76px;
-      left: 389px;
-    }
-
-    &--perm {
-      top: 190px;
-      left: 71px;
-    }
-  }
 }
 
 @media (max-width: $mobile-max-width) {
@@ -118,45 +54,10 @@
 
   .bank-departments__title {
     margin-bottom: 27px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: $mobile-paddings;
+    padding-left: $mobile-paddings;
 
     font-size: 22px;
-  }
-
-  .bank-departments__map-wrapper {
-    width: 320px;
-    margin: 0 auto;
-  }
-
-  .bank-departments__map {
-    width: 320px;
-    height: 381px;
-  }
-
-  .bank-departments__blip {
-    width: 29px;
-    height: 33px;
-
-    &--perm {
-      display: none;
-    }
-
-    &--omsk {
-      top: 244px;
-      left: 82px;
-    }
-
-    &--surgut {
-      top: 62px;
-      left: 82px;
-    }
-
-    &--novosib {
-      display: block;
-      top: 244px;
-      left: 229px;
-    }
   }
 }
 

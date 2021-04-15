@@ -111,9 +111,9 @@
     flex-direction: column;
 
     padding-top: 30px;
-    padding-right: 15px;
+    padding-right: $mobile-paddings;
     padding-bottom: 49px;
-    padding-left: 15px;
+    padding-left: $mobile-paddings;
   }
 
   .page-footer__contacts-navigation {
