@@ -1,4 +1,4 @@
-.login-popup {
+.login-popup__content-wrapper {
   width: 544px;
   min-height: 493px;
   padding: 56px;
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: $tablet-max-width) {
-  .login-popup {
+  .login-popup__content-wrapper {
     width: 678px;
     padding-top: 55px;
     padding-right: 84px;
@@ -124,7 +124,7 @@
 }
 
 @media (max-width: $mobile-max-width) {
-  .login-popup {
+  .login-popup__content-wrapper {
     width: 290px;
     min-height: 455px;
     padding-top: 45px;

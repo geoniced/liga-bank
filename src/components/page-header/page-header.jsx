@@ -1,9 +1,19 @@
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import {ReactComponent as IconLogin} from "../../assets/img/icon-login.svg";
 import {ReactComponent as IconMenu} from "../../assets/img/icon-menu.svg";
 import {ReactComponent as IconTopMenuClose} from "../../assets/img/icon-top-menu-close.svg";
+import {openLoginPopup} from "../../store/actions";
 import Logo from "../logo/logo";
 
-const PageHeader = () => {
+const PageHeader = (props) => {
+  const {openLoginPopupAction} = props;
+
+  const onLoginClick = (evt) => {
+    evt.preventDefault();
+    openLoginPopupAction();
+  };
+
   return (
     <header className="page-header">
       <nav className="page-header__main-navigation main-navigation">{/*  main-navigation--opened */}
@@ -44,7 +54,11 @@ const PageHeader = () => {
             </li>
           </ul>
 
-          <a href="#" className="main-navigation__login login login--with-text">
+          <a
+            onClick={onLoginClick}
+            href="#"
+            className="main-navigation__login login login--with-text"
+          >
             <IconLogin className="login__icon" />
             <span className="login__title">Войти в Интернет-банк</span>
           </a>
@@ -55,4 +69,15 @@ const PageHeader = () => {
   );
 };
 
-export default PageHeader;
+PageHeader.propTypes = {
+  openLoginPopupAction: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  openLoginPopupAction() {
+    dispatch(openLoginPopup());
+  },
+});
+
+export {PageHeader};
+export default connect(null, mapDispatchToProps)(PageHeader);
