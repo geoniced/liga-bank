@@ -1,4 +1,4 @@
-import {createRef, useCallback, useState} from "react";
+import React, {createRef, useCallback, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import CloseButton from "../close-button/close-button";

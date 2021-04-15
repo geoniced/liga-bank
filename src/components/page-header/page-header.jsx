@@ -1,3 +1,4 @@
+import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {ReactComponent as IconLogin} from "../../assets/img/icon-login.svg";

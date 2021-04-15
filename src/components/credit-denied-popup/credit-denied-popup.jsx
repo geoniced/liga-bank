@@ -1,3 +1,5 @@
+import React from "react";
+
 const CreditDeniedPopup = () => {
   return (
     <section className="credit-denied-popup basic-popup">

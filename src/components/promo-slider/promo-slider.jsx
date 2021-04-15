@@ -1,3 +1,4 @@
+import React from "react";
 import SliderButtons from "../slider-buttons/slider-buttons";
 
 const PromoSlider = () => {

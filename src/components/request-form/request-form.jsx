@@ -1,3 +1,5 @@
+import React from "react";
+
 const RequestForm = () => {
   return (
     <section className="credit-calculator__request-form request-form">

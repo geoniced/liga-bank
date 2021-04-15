@@ -1,3 +1,4 @@
+import React from "react";
 import Select, {components} from "react-select";
 import {CREDIT_OPTIONS, CREDIT_SELECT_PLACEHOLDER_TEXT, SELECT_STYLES} from "../../const";
 import {ReactComponent as IconSelectDrop} from "../../assets/img/icon-select-drop.svg";

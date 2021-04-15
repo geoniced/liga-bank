@@ -1,3 +1,4 @@
+import React from "react";
 import departmentsMapImg from "../../assets/img/deps-map-with-blips.jpg";
 import departmentsMapImgTablet from "../../assets/img/deps-map-with-blips-tablet.jpg";
 import departmentsMapImgMobile from "../../assets/img/deps-map-with-blips-mobile.jpg";

@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import {ReactComponent as IconClose} from "../../assets/img/icon-close.svg";
 

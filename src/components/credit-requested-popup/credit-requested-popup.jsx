@@ -1,3 +1,4 @@
+import React from "react";
 import CloseButton from "../close-button/close-button";
 
 const CreditRequestedPopup = () => {

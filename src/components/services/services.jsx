@@ -1,3 +1,4 @@
+import React from "react";
 import piggyBankImg from "../../assets/img/piggybank.png";
 import piggyBankImgTablet from "../../assets/img/piggybank-tablet.png";
 import piggyBankImgMobile from "../../assets/img/piggybank-mobile.png";

@@ -1,3 +1,4 @@
+import React from "react";
 import {ReactComponent as IconSliderItem} from "../../assets/img/icon-slider-item.svg";
 
 const SliderButtons = (props) => {

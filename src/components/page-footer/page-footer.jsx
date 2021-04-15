@@ -1,3 +1,4 @@
+import React from "react";
 import Logo from "../logo/logo";
 import {ReactComponent as IconSmartPhone} from "../../assets/img/icon-smartphone.svg";
 import {ReactComponent as IconBasePhone} from "../../assets/img/icon-basephone.svg";
