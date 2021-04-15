@@ -38,8 +38,8 @@
   .credit-calculator {
     margin-bottom: 54px;
     padding-top: 54px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: $mobile-paddings;
+    padding-right: $mobile-paddings;
   }
 
   .credit-calculator__title {
