@@ -17,7 +17,7 @@ const PageHeader = (props) => {
 
   return (
     <header className="page-header">
-      <nav className="page-header__main-navigation main-navigation">{/*  main-navigation--opened */}
+      <nav className="page-header__main-navigation main-navigation container">{/*  main-navigation--opened */}
         <div className="main-navigation__top-menu-wrapper">
           <button className="main-navigation__menu-button" type="button">
             <IconMenu className="main-navigation__menu-icon" />

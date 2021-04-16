@@ -1,6 +1,4 @@
 .credit-calculator {
-  @include centered-layout;
-
   margin-bottom: 97px;
   padding-top: 97px;
 }
@@ -13,18 +11,9 @@
   line-height: 140%;
 }
 
-@media (min-width: $desktop-threshold) {
-  .credit-calculator {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
 @media (max-width: $tablet-max-width) {
   .credit-calculator {
     margin-bottom: 69px;
-    padding-left: $tablet-paddings;
-    padding-right: $tablet-paddings;
     padding-top: 69px;
   }
 
@@ -38,8 +27,6 @@
   .credit-calculator {
     margin-bottom: 54px;
     padding-top: 54px;
-    padding-left: $mobile-paddings;
-    padding-right: $mobile-paddings;
   }
 
   .credit-calculator__title {

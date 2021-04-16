@@ -1,7 +1,3 @@
-.bank-departments {
-  @include centered-layout;
-}
-
 .bank-departments__title {
   margin: 0;
   margin-bottom: 55px;
@@ -25,20 +21,7 @@
   display: flex;
 }
 
-@media (min-width: $desktop-threshold) {
-  .bank-departments {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
-
 @media (max-width: $tablet-max-width) {
-  .bank-departments {
-    padding-left: $tablet-paddings;
-    padding-right: $tablet-paddings;
-  }
-
   .bank-departments__title {
     margin-bottom: 34px;
 

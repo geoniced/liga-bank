@@ -10,7 +10,7 @@ import {ReactComponent as IconYoutube} from "../../assets/img/icon-yt.svg";
 const PageFooter = () => {
   return (
     <footer className="page-footer">
-      <div className="page-footer__wrapper">
+      <div className="page-footer__wrapper container">
         <div className="page-footer__contacts-navigation contacts-navigation">
           <Logo className="contacts-navigation__logo "/>
 
