@@ -3,6 +3,13 @@ export const CREDIT_OPTIONS = [
   {value: `auto`, label: `Автомобильное кредитование`}
 ];
 
+export const Tab = {
+  DEPOSITS: `DEPOSITS`,
+  CREDITS: `CREDITS`,
+  INSURANCE: `INSURANCE`,
+  ONLINE_SERVICES: `ONLINE_SERVICES`,
+};
+
 export const CREDIT_SELECT_PLACEHOLDER_TEXT = `Выберите цель кредита`;
 
 export const LoginField = {
