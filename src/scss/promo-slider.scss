@@ -15,21 +15,19 @@
   background-repeat: no-repeat;
   background-position: center;
 
+  text-align: initial;
+
   &--credit {
     background-color: $blue;
     background-image: url("../assets/img/main-banner-bg.png");
   }
 
   &--confidence {
-    // TODO: REMOVE DISPLAY: NONE WHEN I WILL MOVE TO REACT LOGIC DESCRIPTION
-    display: none;
     background-color: #DDE2EC;
     background-image: url("../assets/img/a-man-in-a-suit.png");
   }
 
   &--department {
-    // TODO: REMOVE DISPLAY: NONE WHEN I WILL MOVE TO REACT LOGIC DESCRIPTION
-    display: none;
     background-color: #E6F1FE;
     background-image: url("../assets/img/a-woman-with-a-card.png");
   }
@@ -78,10 +76,6 @@
     padding-left: 48px;
     padding-right: 49px;
   }
-}
-
-.promo-slider__buttons-list {
-  bottom: 36px;
 }
 
 @media (max-width: $tablet-max-width) {
@@ -135,10 +129,6 @@
       padding-left: 38px;
       padding-right: 38px;
     }
-  }
-
-  .promo-slider__buttons-list {
-    bottom: 11px;
   }
 }
 
@@ -202,9 +192,5 @@
       padding-bottom: 13px;
       padding-left: 37px;
     }
-  }
-
-  .promo-slider__buttons-list {
-    bottom: 7px;
   }
 }

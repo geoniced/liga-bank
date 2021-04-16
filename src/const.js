@@ -11,6 +11,7 @@ export const Tab = {
 };
 
 export const CREDIT_SELECT_PLACEHOLDER_TEXT = `Выберите цель кредита`;
+export const SLIDER_CHANGE_INTERVAL = 4000;
 
 export const LoginField = {
   LOGIN: `login-form-login`,

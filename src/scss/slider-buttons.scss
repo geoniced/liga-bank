@@ -1,4 +1,4 @@
-.slider-buttons {
+.slider-buttons .control-dots {
   @include list-reset;
 
   position: absolute;
@@ -6,8 +6,13 @@
 
   display: flex;
   align-items: flex-start;
+  width: auto;
 
   transform: translateX(-50%);
+}
+
+.slider-buttons--promo-slider .control-dots {
+  bottom: 36px;
 }
 
 .slider-buttons__item {
@@ -39,8 +44,17 @@
   fill: $light-gray;
 }
 
+@media (max-width: $tablet-max-width) {
+  .slider-buttons--promo-slider .control-dots {
+    bottom: 11px;
+  }
+}
 
 @media (max-width: $mobile-max-width) {
+  .slider-buttons--promo-slider .control-dots {
+    bottom: 7px;
+  }
+
   .slider-buttons__button {
     width: 6px;
     height: 6px;
