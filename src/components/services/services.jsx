@@ -59,7 +59,6 @@ const Services = () => {
     <section className="page-content__services services">
       <h2 className="visually-hidden">Услуги</h2>
 
-      {/* <!-- TODO: подумать о том переделать ли кнопки на ссылки --> */}
       <ul className="services__tabs tabs">
         {tabs.map((tab, i) => (
           <TabItem
