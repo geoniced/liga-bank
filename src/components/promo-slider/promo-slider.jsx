@@ -28,7 +28,7 @@ const PromoSlider = () => {
         <PromoSliderItem itemModifierClass="credit">
           <h2 className="promo-slider__title">Лига Банк</h2>
           <p className="promo-slider__description">Кредиты на любой случай</p>
-          <a href="#" className="promo-slider__promo-button button button--white">Рассчитать кредит</a>
+          <a href="#credit-calculator" className="promo-slider__promo-button button button--white">Рассчитать кредит</a>
         </PromoSliderItem>
         <PromoSliderItem itemModifierClass="confidence">
           <h2 className="promo-slider__title">Лига Банк</h2>
@@ -37,7 +37,7 @@ const PromoSlider = () => {
         <PromoSliderItem itemModifierClass="department">
           <h2 className="promo-slider__title">Лига Банк</h2>
           <p className="promo-slider__description">Всегда рядом</p>
-          <a href="#" className="promo-slider__promo-button promo-slider__promo-button--department button">Найти отделение</a>
+          <a href="#bank-departments" className="promo-slider__promo-button promo-slider__promo-button--department button">Найти отделение</a>
         </PromoSliderItem>
       </Carousel>
     </section>

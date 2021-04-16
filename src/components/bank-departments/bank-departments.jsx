@@ -6,7 +6,7 @@ import departmentsMapImgMobile from "../../assets/img/deps-map-with-blips-mobile
 const BankDepartments = () => {
   return (
     <section className="page-content__bank-departments bank-departments container">
-      <h2 className="bank-departments__title">Отделения Лига Банка</h2>
+      <h2 className="bank-departments__title" id="bank-departments">Отделения Лига Банка</h2>
 
       <div className="bank-departments__map-wrapper">
         <picture className="bank-departments__picture-container">
