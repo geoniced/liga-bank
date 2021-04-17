@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
-import {CreditStep} from "../../const";
+import {CreditStep, CREDIT_DEFAULT_COST} from "../../const";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 
@@ -11,6 +11,27 @@ const CalculationFormSecondStep = (props) => {
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
+
+  const [creditPropertyCost, setCreditPropertyCost] = useState(CREDIT_DEFAULT_COST);
+
+  const onPropertyCostChange = (evt) => {
+    const propertyCost = Number(evt.target.value);
+    setCreditPropertyCost(propertyCost);
+  };
+
+  const onOperationMinusClick = () => {
+    setCreditPropertyCost((prevState) => {
+      const newValue = prevState - creditInfo.cost.step;
+      return newValue < creditInfo.cost.min ? creditInfo.cost.min : newValue;
+    });
+  };
+
+  const onOperationPlusClick = () => {
+    setCreditPropertyCost((prevState) => {
+      const newValue = prevState + creditInfo.cost.step;
+      return newValue > creditInfo.cost.max ? creditInfo.cost.max : newValue;
+    });
+  };
 
   return (
     <fieldset className="calculation-form__step-field-area calculation-form__step-field-area--step-2">
@@ -27,12 +48,14 @@ const CalculationFormSecondStep = (props) => {
             min={creditInfo.cost.min}
             max={creditInfo.cost.max}
             step={creditInfo.cost.step}
+            onChange={onPropertyCostChange}
+            value={creditPropertyCost}
           />
-          <button className="calculation-form__operation-button calculation-form__operation-button--minus" type="button">
+          <button onClick={onOperationMinusClick} className="calculation-form__operation-button calculation-form__operation-button--minus" type="button">
             <IconMinus className="calculation-form__operation-minus"/>
             <span className="visually-hidden">Уменьшить</span>
           </button>
-          <button className="calculation-form__operation-button calculation-form__operation-button--plus" type="button">
+          <button onClick={onOperationPlusClick} className="calculation-form__operation-button calculation-form__operation-button--plus" type="button">
             <IconPlus className="calculation-form__operation-plus"/>
             <span className="visually-hidden">Увеличить</span>
           </button>

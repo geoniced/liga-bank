@@ -56,6 +56,8 @@ export const CreditStep = {
   },
 };
 
+export const CREDIT_DEFAULT_COST = 2000000;
+
 export const Tab = {
   DEPOSITS: `DEPOSITS`,
   CREDITS: `CREDITS`,
