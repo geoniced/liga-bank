@@ -10,11 +10,16 @@ const DropdownIndicator = (props) => (
   </components.DropdownIndicator>
 );
 
-const SelectField = () => {
+const SelectField = (props) => {
+  const {
+    onChange,
+  } = props;
+
   return (
     <Select
       className="select-field"
       classNamePrefix="select-field"
+      onChange={onChange}
       components={{DropdownIndicator}}
       styles={SELECT_STYLES}
       options={CREDIT_OPTIONS}
