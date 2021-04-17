@@ -11,6 +11,7 @@ const PromoSlider = () => {
   return (
     <section className="page-content__promo-slider promo-slider">
       <Carousel
+        className="promo-slider__list slider-buttons slider-buttons--promo-slider"
         interval={SLIDER_CHANGE_INTERVAL}
         showThumbs={false}
         showArrows={false}
@@ -26,7 +27,6 @@ const PromoSlider = () => {
             index={index}
           />
         )}
-        className="promo-slider__list slider-buttons slider-buttons--promo-slider"
       >
         <PromoCredit />
         <PromoConfidence />

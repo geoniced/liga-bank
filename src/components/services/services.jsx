@@ -1,15 +1,17 @@
 import React, {useState} from "react";
+import {Carousel} from "react-responsive-carousel";
 import {ReactComponent as IconVault} from "../../assets/img/icon-vault.svg";
 import {ReactComponent as IconCards} from "../../assets/img/icon-cards.svg";
 import {ReactComponent as IconSecurity} from "../../assets/img/icon-security.svg";
 import {ReactComponent as IconPhone} from "../../assets/img/icon-phone.svg";
-import SliderButtons from "../slider-buttons/slider-buttons";
 import DepositService from "../deposit-service/deposit-service";
 import CreditService from "../credit-service/credit-service";
 import InsuranceService from "../insurance-service/insurance-service";
 import OnlineService from "../online-service/online-service";
-import {Tab} from "../../const";
 import TabItem from "../tab-item/tab-item";
+import SliderButtonItem from "../slider-button-item/slider-button-item";
+import {Tab} from "../../const";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const TABS = {
   [Tab.DEPOSITS]: {
@@ -38,20 +40,30 @@ const TABS = {
   },
 };
 
-const getTabContentByTabType = (tabType) => {
-  const TabContent = TABS[tabType].component;
+const TABS_LIST = Object.values(TABS);
 
-  return <TabContent />;
-};
+const ServicesTabMap = {};
+TABS_LIST.forEach((tab, i) => {
+  ServicesTabMap[tab.type] = i;
+});
+
+// const getTabContentByTabType = (tabType) => {
+//   const TabContent = TABS[tabType].component;
+
+//   return <TabContent />;
+// };
 
 const Services = () => {
   const [currentTab, setCurrentTab] = useState(Tab.DEPOSITS);
 
-  const tabs = Object.values(TABS);
-
   const onTabClick = (evt) => {
     const tabType = evt.currentTarget.dataset.tabType;
 
+    setCurrentTab(tabType);
+  };
+
+  const onSlideChange = (index) => {
+    const tabType = TABS_LIST[index].type;
     setCurrentTab(tabType);
   };
 
@@ -60,7 +72,7 @@ const Services = () => {
       <h2 className="visually-hidden">Услуги</h2>
 
       <ul className="services__tabs tabs">
-        {tabs.map((tab, i) => (
+        {TABS_LIST.map((tab, i) => (
           <TabItem
             key={`service-tab-${i}`}
             type={tab.type}
@@ -70,15 +82,29 @@ const Services = () => {
             onTabClick={onTabClick}
           />
         ))}
-
       </ul>
 
-      <SliderButtons
-        className="services__buttons-list"
-        sliderItems={4}
-      />
-
-      {getTabContentByTabType(currentTab)}
+      <Carousel
+        className="services__buttons-list slider-buttons slider-buttons--services"
+        selectedItem={ServicesTabMap[currentTab]}
+        showThumbs={false}
+        showArrows={false}
+        showStatus={false}
+        stopOnHover={false}
+        autoPlay={false}
+        onChange={onSlideChange}
+        renderIndicator={(onClickHandler, isSelected, index) => (
+          <SliderButtonItem
+            onClickHandler={onClickHandler}
+            isSelected={isSelected}
+            index={index}
+          />
+        )}
+      >
+        {TABS_LIST.map((tab, i) => (
+          <tab.component key={`tab-content-${i}`}/>
+        ))}
+      </Carousel>
     </section>
   );
 };

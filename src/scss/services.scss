@@ -4,10 +4,6 @@
   padding-top: 60px;
 }
 
-.services__buttons-list {
-  display: none;
-}
-
 @media (min-width: $desktop-threshold) {
   .services {
     padding-right: 0;
@@ -22,12 +18,6 @@
     padding-top: 0;
     padding-right: 0;
     padding-left: 0;
-  }
-
-  .services__buttons-list {
-    bottom: 11px;
-
-    display: flex;
   }
 
   .services__buttons-list .slider-buttons__item--active .slider-buttons__icon {

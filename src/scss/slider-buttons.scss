@@ -15,6 +15,10 @@
   bottom: 36px;
 }
 
+.slider-buttons--services .control-dots {
+  display: none;
+}
+
 .slider-buttons__item {
   display: flex;
 }
@@ -47,6 +51,11 @@
 @media (max-width: $tablet-max-width) {
   .slider-buttons--promo-slider .control-dots {
     bottom: 11px;
+  }
+
+  .slider-buttons--services .control-dots {
+    bottom: 11px;
+    display: flex;
   }
 }
 
