@@ -1,7 +1,58 @@
+export const CreditGoal = {
+  MORTGAGE: `mortgage`,
+  AUTO: `auto`,
+};
+
 export const CREDIT_OPTIONS = [
-  {value: `mortgage`, label: `Ипотечное кредитование`},
-  {value: `auto`, label: `Автомобильное кредитование`}
+  {value: CreditGoal.MORTGAGE, label: `Ипотечное кредитование`},
+  {value: CreditGoal.AUTO, label: `Автомобильное кредитование`}
 ];
+
+export const CreditStep = {
+  [CreditGoal.MORTGAGE]: {
+    cost: {
+      min: 1200000,
+      max: 2500000,
+      step: 100000,
+    },
+    initialFee: {
+      min: 10,
+      step: 5,
+    },
+    credit: {
+      min: 500000,
+      minYears: 5,
+      maxYears: 30,
+      step: 1,
+    },
+    factors: [
+      {title: `Использовать материнский капитал`, name: `use-maternal-capital`}
+    ],
+    creditName: `Стоимость недвижимости`,
+  },
+  [CreditGoal.AUTO]: {
+    cost: {
+      min: 500000,
+      max: 5000000,
+      step: 50000,
+    },
+    initialFee: {
+      min: 20,
+      step: 5,
+    },
+    credit: {
+      min: 200000,
+      minYears: 1,
+      maxYears: 5,
+      step: 1,
+    },
+    factors: [
+      {title: `Оформить КАСКО в нашем банке`, name: `take-casco`},
+      {title: `Оформить Страхование жизни в нашем банке`, name: `take-life-insurance`}
+    ],
+    creditName: `Стоимость автомобиля`,
+  },
+};
 
 export const Tab = {
   DEPOSITS: `DEPOSITS`,

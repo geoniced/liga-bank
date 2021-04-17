@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Select, {components} from "react-select";
 import {CREDIT_OPTIONS, CREDIT_SELECT_PLACEHOLDER_TEXT, SELECT_STYLES} from "../../const";
 import {ReactComponent as IconSelectDrop} from "../../assets/img/icon-select-drop.svg";
@@ -26,6 +27,10 @@ const SelectField = (props) => {
       placeholder={CREDIT_SELECT_PLACEHOLDER_TEXT}
     />
   );
+};
+
+SelectField.propTypes = {
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SelectField;

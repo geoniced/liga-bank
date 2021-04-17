@@ -4,11 +4,6 @@ import CalculationFormOffers from "../calculation-form-offers/calculation-form-o
 import CalculationFormSecondStep from "../calculation-form-second-step/calculation-form-second-step";
 import SelectField from "../select-field/select-field";
 
-const CreditGoal = {
-  MORTGAGE: `mortgage`,
-  AUTO: `auto`,
-};
-
 const CalculationForm = () => {
   const [creditGoalValue, setCreditGoalValue] = useState(null);
 
@@ -28,7 +23,7 @@ const CalculationForm = () => {
           </div>
         </fieldset>
 
-        {creditGoalValue && <CalculationFormSecondStep />}
+        {creditGoalValue && <CalculationFormSecondStep creditGoal={creditGoalValue} />}
       </div>
 
       {creditGoalValue && <CalculationFormOffers />}
