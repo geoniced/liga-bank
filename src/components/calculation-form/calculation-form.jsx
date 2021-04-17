@@ -26,7 +26,7 @@ const CalculationForm = () => {
         {creditGoalValue && <CalculationFormSecondStep creditGoal={creditGoalValue} />}
       </div>
 
-      {creditGoalValue && <CalculationFormOffers />}
+      {creditGoalValue && <CalculationFormOffers creditGoal={creditGoalValue}/>}
     </form>
   );
 };
