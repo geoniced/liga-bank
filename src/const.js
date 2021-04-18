@@ -12,7 +12,7 @@ export const CreditStep = {
   [CreditGoal.MORTGAGE]: {
     cost: {
       min: 1200000,
-      max: 2500000,
+      max: 25000000,
       step: 100000,
     },
     initialFee: {

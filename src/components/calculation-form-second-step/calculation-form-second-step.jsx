@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
 import {CreditStep, CREDIT_DEFAULT_COST} from "../../const";
-import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
-import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
+import NumericField from "../numeric-field/numeric-field";
+import {formatDecimal, formatDecimalWithRubles} from "../../utils";
 
 const CalculationFormSecondStep = (props) => {
   const {
@@ -39,29 +39,17 @@ const CalculationFormSecondStep = (props) => {
 
       <div className="calculation-form__input-field-row">
         <label htmlFor="calculation-form-property-cost" className="calculation-form__label">{creditInfo.creditName}</label>
-        <div className="calculation-form__input-with-operations">
-          <input
-            className="calculation-form__input calculation-form__input--number"
-            type="number"
-            name="calculation-form-property-cost"
-            id="calculation-form-property-cost"
-            min={creditInfo.cost.min}
-            max={creditInfo.cost.max}
-            step={creditInfo.cost.step}
-            onChange={onPropertyCostChange}
-            value={creditPropertyCost}
-          />
-          <button onClick={onOperationMinusClick} className="calculation-form__operation-button calculation-form__operation-button--minus" type="button">
-            <IconMinus className="calculation-form__operation-minus"/>
-            <span className="visually-hidden">Уменьшить</span>
-          </button>
-          <button onClick={onOperationPlusClick} className="calculation-form__operation-button calculation-form__operation-button--plus" type="button">
-            <IconPlus className="calculation-form__operation-plus"/>
-            <span className="visually-hidden">Увеличить</span>
-          </button>
-        </div>
-
-        <p className="calculation-form__field-description">От {creditInfo.cost.min} ​​&nbsp;до {creditInfo.cost.max} рублей</p>
+        <NumericField
+          min={creditInfo.cost.min}
+          max={creditInfo.cost.max}
+          step={creditInfo.cost.step}
+          onChange={onPropertyCostChange}
+          onOperationMinusClick={onOperationMinusClick}
+          onOperationPlusClick={onOperationPlusClick}
+          convertCallback={formatDecimalWithRubles}
+          value={creditPropertyCost}
+        />
+        <p className="calculation-form__field-description">От {formatDecimal(creditInfo.cost.min)} ​​&nbsp;до {formatDecimal(creditInfo.cost.max)} рублей</p>
       </div>
 
       <div className="calculation-form__input-field-row">
@@ -75,7 +63,7 @@ const CalculationFormSecondStep = (props) => {
           scaleValues={[100]}
         />
         <div className="calculation-form__range-description">
-          <span className="calculation-form__range-value">{creditInfo.initialFee.min}</span>
+          <span className="calculation-form__range-value">{creditInfo.initialFee.min}%</span>
         </div>
       </div>
 

@@ -10,3 +10,19 @@ export const createFieldChangeHandler = (fieldName, setter) => {
     setter(value);
   };
 };
+
+export const formatDecimal = (value) => {
+  const formatter = new Intl.NumberFormat(`ru-RU`, {
+    style: `decimal`,
+  });
+
+  return formatter.format(value);
+};
+
+export const formatDecimalWithRubles = (value) => {
+  return `${formatDecimal(value)} рублей`;
+};
+
+export const formatDecimalWithYears = (value) => {
+  return `${value} лет`;
+};
