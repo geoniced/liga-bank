@@ -6,6 +6,7 @@ import NumericField from "../numeric-field/numeric-field";
 import {calculatePercentMaxed, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
+import {useStateResetOnPropChange} from "../../hooks/use-state-reset-to-defaults/use-state-reset-to-defaults";
 
 const CalculationFormSecondStep = (props) => {
   const {
@@ -57,6 +58,14 @@ const CalculationFormSecondStep = (props) => {
       return newValue > creditInfo.cost.max ? creditInfo.cost.max : newValue;
     });
   };
+
+  const stateSettersToDefaultList = [
+    {setter: setCreditPropertyCost, defaultValue: creditInfo.defaults.propertyCost},
+    {setter: setInitialFee, defaultValue: creditInfo.defaults.initialFee},
+    {setter: setCreditPeriod, defaultValue: creditInfo.defaults.period},
+  ];
+
+  useStateResetOnPropChange(creditGoal, stateSettersToDefaultList);
 
   return (
     <fieldset className="calculation-form__step-field-area calculation-form__step-field-area--step-2">
