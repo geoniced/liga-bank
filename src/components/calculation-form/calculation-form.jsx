@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, {useState} from "react";
 import CalculationFormOffers from "../calculation-form-offers/calculation-form-offers";
 import CalculationFormSecondStep from "../calculation-form-second-step/calculation-form-second-step";

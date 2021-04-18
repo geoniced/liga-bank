@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import PropTypes from "prop-types";
 import {Range} from "react-range";
@@ -12,8 +11,6 @@ const CalculationFormRange = (props) => {
     values,
     onChange,
   } = props;
-
-  console.log(values);
 
   return (
     <Range
