@@ -95,8 +95,8 @@
   margin-bottom: 17px;
 }
 
-.calculation-form__input--number::-webkit-outer-spin-button,
-.calculation-form__input--number::-webkit-inner-spin-button {
+.calculation-form__input::-webkit-outer-spin-button,
+.calculation-form__input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

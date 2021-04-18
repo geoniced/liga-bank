@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const NumericField = (props) => {
   const {
     name,
+    className,
     min,
     max,
     step,
@@ -22,7 +23,7 @@ const NumericField = (props) => {
     <>
       {isEditing ? (
         <input
-          className="calculation-form__input calculation-form__input--number"
+          className={`calculation-form__input ${className}`}
           type="number"
           name={name}
           id={name}
@@ -35,7 +36,7 @@ const NumericField = (props) => {
         />
       ) : (
         <input
-          className="calculation-form__input calculation-form__input--number"
+          className={`calculation-form__input ${className}`}
           type="text"
           name={name}
           id={name}
@@ -46,6 +47,10 @@ const NumericField = (props) => {
       )}
     </>
   );
+};
+
+NumericField.defaultProps = {
+  className: `calculation-form__input--number`,
 };
 
 NumericField.propTypes = {

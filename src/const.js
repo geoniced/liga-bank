@@ -29,7 +29,12 @@ export const CreditStep = {
       {title: `Использовать материнский капитал`, name: `use-maternal-capital`}
     ],
     creditName: `Стоимость недвижимости`,
-    creditSumTitle: `Сумма ипотеки`
+    creditSumTitle: `Сумма ипотеки`,
+    defaults: {
+      propertyCost: 2000000,
+      initialFee: 200000,
+      period: 5,
+    },
   },
   [CreditGoal.AUTO]: {
     cost: {
@@ -52,11 +57,14 @@ export const CreditStep = {
       {title: `Оформить Страхование жизни в нашем банке`, name: `take-life-insurance`}
     ],
     creditName: `Стоимость автомобиля`,
-    creditSumTitle: `Сумма кредита`
+    creditSumTitle: `Сумма кредита`,
+    defaults: {
+      propertyCost: 2000000,
+      initialFee: 200000,
+      period: 5,
+    },
   },
 };
-
-export const CREDIT_DEFAULT_COST = 2000000;
 
 export const Tab = {
   DEPOSITS: `DEPOSITS`,

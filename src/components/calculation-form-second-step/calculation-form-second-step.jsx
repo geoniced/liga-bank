@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
-import {CreditStep, CREDIT_DEFAULT_COST} from "../../const";
+import {CreditStep} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
-import {formatDecimal, formatDecimalWithRubles} from "../../utils";
+import {formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 
@@ -14,11 +14,23 @@ const CalculationFormSecondStep = (props) => {
 
   const creditInfo = CreditStep[creditGoal];
 
-  const [creditPropertyCost, setCreditPropertyCost] = useState(CREDIT_DEFAULT_COST);
+  const [creditPropertyCost, setCreditPropertyCost] = useState(creditInfo.defaults.propertyCost);
+  const [initialFee, setInitialFee] = useState(creditInfo.defaults.initialFee);
+  const [creditPeriod, setCreditPeriod] = useState(creditInfo.defaults.period);
 
   const onPropertyCostChange = (evt) => {
     const propertyCost = Number(evt.target.value);
     setCreditPropertyCost(propertyCost);
+  };
+
+  const onInitialFeeChange = (evt) => {
+    const newInitialFee = Number(evt.target.value);
+    setInitialFee(newInitialFee);
+  };
+
+  const onCreditPeriodChange = (evt) => {
+    const newCreditPeriod = Number(evt.target.value);
+    setCreditPeriod(newCreditPeriod);
   };
 
   const onOperationMinusClick = () => {
@@ -47,8 +59,8 @@ const CalculationFormSecondStep = (props) => {
             min={creditInfo.cost.min}
             max={creditInfo.cost.max}
             step={creditInfo.cost.step}
-            onChange={onPropertyCostChange}
             convertCallback={formatDecimalWithRubles}
+            onChange={onPropertyCostChange}
             value={creditPropertyCost}
           />
 
@@ -66,8 +78,17 @@ const CalculationFormSecondStep = (props) => {
 
       <div className="calculation-form__input-field-row">
         <label htmlFor="calculation-form-initial-fee" className="calculation-form__label">Первоначальный взнос</label>
-        {/* Maybe an output tag... */}
-        <input className="calculation-form__input calculation-form__input--range" type="text" name="calculation-form-initial-fee" id="calculation-form-initial-fee" />
+
+        <NumericField
+          name="calculation-form-initial-fee"
+          className="calculation-form__input--range"
+          min={creditInfo.initialFee.min}
+          max={100}
+          step={creditInfo.initialFee.step}
+          convertCallback={formatDecimalWithRubles}
+          onChange={onInitialFeeChange}
+          value={initialFee}
+        />
         <CalculationFormRange
           step={creditInfo.initialFee.step}
           min={creditInfo.initialFee.min}
@@ -81,8 +102,17 @@ const CalculationFormSecondStep = (props) => {
 
       <div className="calculation-form__input-field-row">
         <label htmlFor="calculation-form-credit-time" className="calculation-form__label">Срок кредитования</label>
-        <input className="calculation-form__input calculation-form__input--range" type="text" name="calculation-form-credit-time" id="calculation-form-credit-time" />
-        {/* <input className="calculation-form__range" type="range" name="calculation-form-credit-time-range" id="calculation-form-credit-time-range" step="1" min="5" max="30" /> */}
+        <NumericField
+          name="calculation-form-credit-time"
+          className="calculation-form__input--range"
+          min={creditInfo.credit.minYears}
+          max={creditInfo.credit.maxYears}
+          step={creditInfo.credit.step}
+          convertCallback={formatDecimalWithYears}
+          onChange={onCreditPeriodChange}
+          value={creditPeriod}
+        />
+
         <CalculationFormRange
           step={creditInfo.credit.step}
           min={creditInfo.credit.minYears}
