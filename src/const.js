@@ -59,7 +59,7 @@ export const CreditStep = {
       {title: `Оформить Страхование жизни в нашем банке`, name: `take-life-insurance`}
     ],
     creditName: `Стоимость автомобиля`,
-    creditSumTitle: `Сумма кредита`,
+    creditSumTitle: `Сумма автокредита`,
     defaults: {
       propertyCost: 2000000,
       initialFee: 400000,
