@@ -83,7 +83,6 @@ const CalculationFormSecondStep = (props) => {
           name="calculation-form-initial-fee"
           className="calculation-form__input--range"
           min={creditPropertyCost * (creditInfo.initialFee.min / 100)}
-          max={creditPropertyCost}
           step={creditPropertyCost * (creditInfo.initialFee.step / 100)}
           convertCallback={formatDecimalWithRubles}
           onChange={onInitialFeeChange}

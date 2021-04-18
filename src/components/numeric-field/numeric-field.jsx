@@ -54,7 +54,14 @@ NumericField.defaultProps = {
 };
 
 NumericField.propTypes = {
+  name: PropTypes.string.isRequired,
   className: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
+  convertCallback: PropTypes.func.isRequired,
 };
 
 export default NumericField;
