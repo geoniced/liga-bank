@@ -60,10 +60,21 @@ export const CreditStep = {
     creditSumTitle: `Сумма кредита`,
     defaults: {
       propertyCost: 2000000,
-      initialFee: 200000,
-      period: 5,
+      initialFee: 400000,
+      period: 1,
     },
   },
+};
+
+export const YearPostfix = {
+  SINGULAR: `год`,
+  LESS_FIVE: `года`,
+  PLURAL: `лет`,
+};
+
+export const YearWordChangeLimits = {
+  SINGULAR: 1,
+  LESS_FIVE: 5,
 };
 
 export const Tab = {

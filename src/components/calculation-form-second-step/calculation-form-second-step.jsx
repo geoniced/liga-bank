@@ -120,8 +120,8 @@ const CalculationFormSecondStep = (props) => {
           scaleValues={[(creditInfo.credit.maxYears - creditInfo.credit.minYears) / creditInfo.credit.step]}
         />
         <div className="calculation-form__range-description">
-          <span className="calculation-form__range-value">{creditInfo.credit.minYears} лет</span>
-          <span className="calculation-form__range-value">{creditInfo.credit.maxYears} лет</span>
+          <span className="calculation-form__range-value">{formatDecimalWithYears(creditInfo.credit.minYears)}</span>
+          <span className="calculation-form__range-value">{formatDecimalWithYears(creditInfo.credit.maxYears)}</span>
         </div>
       </div>
 

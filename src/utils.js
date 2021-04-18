@@ -1,3 +1,5 @@
+import {YearPostfix, YearWordChangeLimits} from "./const";
+
 export const extend = (a, b) => Object.assign({}, a, b);
 
 export const isEscKeyPressed = (evt) => (evt.key === `Escape` || evt.key === `Esc`);
@@ -24,5 +26,12 @@ export const formatDecimalWithRubles = (value) => {
 };
 
 export const formatDecimalWithYears = (value) => {
-  return `${value} лет`;
+  let yearPostfix = YearPostfix.PLURAL;
+  if (value === YearWordChangeLimits.SINGULAR) {
+    yearPostfix = YearPostfix.SINGULAR;
+  } else if (value > YearWordChangeLimits.SINGULAR && value < YearWordChangeLimits.LESS_FIVE) {
+    yearPostfix = YearPostfix.LESS_FIVE;
+  }
+
+  return `${value} ${yearPostfix}`;
 };
