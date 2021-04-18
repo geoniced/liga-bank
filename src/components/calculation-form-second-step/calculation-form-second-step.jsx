@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
 import {CreditStep} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
-import {formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
+import {calculatePercentMaxed, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 
@@ -18,6 +18,8 @@ const CalculationFormSecondStep = (props) => {
   const [initialFee, setInitialFee] = useState(creditInfo.defaults.initialFee);
   const [creditPeriod, setCreditPeriod] = useState(creditInfo.defaults.period);
 
+  const initialFeePercent = calculatePercentMaxed(initialFee, creditPropertyCost, creditInfo.initialFee.rangeMax);
+
   const onPropertyCostChange = (evt) => {
     const propertyCost = Number(evt.target.value);
     setCreditPropertyCost(propertyCost);
@@ -28,9 +30,18 @@ const CalculationFormSecondStep = (props) => {
     setInitialFee(newInitialFee);
   };
 
+  const onInitialFeeRangeChange = ([percentValue]) => {
+    const initialFeeValue = creditPropertyCost * (percentValue / 100);
+    setInitialFee(initialFeeValue);
+  };
+
   const onCreditPeriodChange = (evt) => {
     const newCreditPeriod = Number(evt.target.value);
     setCreditPeriod(newCreditPeriod);
+  };
+
+  const onCreditPeriodRangeChange = ([newValue]) => {
+    setCreditPeriod(newValue);
   };
 
   const onOperationMinusClick = () => {
@@ -89,10 +100,11 @@ const CalculationFormSecondStep = (props) => {
           value={initialFee}
         />
         <CalculationFormRange
+          onChange={onInitialFeeRangeChange}
           step={creditInfo.initialFee.step}
           min={creditInfo.initialFee.min}
-          max={100}
-          scaleValues={[100]}
+          max={creditInfo.initialFee.rangeMax}
+          values={[initialFeePercent]}
         />
         <div className="calculation-form__range-description">
           <span className="calculation-form__range-value">{creditInfo.initialFee.min}%</span>
@@ -116,7 +128,8 @@ const CalculationFormSecondStep = (props) => {
           step={creditInfo.credit.step}
           min={creditInfo.credit.minYears}
           max={creditInfo.credit.maxYears}
-          scaleValues={[(creditInfo.credit.maxYears - creditInfo.credit.minYears) / creditInfo.credit.step]}
+          onChange={onCreditPeriodRangeChange}
+          values={[creditPeriod]}
         />
         <div className="calculation-form__range-description">
           <span className="calculation-form__range-value">{formatDecimalWithYears(creditInfo.credit.minYears)}</span>

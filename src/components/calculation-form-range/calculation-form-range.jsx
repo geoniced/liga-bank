@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+/* eslint-disable no-console */
+import React from "react";
 import PropTypes from "prop-types";
 import {Range} from "react-range";
 import {ReactComponent as IconRangeThumb} from "../../assets/img/icon-range-thumb.svg";
@@ -8,9 +9,11 @@ const CalculationFormRange = (props) => {
     step,
     min,
     max,
-    scaleValues,
+    values,
+    onChange,
   } = props;
-  const [values, setValues] = useState(scaleValues);
+
+  console.log(values);
 
   return (
     <Range
@@ -18,7 +21,7 @@ const CalculationFormRange = (props) => {
       min={min}
       max={max}
       values={values}
-      onChange={(newValues) => setValues(newValues)}
+      onChange={onChange}
       renderTrack={({props: trackProps, children}) => (
         <div
           {...trackProps}
@@ -41,7 +44,7 @@ CalculationFormRange.propTypes = {
   step: PropTypes.number.isRequired,
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
-  scaleValues: PropTypes.arrayOf(PropTypes.number).isRequired,
+  values: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
 
 export default CalculationFormRange;

@@ -17,6 +17,7 @@ export const CreditStep = {
     },
     initialFee: {
       min: 10,
+      rangeMax: 100,
       step: 5,
     },
     credit: {
@@ -44,6 +45,7 @@ export const CreditStep = {
     },
     initialFee: {
       min: 20,
+      rangeMax: 100,
       step: 5,
     },
     credit: {
