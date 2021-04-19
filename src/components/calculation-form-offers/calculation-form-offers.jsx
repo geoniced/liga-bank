@@ -2,15 +2,25 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {CreditGoal, CreditStep} from "../../const";
-import {getCreditGoal, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
 import CreditDeniedPopup from "../credit-denied-popup/credit-denied-popup";
 import {formatDecimalWithRubles} from "../../utils";
+
+const calculateAnnualPayment = (creditCost, rate, years) => {
+  const ratePerYear = (rate / 100) / 12;
+  const months = years * 12;
+
+  const annualPayment = creditCost * (ratePerYear + (ratePerYear / (Math.pow(1 + ratePerYear, months) - 1)));
+
+  return annualPayment;
+};
 
 const CalculationFormOffers = (props) => {
   const {
     creditGoal,
     creditPropertyCost,
     initialFee,
+    creditPeriod,
     useMaternityCapital,
   } = props;
 
@@ -19,12 +29,12 @@ const CalculationFormOffers = (props) => {
   const creditPercentData = creditInfo.creditPercent;
 
   let creditCost = creditPropertyCost - initialFee;
-  let creditPercent;
+  let creditRate;
 
   if (creditGoal === CreditGoal.MORTGAGE) {
-    creditPercent = initialFeePercent >= creditPercentData.feePercentThreshold
+    creditRate = initialFeePercent >= creditPercentData.feePercentThreshold
       ? creditPercentData.valueWhenMore
-      : creditPercentData.valueWhenMore;
+      : creditPercentData.valueWhenLess;
 
     if (useMaternityCapital) {
       creditCost -= creditInfo.factors[0].costDown;
@@ -35,6 +45,8 @@ const CalculationFormOffers = (props) => {
   if (creditCost < creditInfo.credit.min) {
     return (<CreditDeniedPopup />);
   }
+
+  const annualPayment = Math.round(calculateAnnualPayment(creditCost, creditRate, creditPeriod));
 
   return (
     <div className="calculation-form__result">
@@ -47,11 +59,11 @@ const CalculationFormOffers = (props) => {
         </div>
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">Процентная ставка</dt>
-          <dd className="calculation-form__offer-value">{creditPercent}%</dd>
+          <dd className="calculation-form__offer-value">{creditRate}%</dd>
         </div>
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">Ежемесячный платеж</dt>
-          <dd className="calculation-form__offer-value">27 868 рублей</dd>
+          <dd className="calculation-form__offer-value">{formatDecimalWithRubles(annualPayment)}</dd>
         </div>
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">Необходимый доход</dt>
@@ -72,6 +84,7 @@ const mapStateToProps = (state) => ({
   creditGoal: getCreditGoal(state),
   creditPropertyCost: getCreditPropertyCost(state),
   initialFee: getInitialFee(state),
+  creditPeriod: getCreditPeriod(state),
   useMaternityCapital: getUseMaternityCapital(state),
 });
 
