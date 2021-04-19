@@ -25,7 +25,7 @@ const CalculationForm = (props) => {
           </div>
         </fieldset>
 
-        {creditGoal && <CalculationFormSecondStep creditGoal={creditGoal} />}
+        {creditGoal && <CalculationFormSecondStep />}
       </div>
 
       {creditGoal && <CalculationFormOffers creditGoal={creditGoal}/>}

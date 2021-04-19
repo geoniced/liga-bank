@@ -7,7 +7,7 @@ import NumericField from "../numeric-field/numeric-field";
 import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
-import {getCreditPeriod, getCreditPropertyCost, getInitialFee} from "../../store/selectors";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee} from "../../store/selectors";
 import {
   setCreditPeriod as setCreditPeriodAction,
   setCreditPropertyCost as setCreditPropertyCostAction,
@@ -168,9 +168,16 @@ const CalculationFormSecondStep = (props) => {
 
 CalculationFormSecondStep.propTypes = {
   creditGoal: PropTypes.string.isRequired,
+  creditPropertyCost: PropTypes.number.isRequired,
+  initialFee: PropTypes.number.isRequired,
+  creditPeriod: PropTypes.number.isRequired,
+  setCreditPropertyCost: PropTypes.func.isRequired,
+  setInitialFee: PropTypes.func.isRequired,
+  setCreditPeriod: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  creditGoal: getCreditGoal(state),
   creditPropertyCost: getCreditPropertyCost(state),
   initialFee: getInitialFee(state),
   creditPeriod: getCreditPeriod(state),
