@@ -15,11 +15,19 @@ const CalculationFormOffers = (props) => {
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
+  const initialFeePercent = initialFee / creditPropertyCost * 100;
 
   let creditCost = creditPropertyCost - initialFee;
-  if (creditGoal === CreditGoal.MORTGAGE && useMaternityCapital) {
-    creditCost -= creditInfo.factors[0].costDown;
+  let creditPercent;
+
+  if (creditGoal === CreditGoal.MORTGAGE) {
+    creditPercent = initialFeePercent >= 15 ? 8.5 : 9.4;
+
+    if (useMaternityCapital) {
+      creditCost -= creditInfo.factors[0].costDown;
+    }
   }
+
 
   if (creditCost < creditInfo.credit.min) {
     return (<CreditDeniedPopup />);
@@ -36,7 +44,7 @@ const CalculationFormOffers = (props) => {
         </div>
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">Процентная ставка</dt>
-          <dd className="calculation-form__offer-value">9,40%</dd>
+          <dd className="calculation-form__offer-value">{creditPercent}%</dd>
         </div>
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">Ежемесячный платеж</dt>
