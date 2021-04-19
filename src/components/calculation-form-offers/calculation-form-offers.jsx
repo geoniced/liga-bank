@@ -118,6 +118,13 @@ const CalculationFormOffers = (props) => {
 
 CalculationFormOffers.propTypes = {
   creditGoal: PropTypes.string.isRequired,
+  creditPropertyCost: PropTypes.number.isRequired,
+  initialFee: PropTypes.number.isRequired,
+  creditPeriod: PropTypes.number.isRequired,
+  useMaternityCapital: PropTypes.bool,
+  useCasco: PropTypes.bool,
+  useLifeInsurance: PropTypes.bool,
+  openRequestFormAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

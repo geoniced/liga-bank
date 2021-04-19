@@ -205,13 +205,19 @@ const CalculationFormSecondStep = (props) => {
 };
 
 CalculationFormSecondStep.propTypes = {
-  creditGoal: PropTypes.string.isRequired,
+  creditGoal: PropTypes.string,
   creditPropertyCost: PropTypes.number.isRequired,
   initialFee: PropTypes.number.isRequired,
   creditPeriod: PropTypes.number.isRequired,
+  useMaternityCapital: PropTypes.bool,
+  useCasco: PropTypes.bool,
+  useLifeInsurance: PropTypes.bool,
   setCreditPropertyCost: PropTypes.func.isRequired,
   setInitialFee: PropTypes.func.isRequired,
   setCreditPeriod: PropTypes.func.isRequired,
+  setUseMaternityCapital: PropTypes.func,
+  setUseCasco: PropTypes.func,
+  setUseLifeInsurance: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

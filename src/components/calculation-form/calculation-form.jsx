@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {setCreditGoal, setDefaultValues} from "../../store/actions";
 import {getCreditGoal} from "../../store/selectors";
@@ -32,6 +33,12 @@ const CalculationForm = (props) => {
     </form>
   );
 };
+
+CalculationForm.propTypes = {
+  creditGoal: PropTypes.string,
+  setCreditGoalAction: PropTypes.func.isRequired,
+};
+
 
 const mapStateToProps = (state) => ({
   creditGoal: getCreditGoal(state),
