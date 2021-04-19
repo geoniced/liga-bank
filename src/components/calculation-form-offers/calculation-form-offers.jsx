@@ -5,6 +5,7 @@ import {CreditGoal, CreditStep, INCOME_THRESHOLD_PERCENT} from "../../const";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseCasco, getUseLifeInsurance, getUseMaternityCapital} from "../../store/selectors";
 import CreditDeniedPopup from "../credit-denied-popup/credit-denied-popup";
 import {formatDecimalWithRubles} from "../../utils";
+import {openRequestForm} from "../../store/actions";
 
 const calculateMonthlyPayment = (creditCost, rate, years) => {
   const ratePerYear = (rate / 100) / 12;
@@ -28,6 +29,7 @@ const CalculationFormOffers = (props) => {
     useMaternityCapital,
     useCasco,
     useLifeInsurance,
+    openRequestFormAction,
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
@@ -74,6 +76,12 @@ const CalculationFormOffers = (props) => {
   const monthlyPayment = Math.round(calculateMonthlyPayment(creditCost, creditRate, creditPeriod));
   const requiredIncome = Math.round(calculateRequiredIncome(monthlyPayment));
 
+  const onRequestButtonClick = (evt) => {
+    evt.preventDefault();
+
+    openRequestFormAction();
+  };
+
   return (
     <div className="calculation-form__result">
       <h3 className="calculation-form__result-title">Наше предложение</h3>
@@ -97,7 +105,13 @@ const CalculationFormOffers = (props) => {
         </div>
       </dl>
 
-      <a href="#" className="calculation-form__request-button button">Оформить заявку</a>
+      <a
+        onClick={onRequestButtonClick}
+        href="#"
+        className="calculation-form__request-button button"
+      >
+        Оформить заявку
+      </a>
     </div>
   );
 };
@@ -116,4 +130,10 @@ const mapStateToProps = (state) => ({
   useLifeInsurance: getUseLifeInsurance(state),
 });
 
-export default connect(mapStateToProps)(CalculationFormOffers);
+const mapDispatchToProps = (dispatch) => ({
+  openRequestFormAction() {
+    dispatch(openRequestForm());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CalculationFormOffers);

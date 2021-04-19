@@ -1,6 +1,8 @@
 export const ActionType = {
   OPEN_LOGIN_POPUP: `OPEN_LOGIN_POPUP`,
   CLOSE_LOGIN_POPUP: `CLOSE_LOGIN_POPUP`,
+  OPEN_REQUEST_FORM: `OPEN_REQUEST_FORM`,
+  CLOSE_REQUEST_FORM: `CLOSE_REQUEST_FORM`,
   SET_CREDIT_GOAL: `SET_CREDIT_GOAL`,
   SET_CREDIT_PROPERTY_COST: `SET_CREDIT_PROPERTY_COST`,
   SET_INITIAL_FEE: `SET_INITIAL_FEE`,
@@ -17,6 +19,14 @@ export const openLoginPopup = () => ({
 
 export const closeLoginPopup = () => ({
   type: ActionType.CLOSE_LOGIN_POPUP,
+});
+
+export const openRequestForm = () => ({
+  type: ActionType.OPEN_REQUEST_FORM,
+});
+
+export const closeRequestForm = () => ({
+  type: ActionType.CLOSE_REQUEST_FORM,
 });
 
 

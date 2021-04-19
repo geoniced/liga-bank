@@ -16,6 +16,15 @@ const popups = (state = initialState, action) => {
       return extend(state, {
         isLoginPopupOpened: false,
       });
+
+    case ActionType.OPEN_REQUEST_FORM:
+      return extend(state, {
+        isRequestFormOpened: true,
+      });
+    case ActionType.CLOSE_REQUEST_FORM:
+      return extend(state, {
+        isRequestFormOpened: false,
+      });
   }
 
   return state;
