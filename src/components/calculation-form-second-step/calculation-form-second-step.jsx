@@ -1,18 +1,56 @@
+/* eslint-disable no-console */
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
-import {CreditStep} from "../../const";
+import {CreditGoal, CreditStep} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
 import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
-import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee} from "../../store/selectors";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseCasco, getUseLifeInsurance, getUseMaternityCapital} from "../../store/selectors";
 import {
+  setCascoUse,
   setCreditPeriod as setCreditPeriodAction,
   setCreditPropertyCost as setCreditPropertyCostAction,
-  setInitialFee as setInitialFeeAction
+  setInitialFee as setInitialFeeAction,
+  setLifeInsuranceUse,
+  setMaternityCapitalUse as setMaternityCapitalUseAction
 } from "../../store/actions";
+
+const getFactorsByCreditInfo = (creditInfo, creditGoal, factorData) => {
+  creditInfo.factors.forEach((factor, i) => {
+    factor.value = factorData[creditGoal][i].value;
+    factor.setter = factorData[creditGoal][i].setter;
+  });
+
+  console.log(factorData, creditInfo.factors);
+
+  return (
+    <>
+      {creditInfo.factors.map((factor, i) => (
+        <div key={`factor-${i}-${factor.name}`} className="calculation-form__checkbox-row">
+          <input
+            onChange={() => {
+              factor.setter(!factor.value);
+            }}
+            value={factor.value}
+            className="calculation-form__checkbox visually-hidden"
+            type="checkbox"
+            name={`calculation-form-${factor.name}`}
+            id={`calculation-form-${factor.name}`}
+          />
+          <label
+            className="calculation-form__checkbox-label"
+            htmlFor={`calculation-form-${factor.name}`}
+          >
+            {factor.title}
+          </label>
+        </div>
+      ))}
+    </>
+  );
+};
 
 const CalculationFormSecondStep = (props) => {
   const {
@@ -20,14 +58,32 @@ const CalculationFormSecondStep = (props) => {
     creditPropertyCost,
     initialFee,
     creditPeriod,
+    useMaternityCapital,
+    useCasco,
+    useLifeInsurance,
     setCreditPropertyCost,
     setCreditPeriod,
     setInitialFee,
+    setUseMaternityCapital,
+    setUseCasco,
+    setUseLifeInsurance,
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
 
+  const factorData = {
+    [CreditGoal.MORTGAGE]: [
+      {value: useMaternityCapital, setter: setUseMaternityCapital},
+    ],
+    [CreditGoal.AUTO]: [
+      {value: useCasco, setter: setUseCasco},
+      {value: useLifeInsurance, setter: setUseLifeInsurance},
+    ],
+  };
+  const FactorsContainer = getFactorsByCreditInfo(creditInfo, creditGoal, factorData);
+
   const initialFeePercent = calculatePercentInRange(initialFee, creditPropertyCost, creditInfo.initialFee.min, creditInfo.initialFee.rangeMax);
+
 
   const onPropertyCostChange = (evt) => {
     const propertyCost = Number(evt.target.value);
@@ -145,22 +201,7 @@ const CalculationFormSecondStep = (props) => {
         </div>
       </div>
 
-      {creditInfo.factors.map((factor, i) => (
-        <div key={`factor-${i}-${factor.name}`} className="calculation-form__checkbox-row">
-          <input
-            className="calculation-form__checkbox visually-hidden"
-            type="checkbox"
-            name={`calculation-form-${factor.name}`}
-            id={`calculation-form-${factor.name}`}
-          />
-          <label
-            className="calculation-form__checkbox-label"
-            htmlFor={`calculation-form-${factor.name}`}
-          >
-            {factor.title}
-          </label>
-        </div>
-      ))}
+      {FactorsContainer}
 
     </fieldset>
   );
@@ -181,6 +222,9 @@ const mapStateToProps = (state) => ({
   creditPropertyCost: getCreditPropertyCost(state),
   initialFee: getInitialFee(state),
   creditPeriod: getCreditPeriod(state),
+  useMaternityCapital: getUseMaternityCapital(state),
+  useCasco: getUseCasco(state),
+  useLifeInsurance: getUseLifeInsurance(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -192,6 +236,15 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setCreditPeriod(creditPeriod) {
     dispatch(setCreditPeriodAction(creditPeriod));
+  },
+  setUseMaternityCapital(creditPeriod) {
+    dispatch(setMaternityCapitalUseAction(creditPeriod));
+  },
+  setUseCasco(useCasco) {
+    dispatch(setCascoUse(useCasco));
+  },
+  setUseLifeInsurance(useLifeInsurance) {
+    dispatch(setLifeInsuranceUse(useLifeInsurance));
   },
 });
 

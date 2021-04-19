@@ -9,6 +9,9 @@ const initialState = {
   creditPropertyCost: 0,
   initialFee: 0,
   creditPeriod: 0,
+  useMaternityCapital: false,
+  useCasco: false,
+  useLifeInsurance: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -45,6 +48,18 @@ const reducer = (state = initialState, action) => {
         creditPropertyCost: creditInfo.defaults.propertyCost,
         initialFee: creditInfo.defaults.initialFee,
         creditPeriod: creditInfo.defaults.period,
+      });
+    case ActionType.SET_MATERNITY_CAPITAL_USE:
+      return extend(state, {
+        useMaternityCapital: action.payload,
+      });
+    case ActionType.SET_CASCO_USE:
+      return extend(state, {
+        useCasco: action.payload,
+      });
+    case ActionType.SET_LIFE_INSURANCE_USE:
+      return extend(state, {
+        useLifeInsurance: action.payload,
       });
   }
 

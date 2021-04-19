@@ -2,18 +2,21 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {CreditStep} from "../../const";
-import {getCreditGoal, getCreditPropertyCost} from "../../store/selectors";
+import {getCreditGoal, getCreditPropertyCost, getInitialFee} from "../../store/selectors";
 import CreditDeniedPopup from "../credit-denied-popup/credit-denied-popup";
 
 const CalculationFormOffers = (props) => {
   const {
     creditGoal,
     creditPropertyCost,
+    initialFee,
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
 
-  if (creditPropertyCost < creditInfo.credit.min) {
+  const creditOfferMinThreshold = creditPropertyCost - initialFee;
+
+  if (creditOfferMinThreshold < creditInfo.credit.min) {
     return (<CreditDeniedPopup />);
   }
 
@@ -52,6 +55,7 @@ CalculationFormOffers.propTypes = {
 const mapStateToProps = (state) => ({
   creditGoal: getCreditGoal(state),
   creditPropertyCost: getCreditPropertyCost(state),
+  initialFee: getInitialFee(state),
 });
 
 export default connect(mapStateToProps)(CalculationFormOffers);

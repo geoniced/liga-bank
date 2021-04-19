@@ -6,6 +6,9 @@ export const ActionType = {
   SET_INITIAL_FEE: `SET_INITIAL_FEE`,
   SET_CREDIT_PERIOD: `SET_CREDIT_PERIOD`,
   SET_DEFAULT_VALUES: `SET_DEFAULT_VALUES`,
+  SET_MATERNITY_CAPITAL_USE: `SET_MATERNITY_CAPITAL_USE`,
+  SET_CASCO_USE: `SET_CASCO_USE`,
+  SET_LIFE_INSURANCE_USE: `SET_LIFE_INSURANCE_USE`,
 };
 
 export const openLoginPopup = () => ({
@@ -40,4 +43,19 @@ export const setCreditPeriod = (creditPeriod) => ({
 export const setDefaultValues = (creditGoal) => ({
   type: ActionType.SET_DEFAULT_VALUES,
   payload: creditGoal,
+});
+
+export const setMaternityCapitalUse = (useMaternityCapital) => ({
+  type: ActionType.SET_MATERNITY_CAPITAL_USE,
+  payload: useMaternityCapital,
+});
+
+export const setCascoUse = (useCasco) => ({
+  type: ActionType.SET_CASCO_USE,
+  payload: useCasco,
+});
+
+export const setLifeInsuranceUse = (useLifeInsurance) => ({
+  type: ActionType.SET_MATERNITY_CAPITAL_USE,
+  payload: useLifeInsurance,
 });
