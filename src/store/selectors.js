@@ -1,9 +1,9 @@
-export const getIsLoginPopupOpened = (state) => state.isLoginPopupOpened;
+export const getIsLoginPopupOpened = (state) => state.POPUPS.isLoginPopupOpened;
 
-export const getCreditGoal = (state) => state.creditGoal;
-export const getCreditPropertyCost = (state) => state.creditPropertyCost;
-export const getInitialFee = (state) => state.initialFee;
-export const getCreditPeriod = (state) => state.creditPeriod;
-export const getUseMaternityCapital = (state) => state.useMaternityCapital;
-export const getUseCasco = (state) => state.useCasco;
-export const getUseLifeInsurance = (state) => state.useLifeInsurance;
+export const getCreditGoal = (state) => state.CREDIT_CALCULATOR.creditGoal;
+export const getCreditPropertyCost = (state) => state.CREDIT_CALCULATOR.creditPropertyCost;
+export const getInitialFee = (state) => state.CREDIT_CALCULATOR.initialFee;
+export const getCreditPeriod = (state) => state.CREDIT_CALCULATOR.creditPeriod;
+export const getUseMaternityCapital = (state) => state.CREDIT_CALCULATOR.useMaternityCapital;
+export const getUseCasco = (state) => state.CREDIT_CALCULATOR.useCasco;
+export const getUseLifeInsurance = (state) => state.CREDIT_CALCULATOR.useLifeInsurance;

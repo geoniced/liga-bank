@@ -1,30 +1,14 @@
-/* eslint-disable no-console */
-import {CreditStep} from "../const";
-import {extend} from "../utils";
-import {ActionType} from "./actions";
+import {CreditStep} from "../../const";
+import {extend} from "../../utils";
+import {ActionType} from "../actions";
 
 const initialState = {
   isLoginPopupOpened: false,
-  creditGoal: null,
-  creditPropertyCost: 0,
-  initialFee: 0,
-  creditPeriod: 0,
-  useMaternityCapital: false,
-  useCasco: false,
-  useLifeInsurance: false,
+  isRequestFormOpened: false,
 };
 
-const reducer = (state = initialState, action) => {
+const creditCalculator = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.OPEN_LOGIN_POPUP:
-      return extend(state, {
-        isLoginPopupOpened: true,
-      });
-    case ActionType.CLOSE_LOGIN_POPUP:
-      return extend(state, {
-        isLoginPopupOpened: false,
-      });
-
     case ActionType.SET_CREDIT_GOAL:
       return extend(state, {
         creditGoal: action.payload,
@@ -66,4 +50,4 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer};
+export {creditCalculator};

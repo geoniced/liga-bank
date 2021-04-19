@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import Helmet from "react-helmet";
 import {createStore} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
-import App from './components/app/app';
-import {reducer} from './store/reducer';
+import App from "./components/app/app";
+import rootReducer from "./store/root-reducer";
 import "./scss/style.scss";
 import robotoRegularWoff2 from "./assets/fonts/roboto-regular.woff2";
 
 const store = createStore(
-    reducer,
+    rootReducer,
     composeWithDevTools()
 );
 
