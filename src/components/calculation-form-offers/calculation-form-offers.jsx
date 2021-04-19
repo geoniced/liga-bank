@@ -16,12 +16,15 @@ const CalculationFormOffers = (props) => {
 
   const creditInfo = CreditStep[creditGoal];
   const initialFeePercent = initialFee / creditPropertyCost * 100;
+  const creditPercentData = creditInfo.creditPercent;
 
   let creditCost = creditPropertyCost - initialFee;
   let creditPercent;
 
   if (creditGoal === CreditGoal.MORTGAGE) {
-    creditPercent = initialFeePercent >= 15 ? 8.5 : 9.4;
+    creditPercent = initialFeePercent >= creditPercentData.feePercentThreshold
+      ? creditPercentData.valueWhenMore
+      : creditPercentData.valueWhenMore;
 
     if (useMaternityCapital) {
       creditCost -= creditInfo.factors[0].costDown;

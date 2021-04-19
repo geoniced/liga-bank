@@ -38,6 +38,11 @@ export const CreditStep = {
       initialFee: 200000,
       period: 5,
     },
+    creditPercent: {
+      feePercentThreshold: 15,
+      valueWhenMore: 8.5,
+      valueWhenLess: 9.4,
+    }
   },
   [CreditGoal.AUTO]: {
     cost: {
