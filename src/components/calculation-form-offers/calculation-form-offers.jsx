@@ -1,22 +1,27 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {CreditStep} from "../../const";
-import {getCreditGoal, getCreditPropertyCost, getInitialFee} from "../../store/selectors";
+import {CreditGoal, CreditStep} from "../../const";
+import {getCreditGoal, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
 import CreditDeniedPopup from "../credit-denied-popup/credit-denied-popup";
+import {formatDecimalWithRubles} from "../../utils";
 
 const CalculationFormOffers = (props) => {
   const {
     creditGoal,
     creditPropertyCost,
     initialFee,
+    useMaternityCapital,
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
 
-  const creditOfferMinThreshold = creditPropertyCost - initialFee;
+  let creditCost = creditPropertyCost - initialFee;
+  if (creditGoal === CreditGoal.MORTGAGE && useMaternityCapital) {
+    creditCost -= creditInfo.factors[0].costDown;
+  }
 
-  if (creditOfferMinThreshold < creditInfo.credit.min) {
+  if (creditCost < creditInfo.credit.min) {
     return (<CreditDeniedPopup />);
   }
 
@@ -27,7 +32,7 @@ const CalculationFormOffers = (props) => {
       <dl className="calculation-form__offers">
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">{creditInfo.creditSumTitle}</dt>
-          <dd className="calculation-form__offer-value">1 330 000 рублей</dd>
+          <dd className="calculation-form__offer-value">{formatDecimalWithRubles(creditCost)}</dd>
         </div>
         <div className="calculation-form__offer-item">
           <dt className="calculation-form__offer-title">Процентная ставка</dt>
@@ -56,6 +61,7 @@ const mapStateToProps = (state) => ({
   creditGoal: getCreditGoal(state),
   creditPropertyCost: getCreditPropertyCost(state),
   initialFee: getInitialFee(state),
+  useMaternityCapital: getUseMaternityCapital(state),
 });
 
 export default connect(mapStateToProps)(CalculationFormOffers);

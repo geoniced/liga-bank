@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
@@ -23,8 +22,6 @@ const getFactorsByCreditInfo = (creditInfo, creditGoal, factorData) => {
     factor.value = factorData[creditGoal][i].value;
     factor.setter = factorData[creditGoal][i].setter;
   });
-
-  console.log(factorData, creditInfo.factors);
 
   return (
     <>
