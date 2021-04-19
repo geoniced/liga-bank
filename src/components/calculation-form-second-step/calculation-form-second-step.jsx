@@ -1,25 +1,33 @@
-import React, {useState} from "react";
+import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
 import {CreditStep} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
-import {calculatePercentMaxed, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
+import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
-import {useStateResetOnPropChange} from "../../hooks/use-state-reset-to-defaults/use-state-reset-to-defaults";
+import {getCreditPeriod, getCreditPropertyCost, getInitialFee} from "../../store/selectors";
+import {
+  setCreditPeriod as setCreditPeriodAction,
+  setCreditPropertyCost as setCreditPropertyCostAction,
+  setInitialFee as setInitialFeeAction
+} from "../../store/actions";
 
 const CalculationFormSecondStep = (props) => {
   const {
     creditGoal,
+    creditPropertyCost,
+    initialFee,
+    creditPeriod,
+    setCreditPropertyCost,
+    setCreditPeriod,
+    setInitialFee,
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
 
-  const [creditPropertyCost, setCreditPropertyCost] = useState(creditInfo.defaults.propertyCost);
-  const [initialFee, setInitialFee] = useState(creditInfo.defaults.initialFee);
-  const [creditPeriod, setCreditPeriod] = useState(creditInfo.defaults.period);
-
-  const initialFeePercent = calculatePercentMaxed(initialFee, creditPropertyCost, creditInfo.initialFee.rangeMax);
+  const initialFeePercent = calculatePercentInRange(initialFee, creditPropertyCost, creditInfo.initialFee.min, creditInfo.initialFee.rangeMax);
 
   const onPropertyCostChange = (evt) => {
     const propertyCost = Number(evt.target.value);
@@ -46,26 +54,17 @@ const CalculationFormSecondStep = (props) => {
   };
 
   const onOperationMinusClick = () => {
-    setCreditPropertyCost((prevState) => {
-      const newValue = prevState - creditInfo.cost.step;
-      return newValue < creditInfo.cost.min ? creditInfo.cost.min : newValue;
-    });
+    let newValue = creditPropertyCost - creditInfo.cost.step;
+    newValue = newValue < creditInfo.cost.min ? creditInfo.cost.min : newValue;
+
+    setCreditPropertyCost(newValue);
   };
 
   const onOperationPlusClick = () => {
-    setCreditPropertyCost((prevState) => {
-      const newValue = prevState + creditInfo.cost.step;
-      return newValue > creditInfo.cost.max ? creditInfo.cost.max : newValue;
-    });
+    let newValue = creditPropertyCost + creditInfo.cost.step;
+    newValue = newValue > creditInfo.cost.max ? creditInfo.cost.max : newValue;
+    setCreditPropertyCost(newValue);
   };
-
-  const stateSettersToDefaultList = [
-    {setter: setCreditPropertyCost, defaultValue: creditInfo.defaults.propertyCost},
-    {setter: setInitialFee, defaultValue: creditInfo.defaults.initialFee},
-    {setter: setCreditPeriod, defaultValue: creditInfo.defaults.period},
-  ];
-
-  useStateResetOnPropChange(creditGoal, stateSettersToDefaultList);
 
   return (
     <fieldset className="calculation-form__step-field-area calculation-form__step-field-area--step-2">
@@ -171,4 +170,22 @@ CalculationFormSecondStep.propTypes = {
   creditGoal: PropTypes.string.isRequired,
 };
 
-export default CalculationFormSecondStep;
+const mapStateToProps = (state) => ({
+  creditPropertyCost: getCreditPropertyCost(state),
+  initialFee: getInitialFee(state),
+  creditPeriod: getCreditPeriod(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCreditPropertyCost(propertyCost) {
+    dispatch(setCreditPropertyCostAction(propertyCost));
+  },
+  setInitialFee(initialFee) {
+    dispatch(setInitialFeeAction(initialFee));
+  },
+  setCreditPeriod(creditPeriod) {
+    dispatch(setCreditPeriodAction(creditPeriod));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CalculationFormSecondStep);

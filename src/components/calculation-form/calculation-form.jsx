@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
+import {connect} from "react-redux";
+import {setCreditGoal, setDefaultValues} from "../../store/actions";
+import {getCreditGoal} from "../../store/selectors";
 import CalculationFormOffers from "../calculation-form-offers/calculation-form-offers";
 import CalculationFormSecondStep from "../calculation-form-second-step/calculation-form-second-step";
 import SelectField from "../select-field/select-field";
 
-const CalculationForm = () => {
-  const [creditGoalValue, setCreditGoalValue] = useState(null);
+const CalculationForm = (props) => {
+  const {creditGoal, setCreditGoalAction} = props;
 
   const onCreditGoalChange = (option) => {
-    setCreditGoalValue(option.value);
+    setCreditGoalAction(option.value);
   };
 
   return (
@@ -22,12 +25,23 @@ const CalculationForm = () => {
           </div>
         </fieldset>
 
-        {creditGoalValue && <CalculationFormSecondStep creditGoal={creditGoalValue} />}
+        {creditGoal && <CalculationFormSecondStep creditGoal={creditGoal} />}
       </div>
 
-      {creditGoalValue && <CalculationFormOffers creditGoal={creditGoalValue}/>}
+      {creditGoal && <CalculationFormOffers creditGoal={creditGoal}/>}
     </form>
   );
 };
 
-export default CalculationForm;
+const mapStateToProps = (state) => ({
+  creditGoal: getCreditGoal(state),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCreditGoalAction(newCreditGoal) {
+    dispatch(setCreditGoal(newCreditGoal));
+    dispatch(setDefaultValues(newCreditGoal));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CalculationForm);

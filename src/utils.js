@@ -36,9 +36,10 @@ export const formatDecimalWithYears = (value) => {
   return `${value} ${yearPostfix}`;
 };
 
-export const calculatePercentMaxed = (initialFee, creditPropertyCost, maxPercent) => {
+export const calculatePercentInRange = (initialFee, creditPropertyCost, minPercent, maxPercent) => {
   let initialFeePercent = (initialFee / creditPropertyCost) * 100;
   initialFeePercent = initialFeePercent > maxPercent ? maxPercent : initialFeePercent;
+  initialFeePercent = initialFeePercent < minPercent ? minPercent : initialFeePercent;
 
   return initialFeePercent;
 };
