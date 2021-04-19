@@ -1,8 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {closeRequestForm} from "../../store/actions";
 
-const RequestForm = () => {
+const RequestForm = (props) => {
+  const {closeRequestFormAction} = props;
+
+  const onBlockLayerClick = (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closeRequestFormAction();
+    }
+  };
+
   return (
-    <section className="credit-calculator__request-form request-form basic-popup">
+    <section
+      onClick={onBlockLayerClick}
+      className="credit-calculator__request-form request-form basic-popup"
+    >
       <div className="request-form__wrapper basic-popup__wrapper">
         <h2 className="request-form__title">Шаг 3. Оформление заявки</h2>
 
@@ -54,4 +68,18 @@ const RequestForm = () => {
   );
 };
 
-export default RequestForm;
+RequestForm.propTypes = {
+  closeRequestFormAction: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  closeRequestFormAction() {
+    dispatch(closeRequestForm());
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RequestForm);
