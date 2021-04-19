@@ -56,6 +56,6 @@ export const setCascoUse = (useCasco) => ({
 });
 
 export const setLifeInsuranceUse = (useLifeInsurance) => ({
-  type: ActionType.SET_MATERNITY_CAPITAL_USE,
+  type: ActionType.SET_LIFE_INSURANCE_USE,
   payload: useLifeInsurance,
 });

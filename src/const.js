@@ -39,7 +39,7 @@ export const CreditStep = {
       period: 5,
     },
     creditPercent: {
-      feePercentThreshold: 15,
+      valueThreshold: 15,
       valueWhenMore: 8.5,
       valueWhenLess: 9.4,
     },
@@ -74,6 +74,13 @@ export const CreditStep = {
       period: 1,
     },
     creditDenialType: `автокредиты`,
+    creditPercent: {
+      valueThreshold: 2000000,
+      valueWhenMore: 15,
+      valueWhenLess: 16,
+      cascoOrLifeInsuranceValue: 8.5,
+      cascoAndLifeInsuranceValue: 3.5,
+    }
   },
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {CreditGoal, CreditStep, INCOME_THRESHOLD_PERCENT} from "../../const";
-import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseCasco, getUseLifeInsurance, getUseMaternityCapital} from "../../store/selectors";
 import CreditDeniedPopup from "../credit-denied-popup/credit-denied-popup";
 import {formatDecimalWithRubles} from "../../utils";
 
@@ -26,26 +26,39 @@ const CalculationFormOffers = (props) => {
     initialFee,
     creditPeriod,
     useMaternityCapital,
+    useCasco,
+    useLifeInsurance,
   } = props;
 
   const creditInfo = CreditStep[creditGoal];
   const initialFeePercent = initialFee / creditPropertyCost * 100;
-  const creditPercentData = creditInfo.creditPercent;
 
   let creditCost = creditPropertyCost - initialFee;
   let creditRate;
+  const creditPercentData = creditInfo.creditPercent;
 
   switch (creditGoal) {
     case CreditGoal.MORTGAGE:
-      creditRate = initialFeePercent >= creditPercentData.feePercentThreshold
+
+      creditRate = initialFeePercent >= creditPercentData.valueThreshold
         ? creditPercentData.valueWhenMore
         : creditPercentData.valueWhenLess;
 
       if (useMaternityCapital) {
         creditCost -= creditInfo.factors[0].costDown;
       }
+      break;
+
     case CreditGoal.AUTO:
-      //
+      creditRate = creditPropertyCost >= creditPercentData.valueThreshold
+        ? creditPercentData.valueWhenMore
+        : creditPercentData.valueWhenLess;
+
+      if (useCasco && useLifeInsurance) {
+        creditRate = creditPercentData.cascoAndLifeInsuranceValue;
+      } else if (useCasco || useLifeInsurance) {
+        creditRate = creditPercentData.cascoOrLifeInsuranceValue;
+      }
   }
 
 
@@ -99,6 +112,8 @@ const mapStateToProps = (state) => ({
   initialFee: getInitialFee(state),
   creditPeriod: getCreditPeriod(state),
   useMaternityCapital: getUseMaternityCapital(state),
+  useCasco: getUseCasco(state),
+  useLifeInsurance: getUseLifeInsurance(state),
 });
 
 export default connect(mapStateToProps)(CalculationFormOffers);
