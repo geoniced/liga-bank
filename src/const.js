@@ -42,7 +42,8 @@ export const CreditStep = {
       feePercentThreshold: 15,
       valueWhenMore: 8.5,
       valueWhenLess: 9.4,
-    }
+    },
+    creditDenialType: `ипотечные кредиты`,
   },
   [CreditGoal.AUTO]: {
     cost: {
@@ -72,6 +73,7 @@ export const CreditStep = {
       initialFee: 400000,
       period: 1,
     },
+    creditDenialType: `автокредиты`,
   },
 };
 

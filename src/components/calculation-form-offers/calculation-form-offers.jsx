@@ -35,19 +35,27 @@ const CalculationFormOffers = (props) => {
   let creditCost = creditPropertyCost - initialFee;
   let creditRate;
 
-  if (creditGoal === CreditGoal.MORTGAGE) {
-    creditRate = initialFeePercent >= creditPercentData.feePercentThreshold
-      ? creditPercentData.valueWhenMore
-      : creditPercentData.valueWhenLess;
+  switch (creditGoal) {
+    case CreditGoal.MORTGAGE:
+      creditRate = initialFeePercent >= creditPercentData.feePercentThreshold
+        ? creditPercentData.valueWhenMore
+        : creditPercentData.valueWhenLess;
 
-    if (useMaternityCapital) {
-      creditCost -= creditInfo.factors[0].costDown;
-    }
+      if (useMaternityCapital) {
+        creditCost -= creditInfo.factors[0].costDown;
+      }
+    case CreditGoal.AUTO:
+      //
   }
 
 
   if (creditCost < creditInfo.credit.min) {
-    return (<CreditDeniedPopup />);
+    return (
+      <CreditDeniedPopup
+        creditName={creditInfo.creditDenialType}
+        creditMinimum={creditInfo.credit.min}
+      />
+    );
   }
 
   const monthlyPayment = Math.round(calculateMonthlyPayment(creditCost, creditRate, creditPeriod));
