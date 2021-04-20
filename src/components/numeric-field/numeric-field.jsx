@@ -12,6 +12,7 @@ const NumericField = (props) => {
     step,
     onChange,
     value,
+    validate,
     convertCallback,
   } = props;
 
@@ -27,7 +28,7 @@ const NumericField = (props) => {
     <>
       {isEditing ? (
         <input
-          className={`calculation-form__input ${className} ${!isFieldValid ? `calculation-form__input--invalid` : ``}`}
+          className={`calculation-form__input ${className} ${validate && !isFieldValid ? `calculation-form__input--invalid` : ``}`}
           type="number"
           name={name}
           id={name}
@@ -40,12 +41,12 @@ const NumericField = (props) => {
         />
       ) : (
         <input
-          className={`calculation-form__input ${className} ${!isFieldValid ? `calculation-form__input--invalid` : ``}`}
+          className={`calculation-form__input ${className} ${validate && !isFieldValid ? `calculation-form__input--invalid` : ``}`}
           type="text"
           name={name}
           id={name}
           onFocus={toggleEditable}
-          value={isFieldValid ? convertCallback(value) : INVALID_NUMERIC_FIELD_MESSAGE}
+          value={validate && !isFieldValid ? INVALID_NUMERIC_FIELD_MESSAGE : convertCallback(value)}
           readOnly
         />
       )}

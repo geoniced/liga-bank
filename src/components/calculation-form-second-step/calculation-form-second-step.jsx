@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
 import {CreditGoal, CreditStep} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
-import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
+import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears, packNumberInMinMax} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseCasco, getUseLifeInsurance, getUseMaternityCapital} from "../../store/selectors";
@@ -92,7 +92,10 @@ const CalculationFormSecondStep = (props) => {
 
   const onInitialFeeChange = (evt) => {
     const newInitialFee = Number(evt.target.value);
-    setInitialFee(newInitialFee);
+
+    const initialFeeMinimum = creditPropertyCost * ((creditInfo.initialFee.min) / 100);
+
+    setInitialFee(packNumberInMinMax(newInitialFee, initialFeeMinimum, creditPropertyCost));
   };
 
   const onInitialFeeRangeChange = ([percentValue]) => {
@@ -102,7 +105,8 @@ const CalculationFormSecondStep = (props) => {
 
   const onCreditPeriodChange = (evt) => {
     const newCreditPeriod = Number(evt.target.value);
-    setCreditPeriod(newCreditPeriod);
+
+    setCreditPeriod(packNumberInMinMax(newCreditPeriod, creditInfo.credit.minYears, creditInfo.credit.maxYears));
   };
 
   const onCreditPeriodRangeChange = ([newValue]) => {
@@ -131,6 +135,7 @@ const CalculationFormSecondStep = (props) => {
         <div className="calculation-form__input-with-operations">
           <NumericField
             name="calculation-form-property-cost"
+            validate
             min={creditInfo.cost.min}
             max={creditInfo.cost.max}
             step={creditInfo.cost.step}

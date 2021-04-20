@@ -62,6 +62,13 @@ export const isValueInRange = (value, min, max) => {
   return isInRange;
 };
 
+export const packNumberInMinMax = (value, min, max) => {
+  let newValue = value < min ? min : value;
+  newValue = newValue > max ? max : newValue;
+
+  return newValue;
+};
+
 export const calculatePercentInRange = (initialFee, creditPropertyCost, minPercent, maxPercent) => {
   let initialFeePercent = (initialFee / creditPropertyCost) * 100;
   initialFeePercent = initialFeePercent > maxPercent ? maxPercent : initialFeePercent;
