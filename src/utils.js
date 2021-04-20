@@ -85,3 +85,12 @@ export const calculateCreditCost = ({creditPropertyCost, initialFee, creditGoal,
 
   return creditCost;
 };
+
+export const isFieldNotEmpty = (field) => field !== ``;
+
+export const clearStorage = (Field) => {
+  const fields = Object.values(Field);
+  fields.forEach((field) => {
+    window.localStorage.removeItem(field);
+  });
+};

@@ -1,11 +1,12 @@
+/* eslint-disable no-console */
 import React, {createRef, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
-import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue} from "../../utils";
-import {CreditGoal, CreditStep, RequestField} from "../../const";
+import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, isFieldNotEmpty, clearStorage} from "../../utils";
+import {CreditGoal, CreditStep, RequestField, ValidationMessage} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 
@@ -21,7 +22,10 @@ const RequestForm = (props) => {
     useMaternityCapital,
   } = props;
 
+  const formRef = createRef();
   const nameRef = createRef();
+  const phoneRef = createRef();
+  const emailRef = createRef();
 
   const [name, setName] = useState(``);
   const [phone, setPhone] = useState(``);
@@ -57,8 +61,23 @@ const RequestForm = (props) => {
 
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();
-    closeRequestFormAction();
-    setRequestNumberAction(requestNumber + 1);
+
+    const fieldsToValidate = [nameRef, phoneRef, emailRef];
+    fieldsToValidate.forEach((field) => {
+      const fieldValue = field.current.value;
+      const isValid = isFieldNotEmpty(fieldValue);
+      const validityMessage = isValid ? `` : ValidationMessage.EMPTY;
+
+      field.current.setCustomValidity(validityMessage);
+    });
+
+    formRef.current.reportValidity();
+
+    if (formRef.current.checkValidity()) {
+      clearStorage(RequestField);
+      closeRequestFormAction();
+      setRequestNumberAction(requestNumber + 1);
+    }
   };
 
   useInputFocusOnOpen(nameRef);
@@ -95,7 +114,7 @@ const RequestForm = (props) => {
           </div>
         </dl>
 
-        <form action="#" className="request-form__form">
+        <form ref={formRef} action="#" className="request-form__form">
           <div className="request-form__field-row">
             <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
             <input
@@ -107,6 +126,7 @@ const RequestForm = (props) => {
               name="request-form-name"
               id="request-form-name"
               placeholder="ФИО"
+              required
             />
           </div>
 
@@ -115,6 +135,7 @@ const RequestForm = (props) => {
               <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
               {/* <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" /> */}
               <NumberFormat
+                getInputRef={phoneRef}
                 onValueChange={onPhoneChangeHandler}
                 value={phone}
                 className="request-form__input"
@@ -123,11 +144,13 @@ const RequestForm = (props) => {
                 format="+7 (###) ###-##-##"
                 mask="_"
                 placeholder="Телефон"
+                required
               />
             </div>
             <div className="request-form__half-field-wrapper">
               <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
               <input
+                ref={emailRef}
                 onChange={onEmailChangeHandler}
                 value={email}
                 className="request-form__input"
@@ -135,6 +158,7 @@ const RequestForm = (props) => {
                 name="request-form-email"
                 id="request-form-email"
                 placeholder="E-mail"
+                required
               />
             </div>
           </div>
