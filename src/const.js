@@ -118,6 +118,8 @@ export const RequestField = {
   EMAIL: `request-form-email`,
 };
 
+export const REQUEST_DEFAULT_NUMBER = 10;
+
 const MediaQuery = {
   MOBILE: `@media (max-width: 767px)`
 };

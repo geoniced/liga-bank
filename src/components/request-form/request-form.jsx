@@ -2,15 +2,17 @@ import React, {createRef, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
-import {closeRequestForm} from "../../store/actions";
-import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
-import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, getNumericFieldValue} from "../../utils";
+import {closeRequestForm, setRequestNumber} from "../../store/actions";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
+import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue} from "../../utils";
 import {CreditGoal, CreditStep, RequestField} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 
 const RequestForm = (props) => {
   const {
+    requestNumber,
+    setRequestNumberAction,
     creditGoal,
     creditPropertyCost,
     initialFee,
@@ -53,6 +55,12 @@ const RequestForm = (props) => {
     }
   };
 
+  const onSubmitButtonClick = (evt) => {
+    evt.preventDefault();
+    closeRequestFormAction();
+    setRequestNumberAction(requestNumber + 1);
+  };
+
   useInputFocusOnOpen(nameRef);
   useLocalStorageFieldsSync(FieldMap);
 
@@ -67,7 +75,7 @@ const RequestForm = (props) => {
         <dl className="request-form__data">
           <div className="request-form__data-item">
             <dt className="request-form__data-title">Номер заявки</dt>
-            <dd className="request-form__data-value">№ 0010</dd>
+            <dd className="request-form__data-value">№ {formatNumberToThousandsWithZeros(requestNumber)}</dd>
           </div>
           <div className="request-form__data-item">
             <dt className="request-form__data-title">Цель кредита</dt>
@@ -131,7 +139,13 @@ const RequestForm = (props) => {
             </div>
           </div>
 
-          <button className="request-form__send button" type="submit">Отправить</button>
+          <button
+            onClick={onSubmitButtonClick}
+            className="request-form__send button"
+            type="submit"
+          >
+            Отправить
+          </button>
         </form>
       </div>
 
@@ -140,6 +154,8 @@ const RequestForm = (props) => {
 };
 
 RequestForm.propTypes = {
+  requestNumber: PropTypes.number.isRequired,
+  setRequestNumberAction: PropTypes.func.isRequired,
   creditGoal: PropTypes.string,
   creditPropertyCost: PropTypes.number.isRequired,
   initialFee: PropTypes.number.isRequired,
@@ -149,6 +165,7 @@ RequestForm.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  requestNumber: getRequestNumber(state),
   creditGoal: getCreditGoal(state),
   creditPropertyCost: getCreditPropertyCost(state),
   initialFee: getInitialFee(state),
@@ -159,7 +176,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   closeRequestFormAction() {
     dispatch(closeRequestForm());
-  }
+  },
+  setRequestNumberAction(requestNumber) {
+    dispatch(setRequestNumber(requestNumber));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RequestForm);
