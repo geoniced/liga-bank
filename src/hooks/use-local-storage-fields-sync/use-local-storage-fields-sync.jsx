@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-export const useLoginPopupOpenLogic = (loginInputRef, FieldMap) => {
+export const useLocalStorageFieldsSync = (FieldMap) => {
   useEffect(() => {
     const storage = window.localStorage;
     Object.entries(storage).forEach(([storeName, storeValue]) => {

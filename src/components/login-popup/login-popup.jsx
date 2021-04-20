@@ -9,7 +9,7 @@ import LogoLoginImg from "../../assets/img/logo-login.svg";
 import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-password-eye-closed.svg";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
-import {useLoginPopupOpenLogic} from "../../hooks/use-login-popup-open-logic/use-login-popup-open-logic";
+import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 
 const LoginPopup = (props) => {
@@ -63,7 +63,7 @@ const LoginPopup = (props) => {
   usePreventPageScroll();
   useKeyDown(onEscKeyDown);
   useInputFocusOnOpen(loginInputRef);
-  useLoginPopupOpenLogic(loginInputRef, FieldMap);
+  useLocalStorageFieldsSync(FieldMap);
 
   return (
     <section className="login-popup basic-popup">
