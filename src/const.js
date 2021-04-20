@@ -33,6 +33,7 @@ export const CreditStep = {
     ],
     creditName: `Стоимость недвижимости`,
     creditSumTitle: `Сумма ипотеки`,
+    creditTypeName: `Ипотека`,
     defaults: {
       propertyCost: 2000000,
       initialFee: 200000,
@@ -68,6 +69,7 @@ export const CreditStep = {
     ],
     creditName: `Стоимость автомобиля`,
     creditSumTitle: `Сумма автокредита`,
+    creditTypeName: `Автокредит`,
     defaults: {
       propertyCost: 2000000,
       initialFee: 400000,

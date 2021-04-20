@@ -2,15 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {closeRequestForm} from "../../store/actions";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
+import {formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
+import {CreditGoal, CreditStep} from "../../const";
 
 const RequestForm = (props) => {
-  const {closeRequestFormAction} = props;
+  const {
+    creditGoal,
+    creditPropertyCost,
+    initialFee,
+    creditPeriod,
+    closeRequestFormAction,
+    useMaternityCapital,
+  } = props;
+
+  const creditInfo = CreditStep[creditGoal];
 
   const onBlockLayerClick = (evt) => {
     if (evt.currentTarget === evt.target) {
       closeRequestFormAction();
     }
   };
+
+  let creditCost = creditPropertyCost - initialFee;
+  if (creditGoal === CreditGoal.MORTGAGE && useMaternityCapital) {
+    creditCost -= creditInfo.factors[0].costDown;
+  }
 
   return (
     <section
@@ -27,19 +44,19 @@ const RequestForm = (props) => {
           </div>
           <div className="request-form__data-item">
             <dt className="request-form__data-title">Цель кредита</dt>
-            <dd className="request-form__data-value">Ипотека</dd>
+            <dd className="request-form__data-value">{creditInfo.creditTypeName}</dd>
           </div>
           <div className="request-form__data-item">
-            <dt className="request-form__data-title">Стоимость недвижимости</dt>
-            <dd className="request-form__data-value">2 000 000 рублей</dd>
+            <dt className="request-form__data-title">{creditInfo.creditName}</dt>
+            <dd className="request-form__data-value">{formatDecimalWithRubles(creditCost)}</dd>
           </div>
           <div className="request-form__data-item">
             <dt className="request-form__data-title">Первоначальный взнос</dt>
-            <dd className="request-form__data-value">200 000 рублей</dd>
+            <dd className="request-form__data-value">{formatDecimalWithRubles(initialFee)}</dd>
           </div>
           <div className="request-form__data-item">
             <dt className="request-form__data-title">Срок кредитования</dt>
-            <dd className="request-form__data-value">5 лет</dd>
+            <dd className="request-form__data-value">{formatDecimalWithYears(creditPeriod)}</dd>
           </div>
         </dl>
 
@@ -69,11 +86,20 @@ const RequestForm = (props) => {
 };
 
 RequestForm.propTypes = {
+  creditGoal: PropTypes.string,
+  creditPropertyCost: PropTypes.number.isRequired,
+  initialFee: PropTypes.number.isRequired,
+  creditPeriod: PropTypes.number.isRequired,
+  useMaternityCapital: PropTypes.bool,
   closeRequestFormAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-
+  creditGoal: getCreditGoal(state),
+  creditPropertyCost: getCreditPropertyCost(state),
+  initialFee: getInitialFee(state),
+  creditPeriod: getCreditPeriod(state),
+  useMaternityCapital: getUseMaternityCapital(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
