@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createRef, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
@@ -6,6 +6,7 @@ import {closeRequestForm} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
 import {calculateCreditCost, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {CreditGoal, CreditStep} from "../../const";
+import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 
 const RequestForm = (props) => {
   const {
@@ -17,13 +18,13 @@ const RequestForm = (props) => {
     useMaternityCapital,
   } = props;
 
-  const creditInfo = CreditStep[creditGoal];
+  const nameRef = createRef();
 
-  const onBlockLayerClick = (evt) => {
-    if (evt.currentTarget === evt.target) {
-      closeRequestFormAction();
-    }
-  };
+  const [name, setName] = useState(``);
+  const [phone, setPhone] = useState(``);
+  const [email, setEmail] = useState(``);
+
+  const creditInfo = CreditStep[creditGoal];
 
   const creditCostData = {
     creditPropertyCost,
@@ -34,6 +35,14 @@ const RequestForm = (props) => {
   };
 
   const creditCost = calculateCreditCost(creditCostData);
+
+  const onBlockLayerClick = (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closeRequestFormAction();
+    }
+  };
+
+  useInputFocusOnOpen(nameRef);
 
   return (
     <section
@@ -69,7 +78,7 @@ const RequestForm = (props) => {
         <form action="#" className="request-form__form">
           <div className="request-form__field-row">
             <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
-            <input className="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО" />
+            <input ref={nameRef} className="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО" />
           </div>
 
           <div className="request-form__field-row request-form__field-row--halves">

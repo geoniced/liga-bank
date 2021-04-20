@@ -10,6 +10,7 @@ import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-pas
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 import {useLoginPopupOpenLogic} from "../../hooks/use-login-popup-open-logic/use-login-popup-open-logic";
+import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 
 const LoginPopup = (props) => {
   const {closeLoginPopupAction} = props;
@@ -61,6 +62,7 @@ const LoginPopup = (props) => {
 
   usePreventPageScroll();
   useKeyDown(onEscKeyDown);
+  useInputFocusOnOpen(loginInputRef);
   useLoginPopupOpenLogic(loginInputRef, FieldMap);
 
   return (
