@@ -3,7 +3,7 @@ import React, {createRef, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
-import {closeRequestForm, setRequestNumber} from "../../store/actions";
+import {closeRequestForm, openCreditRequestedPopup, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
 import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, isFieldNotEmpty, clearStorage, createBlocklayerClickHandler} from "../../utils";
 import {CreditGoal, CreditStep, RequestField, ValidationMessage} from "../../const";
@@ -20,6 +20,7 @@ const RequestForm = (props) => {
     creditPeriod,
     closeRequestFormAction,
     useMaternityCapital,
+    openCreditRequestedPopupAction,
   } = props;
 
   const formRef = createRef();
@@ -73,6 +74,7 @@ const RequestForm = (props) => {
       clearStorage(RequestField);
       closeRequestFormAction();
       setRequestNumberAction(requestNumber + 1);
+      openCreditRequestedPopupAction();
     }
   };
 
@@ -182,6 +184,7 @@ RequestForm.propTypes = {
   creditPeriod: PropTypes.number.isRequired,
   useMaternityCapital: PropTypes.bool,
   closeRequestFormAction: PropTypes.func.isRequired,
+  openCreditRequestedPopupAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -199,6 +202,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setRequestNumberAction(requestNumber) {
     dispatch(setRequestNumber(requestNumber));
+  },
+  openCreditRequestedPopupAction() {
+    dispatch(openCreditRequestedPopup());
   },
 });
 
