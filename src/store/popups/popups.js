@@ -6,6 +6,7 @@ const initialState = {
   isLoginPopupOpened: false,
   isRequestFormOpened: false,
   requestNumber: REQUEST_DEFAULT_NUMBER,
+  isCreditRequestedPopupOpened: true,
 };
 
 const popups = (state = initialState, action) => {
@@ -30,6 +31,14 @@ const popups = (state = initialState, action) => {
     case ActionType.SET_REQUEST_NUMBER:
       return extend(state, {
         requestNumber: action.payload,
+      });
+    case ActionType.OPEN_CREDIT_REQUESTED_POPUP:
+      return extend(state, {
+        isCreditRequestedPopupOpened: true,
+      });
+    case ActionType.CLOSE_CREDIT_REQUESTED_POPUP:
+      return extend(state, {
+        isCreditRequestedPopupOpened: false,
       });
   }
 

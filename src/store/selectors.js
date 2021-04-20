@@ -1,6 +1,8 @@
 export const getIsLoginPopupOpened = (state) => state.POPUPS.isLoginPopupOpened;
 export const getIsRequestFormOpened = (state) => state.POPUPS.isRequestFormOpened;
 export const getRequestNumber = (state) => state.POPUPS.requestNumber;
+export const getIsCreditRequestedPopupOpened = (state) => state.POPUPS.isCreditRequestedPopupOpened;
+
 
 export const getCreditGoal = (state) => state.CREDIT_CALCULATOR.creditGoal;
 export const getCreditPropertyCost = (state) => state.CREDIT_CALCULATOR.creditPropertyCost;

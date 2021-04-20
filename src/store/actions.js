@@ -4,6 +4,8 @@ export const ActionType = {
   OPEN_REQUEST_FORM: `OPEN_REQUEST_FORM`,
   CLOSE_REQUEST_FORM: `CLOSE_REQUEST_FORM`,
   SET_REQUEST_NUMBER: `SET_REQUEST_NUMBER`,
+  OPEN_CREDIT_REQUESTED_POPUP: `OPEN_CREDIT_REQUESTED_POPUP`,
+  CLOSE_CREDIT_REQUESTED_POPUP: `CLOSE_CREDIT_REQUESTED_POPUP`,
   SET_CREDIT_GOAL: `SET_CREDIT_GOAL`,
   SET_CREDIT_PROPERTY_COST: `SET_CREDIT_PROPERTY_COST`,
   SET_INITIAL_FEE: `SET_INITIAL_FEE`,
@@ -33,6 +35,14 @@ export const closeRequestForm = () => ({
 export const setRequestNumber = (requestNumber) => ({
   type: ActionType.SET_REQUEST_NUMBER,
   payload: requestNumber,
+});
+
+export const openCreditRequestedPopup = () => ({
+  type: ActionType.OPEN_CREDIT_REQUESTED_POPUP,
+});
+
+export const closeCreditRequestedPopup = () => ({
+  type: ActionType.CLOSE_CREDIT_REQUESTED_POPUP,
 });
 
 
