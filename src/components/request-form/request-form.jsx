@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import NumberFormat from "react-number-format";
 import {closeRequestForm} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
 import {calculateCreditCost, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
@@ -74,7 +75,15 @@ const RequestForm = (props) => {
           <div className="request-form__field-row request-form__field-row--halves">
             <div className="request-form__half-field-wrapper">
               <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
-              <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" />
+              {/* <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" /> */}
+              <NumberFormat
+                className="request-form__input"
+                name="request-form-phone"
+                id="request-form-phone"
+                format="+7 (###) ###-##-##"
+                mask="_"
+                placeholder="Телефон"
+              />
             </div>
             <div className="request-form__half-field-wrapper">
               <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
