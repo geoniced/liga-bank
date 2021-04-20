@@ -112,6 +112,12 @@ export const LoginField = {
   PASSWORD: `login-form-password`,
 };
 
+export const RequestField = {
+  NAME: `request-form-name`,
+  PHONE: `request-form-phone`,
+  EMAIL: `request-form-email`,
+};
+
 const MediaQuery = {
   MOBILE: `@media (max-width: 767px)`
 };

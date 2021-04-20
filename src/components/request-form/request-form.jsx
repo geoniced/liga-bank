@@ -4,9 +4,10 @@ import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
-import {calculateCreditCost, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
-import {CreditGoal, CreditStep} from "../../const";
+import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, getNumericFieldValue} from "../../utils";
+import {CreditGoal, CreditStep, RequestField} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
+import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 
 const RequestForm = (props) => {
   const {
@@ -23,6 +24,16 @@ const RequestForm = (props) => {
   const [name, setName] = useState(``);
   const [phone, setPhone] = useState(``);
   const [email, setEmail] = useState(``);
+
+  const FieldMap = {
+    [RequestField.NAME]: {value: name, setter: setName},
+    [RequestField.PHONE]: {value: phone, setter: setPhone},
+    [RequestField.EMAIL]: {value: email, setter: setEmail},
+  };
+
+  const onNameChangeHandler = createFieldChangeHandler(RequestField.NAME, setName);
+  const onPhoneChangeHandler = createFieldChangeHandler(RequestField.PHONE, setPhone, getNumericFieldValue);
+  const onEmailChangeHandler = createFieldChangeHandler(RequestField.EMAIL, setEmail);
 
   const creditInfo = CreditStep[creditGoal];
 
@@ -43,6 +54,7 @@ const RequestForm = (props) => {
   };
 
   useInputFocusOnOpen(nameRef);
+  useLocalStorageFieldsSync(FieldMap);
 
   return (
     <section
@@ -78,7 +90,16 @@ const RequestForm = (props) => {
         <form action="#" className="request-form__form">
           <div className="request-form__field-row">
             <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
-            <input ref={nameRef} className="request-form__input" type="text" name="request-form-name" id="request-form-name" placeholder="ФИО" />
+            <input
+              ref={nameRef}
+              onChange={onNameChangeHandler}
+              value={name}
+              className="request-form__input"
+              type="text"
+              name="request-form-name"
+              id="request-form-name"
+              placeholder="ФИО"
+            />
           </div>
 
           <div className="request-form__field-row request-form__field-row--halves">
@@ -86,6 +107,8 @@ const RequestForm = (props) => {
               <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
               {/* <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" /> */}
               <NumberFormat
+                onValueChange={onPhoneChangeHandler}
+                value={phone}
                 className="request-form__input"
                 name="request-form-phone"
                 id="request-form-phone"
@@ -96,7 +119,15 @@ const RequestForm = (props) => {
             </div>
             <div className="request-form__half-field-wrapper">
               <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
-              <input className="request-form__input" type="email" name="request-form-email" id="request-form-email" placeholder="E-mail" />
+              <input
+                onChange={onEmailChangeHandler}
+                value={email}
+                className="request-form__input"
+                type="email"
+                name="request-form-email"
+                id="request-form-email"
+                placeholder="E-mail"
+              />
             </div>
           </div>
 

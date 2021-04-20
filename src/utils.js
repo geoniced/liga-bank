@@ -4,9 +4,12 @@ export const extend = (a, b) => Object.assign({}, a, b);
 
 export const isEscKeyPressed = (evt) => (evt.key === `Escape` || evt.key === `Esc`);
 
-export const createFieldChangeHandler = (fieldName, setter) => {
+const getTargetValue = (evt) => evt.target.value;
+export const getNumericFieldValue = (valuesObject) => valuesObject.value;
+
+export const createFieldChangeHandler = (fieldName, setter, valueGetter = getTargetValue) => {
   return (evt) => {
-    let value = evt.target.value;
+    let value = valueGetter(evt);
 
     window.localStorage.setItem(fieldName, value);
     setter(value);
