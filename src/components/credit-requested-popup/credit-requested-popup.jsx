@@ -1,14 +1,29 @@
-import React from "react";
+import React, {useCallback} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {closeCreditRequestedPopup} from "../../store/actions";
 import CloseButton from "../close-button/close-button";
-import {createBlocklayerClickHandler} from "../../utils";
+import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
+import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
 
 const CreditRequestedPopup = (props) => {
   const {closePopup} = props;
 
   const onBlockLayerClick = createBlocklayerClickHandler(closePopup);
+
+  const onCloseButtonClick = (evt) => {
+    evt.preventDefault();
+
+    closePopup();
+  };
+
+  const onEscKeyDown = useCallback((evt) => {
+    if (isEscKeyPressed(evt)) {
+      closePopup();
+    }
+  }, [closePopup]);
+
+  useKeyDown(onEscKeyDown);
 
   return (
     <section
@@ -16,7 +31,10 @@ const CreditRequestedPopup = (props) => {
       className="credit-requested-popup basic-popup"
     >
       <div className="basic-popup__content-wrapper">
-        <CloseButton className="credit-requested-popup__close-button" />
+        <CloseButton
+          onCloseButtonClick={onCloseButtonClick}
+          className="credit-requested-popup__close-button"
+        />
 
         <h2 className="credit-requested-popup__title basic-popup__title">Спасибо за обращение в наш банк.</h2>
         <p className="credit-requested-popup__description basic-popup__description">
