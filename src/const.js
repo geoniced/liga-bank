@@ -120,6 +120,8 @@ export const RequestField = {
 
 export const REQUEST_DEFAULT_NUMBER = 10;
 
+export const INVALID_NUMERIC_FIELD_MESSAGE = `Некорректное значение`;
+
 const MediaQuery = {
   MOBILE: `@media (max-width: 767px)`
 };

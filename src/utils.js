@@ -52,6 +52,16 @@ export const formatNumberToThousandsWithZeros = (value) => {
   return `0`.repeat(zerosCount) + value;
 };
 
+export const isValueInRange = (value, min, max) => {
+  let isInRange = value >= min;
+
+  if (max) {
+    isInRange = isInRange && value <= max;
+  }
+
+  return isInRange;
+};
+
 export const calculatePercentInRange = (initialFee, creditPropertyCost, minPercent, maxPercent) => {
   let initialFeePercent = (initialFee / creditPropertyCost) * 100;
   initialFeePercent = initialFeePercent > maxPercent ? maxPercent : initialFeePercent;

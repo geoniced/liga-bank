@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
+import {INVALID_NUMERIC_FIELD_MESSAGE} from "../../const";
+import {isValueInRange} from "../../utils";
 
 const NumericField = (props) => {
   const {
@@ -15,6 +17,8 @@ const NumericField = (props) => {
 
   const [isEditing, setIsEditing] = useState(false);
 
+  const isFieldValid = isValueInRange(value, min, max);
+
   const toggleEditable = () => {
     setIsEditing((prevState) => !prevState);
   };
@@ -23,7 +27,7 @@ const NumericField = (props) => {
     <>
       {isEditing ? (
         <input
-          className={`calculation-form__input ${className}`}
+          className={`calculation-form__input ${className} ${!isFieldValid ? `calculation-form__input--invalid` : ``}`}
           type="number"
           name={name}
           id={name}
@@ -36,12 +40,12 @@ const NumericField = (props) => {
         />
       ) : (
         <input
-          className={`calculation-form__input ${className}`}
+          className={`calculation-form__input ${className} ${!isFieldValid ? `calculation-form__input--invalid` : ``}`}
           type="text"
           name={name}
           id={name}
           onFocus={toggleEditable}
-          value={convertCallback(value)}
+          value={isFieldValid ? convertCallback(value) : INVALID_NUMERIC_FIELD_MESSAGE}
           readOnly
         />
       )}
