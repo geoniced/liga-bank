@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {closeRequestForm} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital} from "../../store/selectors";
-import {formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
+import {calculateCreditCost, formatDecimalWithRubles, formatDecimalWithYears} from "../../utils";
 import {CreditGoal, CreditStep} from "../../const";
 
 const RequestForm = (props) => {
@@ -24,10 +24,15 @@ const RequestForm = (props) => {
     }
   };
 
-  let creditCost = creditPropertyCost - initialFee;
-  if (creditGoal === CreditGoal.MORTGAGE && useMaternityCapital) {
-    creditCost -= creditInfo.factors[0].costDown;
-  }
+  const creditCostData = {
+    creditPropertyCost,
+    initialFee,
+    creditGoal,
+    useMaternityCapital: creditGoal === CreditGoal.MORTGAGE && useMaternityCapital,
+    maternityCapitalCostDown: creditInfo.maternityCapitalCostDown,
+  };
+
+  const creditCost = calculateCreditCost(creditCostData);
 
   return (
     <section

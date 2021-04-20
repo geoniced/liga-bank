@@ -1,5 +1,3 @@
-import {setMaternityCapitalUse} from "./store/actions";
-
 export const CreditGoal = {
   MORTGAGE: `mortgage`,
   AUTO: `auto`,
@@ -29,8 +27,9 @@ export const CreditStep = {
       step: 1,
     },
     factors: [
-      {title: `Использовать материнский капитал`, name: `use-maternal-capital`, costDown: 470000, action: setMaternityCapitalUse}
+      {title: `Использовать материнский капитал`, name: `use-maternal-capital`}
     ],
+    maternityCapitalCostDown: 470000,
     creditName: `Стоимость недвижимости`,
     creditSumTitle: `Сумма ипотеки`,
     creditTypeName: `Ипотека`,

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {CreditGoal, CreditStep, INCOME_THRESHOLD_PERCENT} from "../../const";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseCasco, getUseLifeInsurance, getUseMaternityCapital} from "../../store/selectors";
 import CreditDeniedPopup from "../credit-denied-popup/credit-denied-popup";
-import {formatDecimalWithRubles} from "../../utils";
+import {calculateCreditCost, formatDecimalWithRubles} from "../../utils";
 import {openRequestForm} from "../../store/actions";
 
 const calculateMonthlyPayment = (creditCost, rate, years) => {
@@ -35,7 +35,6 @@ const CalculationFormOffers = (props) => {
   const creditInfo = CreditStep[creditGoal];
   const initialFeePercent = initialFee / creditPropertyCost * 100;
 
-  let creditCost = creditPropertyCost - initialFee;
   let creditRate;
   const creditPercentData = creditInfo.creditPercent;
 
@@ -45,10 +44,6 @@ const CalculationFormOffers = (props) => {
       creditRate = initialFeePercent >= creditPercentData.valueThreshold
         ? creditPercentData.valueWhenMore
         : creditPercentData.valueWhenLess;
-
-      if (useMaternityCapital) {
-        creditCost -= creditInfo.factors[0].costDown;
-      }
       break;
 
     case CreditGoal.AUTO:
@@ -62,6 +57,16 @@ const CalculationFormOffers = (props) => {
         creditRate = creditPercentData.cascoOrLifeInsuranceValue;
       }
   }
+
+  const creditCostData = {
+    creditPropertyCost,
+    initialFee,
+    creditGoal,
+    useMaternityCapital: creditGoal === CreditGoal.MORTGAGE && useMaternityCapital,
+    maternityCapitalCostDown: creditInfo.maternityCapitalCostDown,
+  };
+
+  const creditCost = calculateCreditCost(creditCostData);
 
 
   if (creditCost < creditInfo.credit.min) {

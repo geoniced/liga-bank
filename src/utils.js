@@ -1,4 +1,4 @@
-import {YearPostfix, YearWordChangeLimits} from "./const";
+import {CreditGoal, YearPostfix, YearWordChangeLimits} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -42,4 +42,13 @@ export const calculatePercentInRange = (initialFee, creditPropertyCost, minPerce
   initialFeePercent = initialFeePercent < minPercent ? minPercent : initialFeePercent;
 
   return initialFeePercent;
+};
+
+export const calculateCreditCost = ({creditPropertyCost, initialFee, creditGoal, useMaternityCapital, maternityCapitalCostDown}) => {
+  let creditCost = creditPropertyCost - initialFee;
+  if (creditGoal === CreditGoal.MORTGAGE && useMaternityCapital) {
+    creditCost -= maternityCapitalCostDown;
+  }
+
+  return creditCost;
 };
