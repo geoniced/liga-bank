@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
-import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, isFieldNotEmpty, clearStorage} from "../../utils";
+import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, isFieldNotEmpty, clearStorage, createBlocklayerClickHandler} from "../../utils";
 import {CreditGoal, CreditStep, RequestField, ValidationMessage} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
@@ -53,11 +53,7 @@ const RequestForm = (props) => {
 
   const creditCost = calculateCreditCost(creditCostData);
 
-  const onBlockLayerClick = (evt) => {
-    if (evt.currentTarget === evt.target) {
-      closeRequestFormAction();
-    }
-  };
+  const onBlockLayerClick = createBlocklayerClickHandler(closeRequestFormAction);
 
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();

@@ -94,3 +94,12 @@ export const clearStorage = (Field) => {
     window.localStorage.removeItem(field);
   });
 };
+
+
+export const createBlocklayerClickHandler = (closeAction) => {
+  return (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closeAction();
+    }
+  };
+};

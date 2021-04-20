@@ -1,9 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {closeCreditRequestedPopup} from "../../store/actions";
 import CloseButton from "../close-button/close-button";
+import {createBlocklayerClickHandler} from "../../utils";
 
-const CreditRequestedPopup = () => {
+const CreditRequestedPopup = (props) => {
+  const {closePopup} = props;
+
+  const onBlockLayerClick = createBlocklayerClickHandler(closePopup);
+
   return (
-    <section className="credit-requested-popup basic-popup">
+    <section
+      onClick={onBlockLayerClick}
+      className="credit-requested-popup basic-popup"
+    >
       <div className="basic-popup__content-wrapper">
         <CloseButton className="credit-requested-popup__close-button" />
 
@@ -16,4 +27,14 @@ const CreditRequestedPopup = () => {
   );
 };
 
-export default CreditRequestedPopup;
+CreditRequestedPopup.propTypes = {
+  closePopup: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  closePopup() {
+    dispatch(closeCreditRequestedPopup());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(CreditRequestedPopup);
