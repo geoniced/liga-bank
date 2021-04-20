@@ -84,7 +84,10 @@ const CalculationFormSecondStep = (props) => {
 
   const onPropertyCostChange = (evt) => {
     const propertyCost = Number(evt.target.value);
+    const initialFeeValue = propertyCost * ((creditInfo.initialFee.min) / 100);
+
     setCreditPropertyCost(propertyCost);
+    setInitialFee(initialFeeValue);
   };
 
   const onInitialFeeChange = (evt) => {
