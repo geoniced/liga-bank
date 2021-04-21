@@ -1,4 +1,4 @@
-import {CreditGoal, YearPostfix, YearWordChangeLimits} from "./const";
+import {CreditGoal, NUMERIC_CHAR_REGEXP, PHONE_NUMBER_LENGTH, TEXT_DATA_REGEXP, YearPostfix, YearWordChangeLimits} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -87,6 +87,8 @@ export const calculateCreditCost = ({creditPropertyCost, initialFee, creditGoal,
 };
 
 export const isFieldNotEmpty = (field) => field !== ``;
+export const isFieldNotEmptyText = (field) => TEXT_DATA_REGEXP.test(field);
+export const isPhoneFieldNeededLength = (field) => field.split(``).filter((char) => NUMERIC_CHAR_REGEXP.test(char)).length === PHONE_NUMBER_LENGTH;
 
 export const clearStorage = (Field) => {
   const fields = Object.values(Field);

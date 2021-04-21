@@ -5,8 +5,8 @@ import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm, openCreditRequestedPopup, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
-import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, isFieldNotEmpty, clearStorage, createBlocklayerClickHandler} from "../../utils";
-import {CreditGoal, CreditStep, RequestField, ValidationMessage} from "../../const";
+import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage, createBlocklayerClickHandler} from "../../utils";
+import {CreditGoal, CreditStep, RequestField, Validation} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 
@@ -59,13 +59,31 @@ const RequestForm = (props) => {
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();
 
-    const fieldsToValidate = [nameRef, phoneRef, emailRef];
-    fieldsToValidate.forEach((field) => {
-      const fieldValue = field.current.value;
-      const isValid = isFieldNotEmpty(fieldValue);
-      const validityMessage = isValid ? `` : ValidationMessage.EMPTY;
+    const fieldsToValidate = [
+      {
+        ref: nameRef,
+        validations: [Validation.EMPTY, Validation.TEXT],
+      },
+      {
+        ref: phoneRef,
+        validations: [Validation.EMPTY, Validation.PHONE],
+      },
+      {
+        ref: emailRef,
+        validations: [Validation.EMPTY],
+      },
+    ];
 
-      field.current.setCustomValidity(validityMessage);
+    fieldsToValidate.forEach((field) => {
+      const fieldValue = field.ref.current.value;
+      const validations = field.validations
+        .map((validation) => validation.validationFunction(fieldValue) ? `` : validation.message)
+        .filter((message) => message !== ``);
+
+      const isValid = !validations.length;
+      const validityMessage = isValid ? `` : validations[0];
+
+      field.ref.current.setCustomValidity(validityMessage);
     });
 
     formRef.current.reportValidity();

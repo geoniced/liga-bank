@@ -1,3 +1,5 @@
+import {isFieldNotEmpty, isFieldNotEmptyText, isPhoneFieldNeededLength} from "./utils";
+
 export const CreditGoal = {
   MORTGAGE: `mortgage`,
   AUTO: `auto`,
@@ -119,10 +121,31 @@ export const RequestField = {
 };
 
 export const REQUEST_DEFAULT_NUMBER = 10;
+export const PHONE_NUMBER_LENGTH = 11;
 export const INVALID_NUMERIC_FIELD_MESSAGE = `Некорректное значение`;
 export const ValidationMessage = {
   EMPTY: `Заполните поле`,
+  TEXT: `Поле может содержать только буквы`,
+  PHONE: `Введите корректный номер телефона`,
 };
+
+export const Validation = {
+  EMPTY: {
+    validationFunction: isFieldNotEmpty,
+    message: ValidationMessage.EMPTY
+  },
+  TEXT: {
+    validationFunction: isFieldNotEmptyText,
+    message: ValidationMessage.TEXT
+  },
+  PHONE: {
+    validationFunction: isPhoneFieldNeededLength,
+    message: ValidationMessage.PHONE,
+  },
+};
+
+export const TEXT_DATA_REGEXP = /^[a-zA-Zа-яА-Я ]*$/;
+export const NUMERIC_CHAR_REGEXP = /\d/;
 
 
 const MediaQuery = {

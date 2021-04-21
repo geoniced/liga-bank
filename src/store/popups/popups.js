@@ -6,7 +6,7 @@ const initialState = {
   isLoginPopupOpened: false,
   isRequestFormOpened: false,
   requestNumber: REQUEST_DEFAULT_NUMBER,
-  isCreditRequestedPopupOpened: true,
+  isCreditRequestedPopupOpened: false,
 };
 
 const popups = (state = initialState, action) => {
