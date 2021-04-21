@@ -21,6 +21,15 @@
   display: flex;
 }
 
+.bank-departments__map-blip {
+  width: 37px;
+  height: 42px;
+  background-image: url("../assets/img/icon-location-blip.svg");
+
+  transform: translateX(-50%) translateY(-100%);
+}
+
+
 @media (max-width: $tablet-max-width) {
   .bank-departments__title {
     margin-bottom: 34px;

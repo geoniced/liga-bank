@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Helmet from "react-helmet";
 import {createStore} from "redux";
+import {YMaps} from "react-yandex-maps";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
@@ -19,7 +20,9 @@ ReactDOM.render(
       <Helmet>
         <link rel="preload" href={robotoRegularWoff2} as="font" type="font/woff2" crossOrigin/>
       </Helmet>
-      <App />
+      <YMaps>
+        <App />
+      </YMaps>
     </Provider>,
     document.getElementById(`root`)
 );

@@ -2,6 +2,7 @@ import React from "react";
 import departmentsMapImg from "../../assets/img/deps-map-with-blips.jpg";
 import departmentsMapImgTablet from "../../assets/img/deps-map-with-blips-tablet.jpg";
 import departmentsMapImgMobile from "../../assets/img/deps-map-with-blips-mobile.jpg";
+import BankDepartmentsMap from "../bank-departments-map.jsx/bank-departments-map";
 
 const BankDepartments = () => {
   return (
@@ -15,6 +16,7 @@ const BankDepartments = () => {
           <img className="bank-departments__map" src={departmentsMapImg} alt="Расположение отделений Лига Банков" width="1170" height="462" />
         </picture>
       </div>
+      <BankDepartmentsMap />
     </section>
   );
 };
