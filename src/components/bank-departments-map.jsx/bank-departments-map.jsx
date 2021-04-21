@@ -20,7 +20,7 @@ class BankDepartmentsMap extends PureComponent {
         modules={[
           `templateLayoutFactory`,
         ]}
-        width="100%"
+        className="bank-departments__map"
         height="462px"
         defaultState={MAP_STATE}
         onLoad={(ymaps) => {

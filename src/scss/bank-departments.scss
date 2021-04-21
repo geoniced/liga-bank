@@ -16,9 +16,15 @@
   display: flex;
 }
 
-.bank-departments__map {
+.bank-departments__map,
+.bank-departments__map-image {
   flex-shrink: 0;
   display: flex;
+}
+
+.bank-departments__map {
+  width: 100%;
+  height: 462px;
 }
 
 .bank-departments__map-blip {

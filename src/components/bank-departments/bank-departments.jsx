@@ -13,10 +13,10 @@ const BankDepartments = () => {
         <picture className="bank-departments__picture-container">
           <source media="(max-width: 767px)" srcSet={departmentsMapImgMobile} />
           <source media="(max-width: 1023px)" srcSet={departmentsMapImgTablet} />
-          <img className="bank-departments__map" src={departmentsMapImg} alt="Расположение отделений Лига Банков" width="1170" height="462" />
+          <img className="bank-departments__map-image" src={departmentsMapImg} alt="Расположение отделений Лига Банков" width="1170" height="462" />
         </picture>
+        <BankDepartmentsMap />
       </div>
-      <BankDepartmentsMap />
     </section>
   );
 };
