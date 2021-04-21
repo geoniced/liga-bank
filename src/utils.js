@@ -1,4 +1,4 @@
-import {CreditGoal, NUMERIC_CHAR_REGEXP, PHONE_NUMBER_LENGTH, TEXT_DATA_REGEXP, YearPostfix, YearWordChangeLimits} from "./const";
+import {CreditGoal, NUMERIC_CHAR_REGEXP, PHONE_NUMBER_LENGTH, SHAKE_ANIMATION_TIMEOUT, TEXT_DATA_REGEXP, YearPostfix, YearWordChangeLimits} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
@@ -95,6 +95,15 @@ export const clearStorage = (Field) => {
   fields.forEach((field) => {
     window.localStorage.removeItem(field);
   });
+};
+
+export const setShakeAnimation = (ref) => {
+  ref.current.style.animation = `shake ${SHAKE_ANIMATION_TIMEOUT / 1000}s`;
+  setTimeout(() => {
+    if (ref.current) {
+      ref.current.style.animation = ``;
+    }
+  }, SHAKE_ANIMATION_TIMEOUT);
 };
 
 
