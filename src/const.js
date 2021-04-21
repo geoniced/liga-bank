@@ -200,3 +200,28 @@ export const SELECT_STYLES = {
     }
   }),
 };
+
+
+export const MapCoordinate = {
+  MOSCOW: [55.755814, 37.617635],
+  SAINT_PETERSBURG: [59.938951, 30.315635],
+  SARATOV: [51.533557, 46.034257],
+  KAZAN: [55.796127, 49.106405],
+  TYUMEN: [57.152985, 65.541227],
+  OMSK: [54.989342, 73.368212],
+  PERM: [58.010450, 56.229434],
+  SURGUT: [61.254035, 73.396221],
+  NOVOSIBIRSK: [55.030199, 82.920430],
+};
+
+export const MAP_PLACEMARKS = [
+  MapCoordinate.MOSCOW,
+  MapCoordinate.SAINT_PETERSBURG,
+  MapCoordinate.SARATOV,
+  MapCoordinate.KAZAN,
+  MapCoordinate.TYUMEN,
+  MapCoordinate.OMSK,
+  MapCoordinate.PERM,
+  MapCoordinate.SURGUT,
+  MapCoordinate.NOVOSIBIRSK,
+];
