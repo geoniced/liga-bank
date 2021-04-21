@@ -1,6 +1,9 @@
 import React, {PureComponent} from "react";
 import {Map, Placemark} from "react-yandex-maps";
-import {MAP_PLACEMARKS} from "../../const";
+import {MapCoordinate, MAP_PLACEMARKS} from "../../const";
+
+const MAP_STATE = {center: MapCoordinate.EKATERINBURG, zoom: 5};
+const blipLayout = `<div class="bank-departments__map-blip"></div>`;
 
 class BankDepartmentsMap extends PureComponent {
   constructor(props) {
@@ -19,10 +22,10 @@ class BankDepartmentsMap extends PureComponent {
         ]}
         width="100%"
         height="462px"
-        defaultState={{center: [56.838011, 60.597465], zoom: 5}}
+        defaultState={MAP_STATE}
         onLoad={(ymaps) => {
           this.setState({
-            iconLayoutTemplate: ymaps.templateLayoutFactory.createClass(`<div class="bank-departments__map-blip"></div>`)
+            iconLayoutTemplate: ymaps.templateLayoutFactory.createClass(blipLayout)
           });
         }}
       >
