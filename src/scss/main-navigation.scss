@@ -86,6 +86,7 @@
 
 @media (max-width: $mobile-max-width) {
   .main-navigation {
+    position: relative;
     flex-direction: column;
     align-items: stretch;
 
@@ -125,7 +126,16 @@
     flex-direction: column;
     align-items: stretch;
     min-height: 607px;
-    margin-top: 29px;
+
+    position: absolute;
+    z-index: 1;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    background-color: #F6F7FF;
+    padding-top: 29px;
+    padding-right: $mobile-paddings;
+    padding-left: $mobile-paddings;
   }
 
   .main-navigation--opened .main-navigation__login--togglable {

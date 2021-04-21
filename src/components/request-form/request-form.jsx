@@ -6,7 +6,7 @@ import NumberFormat from "react-number-format";
 import {closeRequestForm, openCreditRequestedPopup, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
 import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage, createBlocklayerClickHandler, setShakeAnimation} from "../../utils";
-import {CreditGoal, CreditStep, RequestField, SHAKE_ANIMATION_TIMEOUT, Validation} from "../../const";
+import {CreditGoal, CreditStep, RequestField, Validation} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {ReactComponent as IconLogin} from "../../assets/img/icon-login.svg";
@@ -10,16 +10,30 @@ import Logo from "../logo/logo";
 const PageHeader = (props) => {
   const {openLoginPopupAction} = props;
 
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+
   const onLoginClick = (evt) => {
     evt.preventDefault();
     openLoginPopupAction();
   };
 
+  const onMenuButtonClick = () => {
+    setIsMenuOpened((prevState) => !prevState);
+  };
+
+  const onCloseButtonClick = () => {
+    setIsMenuOpened(false);
+  };
+
   return (
     <header className="page-header">
-      <nav className="page-header__main-navigation main-navigation container">{/*  main-navigation--opened */}
+      <nav className={`page-header__main-navigation main-navigation container ${isMenuOpened ? `main-navigation--opened` : ``}`}>
         <div className="main-navigation__top-menu-wrapper">
-          <button className="main-navigation__menu-button" type="button">
+          <button
+            onClick={onMenuButtonClick}
+            className="main-navigation__menu-button"
+            type="button"
+          >
             <IconMenu className="main-navigation__menu-icon" />
             <span className="visually-hidden">Открыть меню</span>
           </button>
@@ -36,7 +50,10 @@ const PageHeader = (props) => {
               <span className="login__title">Войти в Интернет-банк</span>
             </a>
 
-            <button className="main-navigation__close-menu">
+            <button
+              onClick={onCloseButtonClick}
+              className="main-navigation__close-menu"
+            >
               <IconTopMenuClose className="main-navigation__close-menu-icon" />
               <span className="visually-hidden">Закрыть меню</span>
             </button>
