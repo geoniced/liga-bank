@@ -26,7 +26,12 @@
 
 @media (max-width: $tablet-max-width) {
   .credit-denied-popup {
+    width: auto;
     padding-left: 60px;
+  }
+
+  .credit-denied-popup__title {
+    max-width: 370px;
   }
 }
 
