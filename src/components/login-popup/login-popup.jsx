@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import CloseButton from "../close-button/close-button";
 import {closeLoginPopup} from "../../store/actions";
-import {isEscKeyPressed, createFieldChangeHandler} from "../../utils";
+import {isEscKeyPressed, createFieldChangeHandler, createBlocklayerClickHandler} from "../../utils";
 import {LoginField} from "../../const";
 import LogoLoginImg from "../../assets/img/logo-login.svg";
 import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-password-eye-closed.svg";
@@ -27,6 +27,8 @@ const LoginPopup = (props) => {
 
   const onLoginChangeHandler = createFieldChangeHandler(LoginField.LOGIN, setLoginValue);
   const onPasswordChangeHandler = createFieldChangeHandler(LoginField.PASSWORD, setPasswordValue);
+
+  const onBlockLayerClick = createBlocklayerClickHandler(closeLoginPopupAction);
 
   const onRevealPasswordMouseDown = () => {
     setIsPasswordShown(true);
@@ -66,7 +68,10 @@ const LoginPopup = (props) => {
   useLocalStorageFieldsSync(FieldMap);
 
   return (
-    <section className="login-popup basic-popup">
+    <section
+      onClick={onBlockLayerClick}
+      className="login-popup basic-popup"
+    >
       <div className="login-popup__content-wrapper basic-popup__content-wrapper">
         <h2 className="visually-hidden">Вход в интернет-банк</h2>
 
