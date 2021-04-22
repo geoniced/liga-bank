@@ -18,8 +18,16 @@
   right: 29px - $close-button-offset;
 }
 
+@media (max-width: $tablet-max-width) {
+  .credit-requested-popup__content-wrapper {
+    width: 500px;
+  }
+}
+
 @media (max-width: $mobile-max-width) {
-  .credit-requested-popup {
+  .credit-requested-popup__content-wrapper {
+    align-items: center;
+    width: 290px;
     padding-top: 34px;
     padding-right: 15px;
     padding-bottom: 33px;

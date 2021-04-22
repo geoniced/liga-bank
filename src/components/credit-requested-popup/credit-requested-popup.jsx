@@ -30,7 +30,7 @@ const CreditRequestedPopup = (props) => {
       onClick={onBlockLayerClick}
       className="credit-requested-popup basic-popup"
     >
-      <div className="basic-popup__content-wrapper">
+      <div className="credit-requested-popup__content-wrapper basic-popup__content-wrapper">
         <CloseButton
           onCloseButtonClick={onCloseButtonClick}
           className="credit-requested-popup__close-button"
