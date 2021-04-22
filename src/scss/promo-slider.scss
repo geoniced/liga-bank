@@ -24,12 +24,16 @@
 
   &--confidence {
     background-color: #DDE2EC;
-    background-image: url("../assets/img/a-man-in-a-suit.png");
+    background-image:
+      url("../assets/img/a-man-in-a-suit.png"),
+      linear-gradient(to right, #DDE2EC, #F3FAFF);
   }
 
   &--department {
     background-color: #E6F1FE;
-    background-image: url("../assets/img/a-woman-with-a-card.png");
+    background-image:
+      url("../assets/img/a-woman-with-a-card.png"),
+      linear-gradient(to right, #E6F1FE, #EBF4FD);
   }
 }
 
@@ -89,11 +93,15 @@
     }
 
     &--confidence {
-      background-image: url("../assets/img/a-man-in-a-suit-tablet.png");
+      background-image:
+        url("../assets/img/a-man-in-a-suit-tablet.png"),
+        linear-gradient(to right, #DDE2EC, #F3FAFF);
     }
 
     &--department {
-      background-image: url("../assets/img/a-woman-with-a-card-tablet.png");
+      background-image:
+        url("../assets/img/a-woman-with-a-card-tablet.png"),
+        linear-gradient(to right, #E6F1FE, #EBF4FD);;
     }
   }
 
@@ -145,12 +153,16 @@
     }
 
     &--confidence {
-      background-image: url("../assets/img/a-man-in-a-suit-mobile.png");
+      background-image:
+        url("../assets/img/a-man-in-a-suit-mobile.png"),
+        linear-gradient(to right, #DDE2EC, #F3FAFF);
       background-position: right;
     }
 
     &--department {
-      background-image: url("../assets/img/a-woman-with-a-card-mobile.png");
+      background-image:
+        url("../assets/img/a-woman-with-a-card-mobile.png"),
+        linear-gradient(to right, #E6F1FE, #EBF4FD);
       background-position: right;
     }
   }
