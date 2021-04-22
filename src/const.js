@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {isFieldNotEmpty, isFieldNotEmptyText, isPhoneFieldNeededLength} from "./utils";
 
 export const CreditGoal = {
@@ -157,6 +158,7 @@ export const SELECT_STYLES = {
   control: (provided) => ({
     ...provided,
     border: `none`,
+    marginBottom: `0`,
   }),
   container: (provided) => ({
     ...provided,
@@ -177,6 +179,29 @@ export const SELECT_STYLES = {
       paddingLeft: `14px`,
       paddingRight: `14px`,
     }
+  }),
+  menu: (provided) => ({
+    borderTopLeftRadius: `0`,
+    borderTopRightRadius: `0`,
+  }),
+  menuList: (provided) => ({
+    padding: `0`,
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    paddingTop: `16px`,
+    paddingRight: `19px`,
+    paddingBottom: `12px`,
+    paddingLeft: `23px`,
+    lineHeight: `140%`,
+    fontSize: `16px`,
+    borderBottom: `1px solid #C1C2CA;`,
+    borderBottomLeftRadius: state.value === state.options[state.options.length - 1].value ? `4px` : `0`,
+    borderBottomRightRadius: state.value === state.options[state.options.length - 1].value ? `4px` : `0`,
+    [MediaQuery.MOBILE]: {
+      paddingLeft: `14px`,
+      paddingRight: `14px`,
+    },
   }),
   placeholder: (provided) => ({
     ...provided,
