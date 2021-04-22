@@ -66,6 +66,7 @@ NumericField.propTypes = {
   step: PropTypes.number,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.number.isRequired,
+  validate: PropTypes.bool,
   convertCallback: PropTypes.func.isRequired,
 };
 

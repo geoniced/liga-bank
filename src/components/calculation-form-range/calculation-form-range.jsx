@@ -42,6 +42,7 @@ CalculationFormRange.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   values: PropTypes.arrayOf(PropTypes.number).isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default CalculationFormRange;

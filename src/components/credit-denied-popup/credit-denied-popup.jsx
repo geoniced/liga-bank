@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {formatDecimalWithRubles} from "../../utils";
 
 const CreditDeniedPopup = (props) => {
@@ -15,6 +16,11 @@ const CreditDeniedPopup = (props) => {
       </p>
     </section>
   );
+};
+
+CreditDeniedPopup.propTypes = {
+  creditName: PropTypes.string.isRequired,
+  creditMinimum: PropTypes.string.isRequired,
 };
 
 export default CreditDeniedPopup;

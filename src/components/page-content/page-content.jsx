@@ -31,6 +31,7 @@ const PageContent = (props) => {
 
 PageContent.propTypes = {
   isLoginPopupOpened: PropTypes.bool.isRequired,
+  isCreditRequestedPopupOpened: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({

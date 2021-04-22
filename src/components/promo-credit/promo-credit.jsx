@@ -1,7 +1,7 @@
 import React from "react";
 import PromoSliderItem from "../promo-slider-item/promo-slider-item";
 
-const PromoCredit = (props) => {
+const PromoCredit = () => {
   return (
     <PromoSliderItem itemModifierClass="credit">
       <h2 className="promo-slider__title">Лига Банк</h2>
