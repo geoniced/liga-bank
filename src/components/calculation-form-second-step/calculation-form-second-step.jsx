@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import CalculationFormRange from "../calculation-form-range/calculation-form-range";
 import {CreditGoal, CreditStep} from "../../const";
 import NumericField from "../numeric-field/numeric-field";
-import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears, packNumberInMinMax} from "../../utils";
+import {calculatePercentInRange, formatDecimal, formatDecimalWithRubles, formatDecimalWithYears, packNumberInMinMax, calculateInitialFee} from "../../utils";
 import {ReactComponent as IconMinus} from "../../assets/img/icon-minus.svg";
 import {ReactComponent as IconPlus} from "../../assets/img/icon-plus.svg";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseCasco, getUseLifeInsurance, getUseMaternityCapital} from "../../store/selectors";
@@ -82,10 +82,9 @@ const CalculationFormSecondStep = (props) => {
 
   const initialFeePercent = calculatePercentInRange(initialFee, creditPropertyCost, creditInfo.initialFee.min, creditInfo.initialFee.rangeMax);
 
-
   const onPropertyCostChange = (evt) => {
     const propertyCost = Number(evt.target.value);
-    const initialFeeValue = propertyCost * ((creditInfo.initialFee.min) / 100);
+    const initialFeeValue = calculateInitialFee(propertyCost, creditInfo.initialFee.min);
 
     setCreditPropertyCost(propertyCost);
     setInitialFee(initialFeeValue);
@@ -118,13 +117,19 @@ const CalculationFormSecondStep = (props) => {
     let newValue = creditPropertyCost - creditInfo.cost.step;
     newValue = newValue < creditInfo.cost.min ? creditInfo.cost.min : newValue;
 
+    const initialFeeValue = calculateInitialFee(newValue, creditInfo.initialFee.min);
+
     setCreditPropertyCost(newValue);
+    setInitialFee(initialFeeValue);
   };
 
   const onOperationPlusClick = () => {
     let newValue = creditPropertyCost + creditInfo.cost.step;
     newValue = newValue > creditInfo.cost.max ? creditInfo.cost.max : newValue;
+
+    const initialFeeValue = calculateInitialFee(newValue, creditInfo.initialFee.min);
     setCreditPropertyCost(newValue);
+    setInitialFee(initialFeeValue);
   };
 
   return (

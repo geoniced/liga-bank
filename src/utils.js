@@ -86,6 +86,10 @@ export const calculateCreditCost = ({creditPropertyCost, initialFee, creditGoal,
   return creditCost;
 };
 
+export const calculateInitialFee = (propertyCost, initialFeeMin) => {
+  return propertyCost * ((initialFeeMin) / 100);
+};
+
 export const isFieldNotEmpty = (field) => field !== ``;
 export const isFieldNotEmptyText = (field) => TEXT_DATA_REGEXP.test(field);
 export const isPhoneFieldNeededLength = (field) => field.split(``).filter((char) => NUMERIC_CHAR_REGEXP.test(char)).length === PHONE_NUMBER_LENGTH;
