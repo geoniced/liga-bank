@@ -121,7 +121,6 @@ export const RequestField = {
   EMAIL: `request-form-email`,
 };
 
-export const SHAKE_ANIMATION_TIMEOUT = 600;
 export const REQUEST_DEFAULT_NUMBER = 10;
 export const PHONE_NUMBER_LENGTH = 11;
 export const INVALID_NUMERIC_FIELD_MESSAGE = `Некорректное значение`;

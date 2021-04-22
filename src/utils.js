@@ -101,15 +101,6 @@ export const clearStorage = (Field) => {
   });
 };
 
-export const setShakeAnimation = (ref) => {
-  ref.current.style.animation = `shake ${SHAKE_ANIMATION_TIMEOUT / 1000}s`;
-  setTimeout(() => {
-    if (ref.current) {
-      ref.current.style.animation = ``;
-    }
-  }, SHAKE_ANIMATION_TIMEOUT);
-};
-
 
 export const createBlocklayerClickHandler = (closeAction) => {
   return (evt) => {
