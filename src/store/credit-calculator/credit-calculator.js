@@ -3,8 +3,13 @@ import {extend} from "../../utils";
 import {ActionType} from "../actions";
 
 const initialState = {
-  isLoginPopupOpened: false,
-  isRequestFormOpened: false,
+  creditGoal: null,
+  creditPropertyCost: 0,
+  initialFee: 0,
+  creditPeriod: 0,
+  useMaternityCapital: true,
+  useCasco: false,
+  useLifeInsurance: false,
 };
 
 const creditCalculator = (state = initialState, action) => {

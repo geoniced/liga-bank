@@ -36,6 +36,7 @@ const getFactorsByCreditInfo = (creditInfo, creditGoal, factorData) => {
             type="checkbox"
             name={`calculation-form-${factor.name}`}
             id={`calculation-form-${factor.name}`}
+            checked={factor.value}
           />
           <label
             className="calculation-form__checkbox-label"
