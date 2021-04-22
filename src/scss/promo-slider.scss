@@ -7,10 +7,6 @@
 }
 
 .promo-slider__item {
-  // padding-top: 102px;
-  // padding-bottom: 60px;
-  // padding-left: 254px;
-
   min-height: 400px;
   background-repeat: no-repeat;
   background-position: center;
@@ -85,8 +81,6 @@
 @media (max-width: $tablet-max-width) {
   .promo-slider__item {
     min-height: 300px;
-    // padding-top: 65px;
-    // padding-left: 86px;
 
     &--credit {
       background-image: url("../assets/img/main-banner-bg-tablet.png");
@@ -143,9 +137,6 @@
 @media (max-width: $mobile-max-width) {
   .promo-slider__item {
     min-height: 226px;
-    // padding-top: 39px;
-    // padding-bottom: 20px;
-    // padding-left: 15px;
 
     &--credit {
       background-image: url("../assets/img/main-banner-bg-mobile.png");

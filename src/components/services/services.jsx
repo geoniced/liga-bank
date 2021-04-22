@@ -47,12 +47,6 @@ TABS_LIST.forEach((tab, i) => {
   ServicesTabMap[tab.type] = i;
 });
 
-// const getTabContentByTabType = (tabType) => {
-//   const TabContent = TABS[tabType].component;
-
-//   return <TabContent />;
-// };
-
 const Services = () => {
   const [currentTab, setCurrentTab] = useState(Tab.DEPOSITS);
 
