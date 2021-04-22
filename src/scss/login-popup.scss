@@ -1,3 +1,8 @@
+.login-popup__form {
+  display: flex;
+  flex-direction: column;
+}
+
 .login-popup__content-wrapper {
   width: 544px;
   min-height: 493px;
