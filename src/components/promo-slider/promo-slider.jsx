@@ -17,7 +17,6 @@ const PromoSlider = () => {
         showArrows={false}
         showStatus={false}
         stopOnHover={true}
-        emulateTouch
         autoPlay
         infiniteLoop
         renderIndicator={(onClickHandler, isSelected, index) => (

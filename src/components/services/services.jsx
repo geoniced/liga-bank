@@ -93,7 +93,6 @@ const Services = () => {
         stopOnHover={false}
         autoPlay={false}
         onChange={onSlideChange}
-        emulateTouch
         renderIndicator={(onClickHandler, isSelected, index) => (
           <SliderButtonItem
             onClickHandler={onClickHandler}
