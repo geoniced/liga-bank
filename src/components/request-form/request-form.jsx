@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm, openCreditRequestedPopup, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
-import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage, createBlocklayerClickHandler, setShakeAnimation} from "../../utils";
+import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage, setShakeAnimation} from "../../utils";
 import {CreditGoal, CreditStep, RequestField, Validation} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
@@ -54,8 +54,6 @@ const RequestForm = (props) => {
 
   const creditCost = calculateCreditCost(creditCostData);
 
-  const onBlockLayerClick = createBlocklayerClickHandler(closeRequestFormAction);
-
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();
 
@@ -103,94 +101,90 @@ const RequestForm = (props) => {
 
   return (
     <section
-      onClick={onBlockLayerClick}
-      className="credit-calculator__request-form request-form basic-popup"
+      className="credit-calculator__request-form request-form"
     >
-      <div className="request-form__wrapper basic-popup__wrapper">
-        <h2 className="request-form__title">Шаг 3. Оформление заявки</h2>
+      <h2 className="request-form__title">Шаг 3. Оформление заявки</h2>
 
-        <dl className="request-form__data">
-          <div className="request-form__data-item">
-            <dt className="request-form__data-title">Номер заявки</dt>
-            <dd className="request-form__data-value">№ {formatNumberToThousandsWithZeros(requestNumber)}</dd>
-          </div>
-          <div className="request-form__data-item">
-            <dt className="request-form__data-title">Цель кредита</dt>
-            <dd className="request-form__data-value">{creditInfo.creditTypeName}</dd>
-          </div>
-          <div className="request-form__data-item">
-            <dt className="request-form__data-title">{creditInfo.creditName}</dt>
-            <dd className="request-form__data-value">{formatDecimalWithRubles(creditCost)}</dd>
-          </div>
-          <div className="request-form__data-item">
-            <dt className="request-form__data-title">Первоначальный взнос</dt>
-            <dd className="request-form__data-value">{formatDecimalWithRubles(initialFee)}</dd>
-          </div>
-          <div className="request-form__data-item">
-            <dt className="request-form__data-title">Срок кредитования</dt>
-            <dd className="request-form__data-value">{formatDecimalWithYears(creditPeriod)}</dd>
-          </div>
-        </dl>
+      <dl className="request-form__data">
+        <div className="request-form__data-item">
+          <dt className="request-form__data-title">Номер заявки</dt>
+          <dd className="request-form__data-value">№ {formatNumberToThousandsWithZeros(requestNumber)}</dd>
+        </div>
+        <div className="request-form__data-item">
+          <dt className="request-form__data-title">Цель кредита</dt>
+          <dd className="request-form__data-value">{creditInfo.creditTypeName}</dd>
+        </div>
+        <div className="request-form__data-item">
+          <dt className="request-form__data-title">{creditInfo.creditName}</dt>
+          <dd className="request-form__data-value">{formatDecimalWithRubles(creditCost)}</dd>
+        </div>
+        <div className="request-form__data-item">
+          <dt className="request-form__data-title">Первоначальный взнос</dt>
+          <dd className="request-form__data-value">{formatDecimalWithRubles(initialFee)}</dd>
+        </div>
+        <div className="request-form__data-item">
+          <dt className="request-form__data-title">Срок кредитования</dt>
+          <dd className="request-form__data-value">{formatDecimalWithYears(creditPeriod)}</dd>
+        </div>
+      </dl>
 
-        <form ref={formRef} action="#" className="request-form__form">
-          <div className="request-form__field-row">
-            <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
-            <input
-              ref={nameRef}
-              onChange={onNameChangeHandler}
-              value={name}
+      <form ref={formRef} action="#" className="request-form__form">
+        <div className="request-form__field-row">
+          <label className="visually-hidden" htmlFor="request-form-name">ФИО</label>
+          <input
+            ref={nameRef}
+            onChange={onNameChangeHandler}
+            value={name}
+            className="request-form__input"
+            type="text"
+            name="request-form-name"
+            id="request-form-name"
+            placeholder="ФИО"
+            required
+          />
+        </div>
+
+        <div className="request-form__field-row request-form__field-row--halves">
+          <div className="request-form__half-field-wrapper">
+            <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
+            {/* <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" /> */}
+            <NumberFormat
+              getInputRef={phoneRef}
+              onValueChange={onPhoneChangeHandler}
+              value={phone}
               className="request-form__input"
-              type="text"
-              name="request-form-name"
-              id="request-form-name"
-              placeholder="ФИО"
+              name="request-form-phone"
+              id="request-form-phone"
+              format="+7 (###) ###-##-##"
+              mask="_"
+              placeholder="Телефон"
               required
             />
           </div>
-
-          <div className="request-form__field-row request-form__field-row--halves">
-            <div className="request-form__half-field-wrapper">
-              <label className="visually-hidden" htmlFor="request-form-phone">Телефон</label>
-              {/* <input className="request-form__input" type="tel" name="request-form-phone" id="request-form-phone" placeholder="Телефон" /> */}
-              <NumberFormat
-                getInputRef={phoneRef}
-                onValueChange={onPhoneChangeHandler}
-                value={phone}
-                className="request-form__input"
-                name="request-form-phone"
-                id="request-form-phone"
-                format="+7 (###) ###-##-##"
-                mask="_"
-                placeholder="Телефон"
-                required
-              />
-            </div>
-            <div className="request-form__half-field-wrapper">
-              <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
-              <input
-                ref={emailRef}
-                onChange={onEmailChangeHandler}
-                value={email}
-                className="request-form__input"
-                type="email"
-                name="request-form-email"
-                id="request-form-email"
-                placeholder="E-mail"
-                required
-              />
-            </div>
+          <div className="request-form__half-field-wrapper">
+            <label className="visually-hidden" htmlFor="request-form-email">E-mail</label>
+            <input
+              ref={emailRef}
+              onChange={onEmailChangeHandler}
+              value={email}
+              className="request-form__input"
+              type="email"
+              name="request-form-email"
+              id="request-form-email"
+              placeholder="E-mail"
+              required
+            />
           </div>
+        </div>
 
-          <button
-            onClick={onSubmitButtonClick}
-            className="request-form__send button"
-            type="submit"
-          >
-            Отправить
-          </button>
-        </form>
-      </div>
-
+        <button
+          onClick={onSubmitButtonClick}
+          className="request-form__send button"
+          type="submit"
+        >
+          Отправить
+        </button>
+      </form>
     </section>
   );
 };

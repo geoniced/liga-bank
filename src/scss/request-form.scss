@@ -1,4 +1,4 @@
-.request-form__wrapper {
+.request-form {
   width: 770px;
   min-height: 722px;
   margin: 0 auto;
@@ -99,7 +99,7 @@
 }
 
 @media (max-width: $tablet-max-width) {
-  .request-form__wrapper {
+  .request-form {
     width: auto;
     min-height: 592px;
     margin-top: 54px;
@@ -125,7 +125,7 @@
 }
 
 @media (max-width: $mobile-max-width) {
-  .request-form__wrapper {
+  .request-form {
     width: 100%;
     margin-top: 43px;
   }
