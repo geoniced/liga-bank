@@ -1,4 +1,4 @@
-import {CreditGoal, NUMERIC_CHAR_REGEXP, PHONE_NUMBER_LENGTH, SHAKE_ANIMATION_TIMEOUT, TEXT_DATA_REGEXP, YearPostfix, YearWordChangeLimits} from "./const";
+import {CreditGoal, NUMERIC_CHAR_REGEXP, PHONE_NUMBER_LENGTH, TEXT_DATA_REGEXP, YearPostfix, YearWordChangeLimits} from "./const";
 
 export const extend = (a, b) => Object.assign({}, a, b);
 
