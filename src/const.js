@@ -158,6 +158,7 @@ export const SELECT_STYLES = {
     ...provided,
     border: `none`,
     marginBottom: `0`,
+    cursor: `pointer`,
   }),
   container: (provided) => ({
     ...provided,
@@ -194,6 +195,7 @@ export const SELECT_STYLES = {
     paddingLeft: `23px`,
     lineHeight: `140%`,
     fontSize: `16px`,
+    cursor: `pointer`,
     borderBottom: `1px solid #C1C2CA;`,
     borderBottomLeftRadius: state.value === state.options[state.options.length - 1].value ? `4px` : `0`,
     borderBottomRightRadius: state.value === state.options[state.options.length - 1].value ? `4px` : `0`,
