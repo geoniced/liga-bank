@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {getIsRequestFormOpened} from "../../store/selectors";
 import CalculationForm from "../calculation-form/calculation-form";
@@ -15,6 +16,10 @@ const CreditCalculator = (props) => {
       {isRequestFormOpened && <RequestForm />}
     </section>
   );
+};
+
+CreditCalculator.propTypes = {
+  isRequestFormOpened: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
