@@ -26,9 +26,11 @@
   color: $black;
   background-color: white;
   border: none;
+  cursor: pointer;
 
   &--active {
     background-color: $light-gray;
+    cursor: initial;
   }
 
   @include basic-hover;
