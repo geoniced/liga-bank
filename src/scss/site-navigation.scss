@@ -2,6 +2,9 @@
   @include list-reset;
 
   display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  max-width: 500px;
 
   &--vertical {
     flex-direction: column;
@@ -10,6 +13,11 @@
 }
 
 .site-navigation__item {
+  display: flex;
+  align-items: center;
+  max-width: 145px;
+  margin-bottom: 20px;
+
   margin-right: 25px;
 
   &:last-of-type {
@@ -41,7 +49,12 @@
 }
 
 @media (max-width: $tablet-max-width) {
+  .site-navigation {
+    max-width: 415px;
+  }
+
   .site-navigation__item {
+    max-width: 125px;
     margin-right: 21px;
   }
 
@@ -57,10 +70,14 @@
 @media (max-width: $mobile-max-width) {
   .site-navigation {
     flex-direction: column;
+    max-width: initial;
   }
 
   .site-navigation__item {
+    max-width: initial;
     margin-right: 0;
+    margin-bottom: 0;
+
     border-bottom: 1px solid $track-color;
 
     &:first-of-type {

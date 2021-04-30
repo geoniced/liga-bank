@@ -122,10 +122,12 @@
   }
 
   .main-navigation--opened .main-navigation__navigation-wrapper {
+    overflow-y: auto;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    min-height: 607px;
+    height: 607px;
 
     position: absolute;
     z-index: 1;
@@ -135,6 +137,7 @@
     background-color: #F6F7FF;
     padding-top: 29px;
     padding-right: $mobile-paddings;
+    padding-bottom: 29px;
     padding-left: $mobile-paddings;
   }
 
