@@ -25,6 +25,9 @@
 
 .page-footer__phone-contacts {
   position: relative;
+
+  display: flex;
+  flex-direction: column;
   margin-right: 80px / 613px * 100%;
 
   &--mobile {
@@ -46,6 +49,7 @@
 
   font-weight: 500;
   color: $black;
+  white-space: nowrap;
 
   @include basic-hover;
   @include basic-active;
@@ -76,6 +80,18 @@
   padding-top: 12px;
 }
 
+@media (max-width: $desktop-folding-max-width) {
+  .page-footer__phone-contacts {
+    &--mobile {
+      margin-right: 20px;
+    }
+  }
+
+  .page-footer__socials {
+    margin-left: auto;
+  }
+}
+
 @media (max-width: $tablet-max-width) {
   .page-footer__contacts-navigation {
     margin-right: 15.045%;
@@ -88,6 +104,10 @@
   .page-footer__phone-contacts {
     margin-right: 0;
     margin-bottom: 13px;
+  }
+
+  .page-footer__socials {
+    margin-left: 0;
   }
 }
 
