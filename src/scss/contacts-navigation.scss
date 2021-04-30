@@ -1,18 +1,21 @@
 .contacts-navigation {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-
-  width: 477px;
-  max-height: 115px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
 }
 
 .contacts-navigation__logo {
+  grid-row: 1;
+  grid-column: 1;
+
   width: 252px;
   margin-bottom: 16px;
 }
 
 .contacts-navigation__information {
+  grid-row: 2;
+  grid-column: 1;
+
   width: 252px;
 }
 
@@ -29,12 +32,19 @@
 }
 
 .contacts-navigation__site-navigation {
+  grid-row: 1 / -1;
+  grid-column: 2;
+
   margin-left: 81px / 477px * 100%;
   padding-top: 7px;
 }
 
 @media (max-width: $tablet-max-width) {
   .contacts-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
     width: auto;
     max-height: initial;
   }
