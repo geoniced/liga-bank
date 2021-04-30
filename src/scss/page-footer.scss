@@ -80,7 +80,7 @@
   padding-top: 12px;
 }
 
-@media (max-width: $desktop-folding-max-width) {
+@media (max-width: $desktop-text-wrap-max-width) {
   .page-footer__phone-contacts {
     &--mobile {
       margin-right: 20px;
