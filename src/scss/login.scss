@@ -1,7 +1,9 @@
 .login {
   position: relative;
 
+  max-width: 202px;
   padding-left: 29px;
+
   line-height: 19px;
   color: $black;
   text-decoration: none;
@@ -20,6 +22,8 @@
   .login {
     right: -15px;
     padding: 15px;
+
+    max-width: initial;
   }
 
   .login__icon {
