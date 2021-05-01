@@ -121,6 +121,9 @@
   border: none;
   cursor: pointer;
 
+  @include basic-hover;
+  @include basic-active;
+
   &--minus {
     left: 0;
   }
@@ -165,6 +168,11 @@
 .calculation-form__checkbox-label {
   position: relative;
   padding-left: 24px;
+
+  cursor: pointer;
+
+  @include basic-hover;
+  @include basic-active;
 
   &::before {
     content: "";

@@ -153,12 +153,27 @@ const MediaQuery = {
   MOBILE: `@media (max-width: 767px)`
 };
 
+const PseudoClass = {
+  HOVER: `:hover`,
+  FOCUS: `:focus`,
+  ACTIVE: `:active`,
+};
+
 export const SELECT_STYLES = {
   control: (provided) => ({
     ...provided,
     border: `none`,
     marginBottom: `0`,
     cursor: `pointer`,
+    [PseudoClass.HOVER]: {
+      opacity: `0.7`,
+    },
+    [PseudoClass.FOCUS]: {
+      opacity: `0.7`,
+    },
+    [PseudoClass.ACTIVE]: {
+      opacity: `0.4`,
+    },
   }),
   container: (provided) => ({
     ...provided,
