@@ -1,12 +1,11 @@
-/* eslint-disable no-console */
 import React, {createRef, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm, openCreditRequestedPopup, setRequestNumber} from "../../store/actions";
-import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getUseMaternityCapital, getRequestNumber} from "../../store/selectors";
-import {calculateCreditCost, createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage} from "../../utils";
-import {CreditGoal, CreditStep, RequestField, Validation} from "../../const";
+import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getRequestNumber} from "../../store/selectors";
+import {createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage} from "../../utils";
+import {CreditStep, RequestField, Validation} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
 
@@ -19,7 +18,6 @@ const RequestForm = (props) => {
     initialFee,
     creditPeriod,
     closeRequestFormAction,
-    useMaternityCapital,
     openCreditRequestedPopupAction,
   } = props;
 
@@ -43,16 +41,6 @@ const RequestForm = (props) => {
   const onEmailChangeHandler = createFieldChangeHandler(RequestField.EMAIL, setEmail);
 
   const creditInfo = CreditStep[creditGoal];
-
-  const creditCostData = {
-    creditPropertyCost,
-    initialFee,
-    creditGoal,
-    useMaternityCapital: creditGoal === CreditGoal.MORTGAGE && useMaternityCapital,
-    maternityCapitalCostDown: creditInfo.maternityCapitalCostDown,
-  };
-
-  const creditCost = calculateCreditCost(creditCostData);
 
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();
@@ -114,7 +102,7 @@ const RequestForm = (props) => {
         </div>
         <div className="request-form__data-item">
           <dt className="request-form__data-title">{creditInfo.creditName}</dt>
-          <dd className="request-form__data-value">{formatDecimalWithRubles(creditCost)}</dd>
+          <dd className="request-form__data-value">{formatDecimalWithRubles(creditPropertyCost)}</dd>
         </div>
         <div className="request-form__data-item">
           <dt className="request-form__data-title">Первоначальный взнос</dt>
@@ -194,7 +182,6 @@ RequestForm.propTypes = {
   creditPropertyCost: PropTypes.number.isRequired,
   initialFee: PropTypes.number.isRequired,
   creditPeriod: PropTypes.number.isRequired,
-  useMaternityCapital: PropTypes.bool,
   closeRequestFormAction: PropTypes.func.isRequired,
   openCreditRequestedPopupAction: PropTypes.func.isRequired,
 };
@@ -205,7 +192,6 @@ const mapStateToProps = (state) => ({
   creditPropertyCost: getCreditPropertyCost(state),
   initialFee: getInitialFee(state),
   creditPeriod: getCreditPeriod(state),
-  useMaternityCapital: getUseMaternityCapital(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
