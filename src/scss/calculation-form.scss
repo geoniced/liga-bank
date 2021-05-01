@@ -294,11 +294,18 @@
 
   .calculation-form__offers {
     // width: 382px;
-    width: 69.66%;
+    // width: 69.66%;
+    width: auto;
+    justify-content: flex-start;
   }
 
-  .calculation-form__offer-item:nth-of-type(2n) {
-    width: 41.49%;
+  .calculation-form__offer-item {
+    width: 35%;
+
+    &:nth-of-type(2n) {
+      width: 55%;
+      margin-left: 32px;
+    }
   }
 }
 
@@ -370,6 +377,7 @@
 
     &:nth-of-type(2n) {
       width: auto;
+      margin-left: 0;
     }
 
     &:last-of-type {

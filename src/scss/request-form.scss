@@ -35,16 +35,20 @@
 }
 
 .request-form__data-title {
+  max-width: 50%;
+
   color: $faded-black;
   line-height: 140%;
 }
 
 .request-form__data-value {
+  max-width: 45%;
   margin: 0;
 
   font-size: 22px;
   line-height: 140%;
   font-weight: 500;
+  text-align: right;
 }
 
 .request-form__form {
@@ -149,12 +153,15 @@
 
   .request-form__data-title {
     order: 1;
+    max-width: initial;
   }
 
   .request-form__data-value {
+    max-width: initial;
     margin-bottom: 1px;
 
     font-size: 18px;
+    text-align: left;
   }
 
   .request-form__half-field-wrapper {
