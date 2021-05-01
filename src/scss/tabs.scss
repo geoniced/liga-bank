@@ -2,6 +2,7 @@
   @include list-reset;
 
   display: flex;
+  flex-wrap: wrap;
 }
 
 .tabs__item {
@@ -16,7 +17,9 @@
   width: 100%;
   min-height: 93px;
   padding-top: 30px;
+  padding-right: 15px;
   padding-bottom: 29px;
+  padding-left: 15px;
 
   font-family: inherit;
   font-size: 18px;
@@ -38,6 +41,7 @@
 }
 
 .tabs__icon {
+  flex-shrink: 0;
   margin-right: 10px;
 }
 

@@ -86,6 +86,7 @@ const Services = () => {
         showStatus={false}
         stopOnHover={false}
         autoPlay={false}
+        dynamicHeight
         onChange={onSlideChange}
         renderIndicator={(onClickHandler, isSelected, index) => (
           <SliderButtonItem

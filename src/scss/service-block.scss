@@ -220,6 +220,9 @@
   }
 
   .service-block__description-column {
+    z-index: 1;
+    position: relative;
+
     width: 100%;
     max-width: initial;
   }
@@ -234,7 +237,7 @@
   .service-block__features {
     position: relative;
     z-index: 1;
-    max-width: 260px;
+    max-width: 215px;
 
     font-size: 14px;
   }
@@ -290,6 +293,10 @@
 
   .service-block--insurance .service-block__title {
     max-width: 250px;
+  }
+
+  .service-block--insurance .service-block__features {
+    max-width: 260px;
   }
 
   .service-block--mobile .service-block__title {

@@ -6,7 +6,7 @@ import piggyBankImgMobile from "../../assets/img/piggybank-mobile.png";
 const DepositService = () => {
 
   return (
-    <article className="services__service-block service-block">
+    <article className="services__service-block service-block service-block--service">
       <div className="service-block__description-column">
         <h3 className="service-block__title">Вклады Лига Банка – это выгодная инвестиция в свое будущее</h3>
         <ul className="service-block__features">
