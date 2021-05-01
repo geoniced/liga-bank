@@ -7,9 +7,12 @@
 }
 
 .promo-slider__item {
+  display: flex;
   min-height: 400px;
+
   background-repeat: no-repeat;
-  background-position: center;
+  background-position-x: center;
+  background-position-y: bottom;
 
   text-align: initial;
 
@@ -34,12 +37,25 @@
 }
 
 .promo-slider__wrapper {
+  display: flex;
   max-width: 1170px;
+  width: 100%;
   margin: 0 auto;
 
   padding-top: 102px;
   padding-bottom: 60px;
   padding-left: 170px;
+}
+
+.promo-slider__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400px;
+}
+
+.promo-slider__item--credit .promo-slider__content {
+  max-width: 360px;
 }
 
 .promo-slider__title {
@@ -135,25 +151,29 @@
 }
 
 @media (max-width: $mobile-max-width) {
+  .promo-slider__content {
+    max-width: 200px;
+  }
+
   .promo-slider__item {
     min-height: 226px;
 
     &--credit {
       background-image: url("../assets/img/main-banner-bg-mobile.png");
-      background-position: right;
+      background-position-x: right;
     }
 
     &--confidence {
       background-image:
         url("../assets/img/a-man-in-a-suit-mobile.png");
-      background-position: right;
+      background-position-x: right;
     }
 
     &--department {
       background-image:
         url("../assets/img/a-woman-with-a-card-mobile.png"),
         linear-gradient(to right, #E6F1FE, #EBF4FD);
-      background-position: right;
+      background-position-x: right;
     }
   }
 

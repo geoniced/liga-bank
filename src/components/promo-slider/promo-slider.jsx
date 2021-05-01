@@ -19,6 +19,7 @@ const PromoSlider = () => {
         stopOnHover={true}
         autoPlay
         infiniteLoop
+        dynamicHeight
         renderIndicator={(onClickHandler, isSelected, index) => (
           <SliderButtonItem
             onClickHandler={onClickHandler}

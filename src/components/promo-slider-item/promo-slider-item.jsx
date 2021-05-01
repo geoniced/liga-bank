@@ -10,7 +10,9 @@ const PromoSliderItem = (props) => {
   return (
     <div className={`promo-slider__item promo-slider__item--${itemModifierClass}`}>
       <div className="promo-slider__wrapper">
-        {children}
+        <div className="promo-slider__content">
+          {children}
+        </div>
       </div>
     </div>
   );
