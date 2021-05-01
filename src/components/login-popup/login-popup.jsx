@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import CloseButton from "../close-button/close-button";
 import {closeLoginPopup} from "../../store/actions";
 import {isEscKeyPressed, createFieldChangeHandler, createBlocklayerClickHandler} from "../../utils";
-import {LoginField} from "../../const";
+import {LoginField, Validation} from "../../const";
 import LogoLoginImg from "../../assets/img/logo-login.svg";
 import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-password-eye-closed.svg";
 import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
@@ -14,7 +14,10 @@ import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input
 
 const LoginPopup = (props) => {
   const {closeLoginPopupAction} = props;
+
+  const formRef = createRef();
   const loginInputRef = createRef();
+  const passwordInputRef = createRef();
 
   const [loginValue, setLoginValue] = useState(``);
   const [passwordValue, setPasswordValue] = useState(``);
@@ -48,6 +51,39 @@ const LoginPopup = (props) => {
 
   const onRevealPasswordBlur = () => {
     setIsPasswordShown(false);
+  };
+
+  const onSubmitButtonClick = (evt) => {
+    evt.preventDefault();
+
+    const fieldsToValidate = [
+      {
+        ref: loginInputRef,
+        validations: [Validation.EMPTY],
+      },
+      {
+        ref: passwordInputRef,
+        validations: [Validation.EMPTY],
+      },
+    ];
+
+    fieldsToValidate.forEach((field) => {
+      const fieldValue = field.ref.current.value;
+      const validations = field.validations
+        .map((validation) => validation.validationFunction(fieldValue) ? `` : validation.message)
+        .filter((message) => message !== ``);
+
+      const isValid = !validations.length;
+      const validityMessage = isValid ? `` : validations[0];
+
+      field.ref.current.setCustomValidity(validityMessage);
+    });
+
+    formRef.current.reportValidity();
+
+    if (formRef.current.checkValidity()) {
+      closeLoginPopupAction();
+    }
   };
 
   const onCloseButtonClick = (evt) => {
@@ -84,7 +120,11 @@ const LoginPopup = (props) => {
           onCloseButtonClick={onCloseButtonClick}
         />
 
-        <form action="#" className="login-popup__form">
+        <form
+          ref={formRef}
+          action="#"
+          className="login-popup__form"
+        >
           <div className="login-popup__row-wrapper">
             <label className="login-popup__label" htmlFor="login-form-login">Логин</label>
             <input
@@ -95,6 +135,7 @@ const LoginPopup = (props) => {
               type="text"
               name="login-form-login"
               id="login-form-login"
+              required
             />
           </div>
 
@@ -102,12 +143,14 @@ const LoginPopup = (props) => {
             <label className="login-popup__label" htmlFor="login-form-password">Пароль</label>
             <div className="login-popup__reveal-password-wrapper">
               <input
+                ref={passwordInputRef}
                 onChange={onPasswordChangeHandler}
                 value={passwordValue}
                 className="login-popup__input"
                 type={`${isPasswordShown ? `text` : `password`}`}
                 name="login-form-password"
                 id="login-form-password"
+                required
               />
               <button
                 onMouseDown={onRevealPasswordMouseDown}
@@ -129,7 +172,13 @@ const LoginPopup = (props) => {
             <a href="forgot.html" className="login-popup__forgot-password-link">Забыли пароль?</a>
           </p>
 
-          <button className="login-popup__submit button" type="submit">Войти</button>
+          <button
+            onClick={onSubmitButtonClick}
+            className="login-popup__submit button"
+            type="submit"
+          >
+            Войти
+          </button>
         </form>
       </div>
     </section>
