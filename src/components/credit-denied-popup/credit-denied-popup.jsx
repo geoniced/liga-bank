@@ -20,7 +20,7 @@ const CreditDeniedPopup = (props) => {
 
 CreditDeniedPopup.propTypes = {
   creditName: PropTypes.string.isRequired,
-  creditMinimum: PropTypes.string.isRequired,
+  creditMinimum: PropTypes.number.isRequired,
 };
 
 export default CreditDeniedPopup;
