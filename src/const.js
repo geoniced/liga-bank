@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {isFieldNotEmpty, isFieldNotEmptyText, isPhoneFieldNeededLength} from "./utils";
 
 export const CreditGoal = {
@@ -241,6 +240,9 @@ export const SELECT_STYLES = {
     }
   }),
 };
+
+export const PREVENT_SCROLL_CLASS = `prevent-scroll`;
+export const PREVENT_SCROLL_MOBILE_MENU_CLASS = `prevent-scroll-mobile-menu`;
 
 
 export const MapCoordinate = {

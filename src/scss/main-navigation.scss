@@ -90,7 +90,7 @@
     flex-direction: column;
     align-items: stretch;
 
-    min-height: 48px;
+    min-height: $mobile-menu-height;
   }
 
   .main-navigation__menu-button {
@@ -99,7 +99,7 @@
   }
 
   .main-navigation__top-menu-wrapper {
-    min-height: 48px;
+    min-height: $mobile-menu-height;
     margin-right: 0;
   }
 
@@ -127,11 +127,11 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    height: 607px;
+    height: calc(100vh - #{$mobile-menu-height});
 
     position: absolute;
     z-index: 1;
-    top: 48px;
+    top: $mobile-menu-height;
     left: 0;
     width: 100%;
     background-color: #F6F7FF;

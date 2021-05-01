@@ -6,6 +6,7 @@ import {ReactComponent as IconMenu} from "../../assets/img/icon-menu.svg";
 import {ReactComponent as IconTopMenuClose} from "../../assets/img/icon-top-menu-close.svg";
 import {openLoginPopup} from "../../store/actions";
 import Logo from "../logo/logo";
+import {useMobileMenuPreventScroll} from "../../hooks/use-mobile-menu-prevent-scroll/use-mobile-menu-prevent-scroll";
 
 const PageHeader = (props) => {
   const {openLoginPopupAction} = props;
@@ -24,6 +25,8 @@ const PageHeader = (props) => {
   const onCloseButtonClick = () => {
     setIsMenuOpened(false);
   };
+
+  useMobileMenuPreventScroll(isMenuOpened);
 
   return (
     <header className="page-header">

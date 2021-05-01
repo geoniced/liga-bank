@@ -1,6 +1,5 @@
 import {useEffect} from "react";
-
-const PREVENT_SCROLL_CLASS = `prevent-scroll`;
+import {PREVENT_SCROLL_CLASS} from "../../const";
 
 export const usePreventPageScroll = () => {
   useEffect(() => {

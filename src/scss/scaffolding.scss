@@ -85,6 +85,12 @@ input[type="radio"].visually-hidden {
   overflow: hidden;
 }
 
+@media (max-width: $mobile-max-width) {
+  .prevent-scroll-mobile-menu {
+    overflow: hidden;
+  }
+}
+
 
 // react-responsive-carousel styles
 .carousel .slide {
