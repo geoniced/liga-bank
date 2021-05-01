@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import CloseButton from "../close-button/close-button";
 import {closeLoginPopup} from "../../store/actions";
-import {isEscKeyPressed, createFieldChangeHandler, createBlocklayerClickHandler} from "../../utils";
+import {isEscKeyPressed, createFieldChangeHandler, createBlocklayerClickHandler, validateForm} from "../../utils";
 import {LoginField, Validation} from "../../const";
 import LogoLoginImg from "../../assets/img/logo-login.svg";
 import {ReactComponent as IconPasswordEyeClosed} from "../../assets/img/icon-password-eye-closed.svg";
@@ -67,23 +67,7 @@ const LoginPopup = (props) => {
       },
     ];
 
-    fieldsToValidate.forEach((field) => {
-      const fieldValue = field.ref.current.value;
-      const validations = field.validations
-        .map((validation) => validation.validationFunction(fieldValue) ? `` : validation.message)
-        .filter((message) => message !== ``);
-
-      const isValid = !validations.length;
-      const validityMessage = isValid ? `` : validations[0];
-
-      field.ref.current.setCustomValidity(validityMessage);
-    });
-
-    formRef.current.reportValidity();
-
-    if (formRef.current.checkValidity()) {
-      closeLoginPopupAction();
-    }
+    validateForm(fieldsToValidate, formRef, closeLoginPopupAction);
   };
 
   const onCloseButtonClick = (evt) => {

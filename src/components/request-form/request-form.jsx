@@ -1,10 +1,10 @@
-import React, {createRef, useState} from "react";
+import React, {createRef, useCallback, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import NumberFormat from "react-number-format";
 import {closeRequestForm, openCreditRequestedPopup, setRequestNumber} from "../../store/actions";
 import {getCreditGoal, getCreditPeriod, getCreditPropertyCost, getInitialFee, getRequestNumber} from "../../store/selectors";
-import {createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage} from "../../utils";
+import {createFieldChangeHandler, formatDecimalWithRubles, formatDecimalWithYears, formatNumberToThousandsWithZeros, getNumericFieldValue, clearStorage, validateForm} from "../../utils";
 import {CreditStep, RequestField, Validation} from "../../const";
 import {useInputFocusOnOpen} from "../../hooks/use-input-focus-on-open/use-input-focus-on-open";
 import {useLocalStorageFieldsSync} from "../../hooks/use-local-storage-fields-sync/use-local-storage-fields-sync";
@@ -42,6 +42,13 @@ const RequestForm = (props) => {
 
   const creditInfo = CreditStep[creditGoal];
 
+  const onValidationSuccess = useCallback(() => {
+    clearStorage(RequestField);
+    closeRequestFormAction();
+    setRequestNumberAction(requestNumber + 1);
+    openCreditRequestedPopupAction();
+  }, [requestNumber, RequestField]);
+
   const onSubmitButtonClick = (evt) => {
     evt.preventDefault();
 
@@ -60,26 +67,7 @@ const RequestForm = (props) => {
       },
     ];
 
-    fieldsToValidate.forEach((field) => {
-      const fieldValue = field.ref.current.value;
-      const validations = field.validations
-        .map((validation) => validation.validationFunction(fieldValue) ? `` : validation.message)
-        .filter((message) => message !== ``);
-
-      const isValid = !validations.length;
-      const validityMessage = isValid ? `` : validations[0];
-
-      field.ref.current.setCustomValidity(validityMessage);
-    });
-
-    formRef.current.reportValidity();
-
-    if (formRef.current.checkValidity()) {
-      clearStorage(RequestField);
-      closeRequestFormAction();
-      setRequestNumberAction(requestNumber + 1);
-      openCreditRequestedPopupAction();
-    }
+    validateForm(fieldsToValidate, formRef, onValidationSuccess);
   };
 
   useInputFocusOnOpen(nameRef);

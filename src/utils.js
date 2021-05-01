@@ -94,6 +94,26 @@ export const isFieldNotEmpty = (field) => field !== ``;
 export const isFieldNotEmptyText = (field) => TEXT_DATA_REGEXP.test(field);
 export const isPhoneFieldNeededLength = (field) => field.split(``).filter((char) => NUMERIC_CHAR_REGEXP.test(char)).length === PHONE_NUMBER_LENGTH;
 
+export const validateForm = (fieldsToValidate, formRef, successCallback) => {
+  fieldsToValidate.forEach((field) => {
+    const fieldValue = field.ref.current.value;
+    const validations = field.validations
+      .map((validation) => validation.validationFunction(fieldValue) ? `` : validation.message)
+      .filter((message) => message !== ``);
+
+    const isValid = !validations.length;
+    const validityMessage = isValid ? `` : validations[0];
+
+    field.ref.current.setCustomValidity(validityMessage);
+  });
+
+  formRef.current.reportValidity();
+
+  if (formRef.current.checkValidity()) {
+    successCallback();
+  }
+};
+
 export const clearStorage = (Field) => {
   const fields = Object.values(Field);
   fields.forEach((field) => {
