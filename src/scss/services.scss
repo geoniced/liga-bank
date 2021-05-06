@@ -1,6 +1,7 @@
 .services {
   @include centered-layout;
 
+  overflow-x: hidden;
   padding-top: 60px;
 }
 
