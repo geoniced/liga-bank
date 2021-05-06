@@ -20,6 +20,7 @@ const SelectField = (props) => {
     <Select
       className="select-field"
       classNamePrefix="select-field"
+      inputId="calculation-form-credit-goal"
       onChange={onChange}
       components={{DropdownIndicator}}
       styles={SELECT_STYLES}
