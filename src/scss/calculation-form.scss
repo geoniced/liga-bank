@@ -300,6 +300,10 @@
     padding-left: 60px;
   }
 
+  .calculation-form:last-child .calculation-form__result {
+    margin-bottom: 33px;
+  }
+
   .calculation-form__offers {
     width: auto;
     justify-content: flex-start;
@@ -359,6 +363,10 @@
     padding-right: (15px / 290px) * 100%;
     padding-bottom: 40px;
     padding-left: (15px / 290px) * 100%;
+  }
+
+  .calculation-form:last-child .calculation-form__result {
+    margin-bottom: 24px;
   }
 
   .calculation-form__result-title {
