@@ -5,6 +5,7 @@ import {closeCreditRequestedPopup} from "../../store/actions";
 import CloseButton from "../close-button/close-button";
 import {createBlocklayerClickHandler, isEscKeyPressed} from "../../utils";
 import {useKeyDown} from "../../hooks/use-key-down/use-key-down";
+import {usePreventPageScroll} from "../../hooks/use-prevent-page-scroll/use-prevent-page-scroll";
 
 const CreditRequestedPopup = (props) => {
   const {closePopup} = props;
@@ -23,6 +24,7 @@ const CreditRequestedPopup = (props) => {
     }
   }, [closePopup]);
 
+  usePreventPageScroll();
   useKeyDown(onEscKeyDown);
 
   return (
